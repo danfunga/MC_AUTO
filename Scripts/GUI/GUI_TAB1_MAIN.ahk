@@ -89,22 +89,19 @@ INIT_TAB_MAIN:
 			Gui, Add, GroupBox, x278 y155 w230 h110 , 쫄작
 			gui,font,
 			
-         Gui, Add, Radio			, xp+10  yp+15  w50  h15     Checked   vGuiRadioMonsterChangeCombine, 통합
-         Gui, Add, Radio			, x+5    yp     hp              vGuiRadioMonsterChangeLoop, 루프
-			
-         Gui, Add, Text,xp-55 y+8 h15 , 드래그:			
-			Gui, Add, Edit, x+5 yp-2 w20 h15 right vGuiDragCount, 3
-         Gui, Add, CheckBox, xp-45 y+10 h15   Checked vGuiCheckFirstElement, 원소먼저
+         Gui, Add, Text		, xp+10  yp+20 h15,     드래그         
+			Gui, Add, Edit    , x+5 yp-2 w20 h15 right vGuiDragCount, 3
+         Gui, Add, CheckBox, xp-45 y+30 h15   Checked vGuiCheckFirstElement, 원소먼저
          Gui, Add, CheckBox, xp y+10 h15 vGuiBoolStopMonsterLevelUp, 쫄렙업시 정지
          
 			gosub	INIT_TEAM_POSITION
-			Gui, Add, CheckBox, x%보호1X% y%보호1Y% w30 h15 Disabled  vGuiCheckChangeTeam1, 1
-			Gui, Add, CheckBox, x%보호2X% y%보호2Y%wp hp Disabled Checked vGuiCheckChangeTeam2, 2
-			Gui, Add, CheckBox, x%보호3X% y%보호3Y% wp hp Disabled Checked vGuiCheckChangeTeam3, 3
-			Gui, Add, CheckBox, x%보호4X% y%보호4Y% wp hp Disabled Checked vGuiCheckChangeTeam4, 4
-			Gui, Add, CheckBox, x%보호5X% y%보호5Y% wp hp Disabled  vGuiCheckChangeTeam5, 5
+			Gui, Add, CheckBox, x%보호1X% y%보호1Y% w30 h15           vGuiCheckChangeTeam1, 1
+			Gui, Add, CheckBox, x%보호2X% y%보호2Y% wp  hp  Checked   vGuiCheckChangeTeam2, 2
+			Gui, Add, CheckBox, x%보호3X% y%보호3Y% wp  hp  Checked   vGuiCheckChangeTeam3, 3
+			Gui, Add, CheckBox, x%보호4X% y%보호4Y% wp  hp  Checked   vGuiCheckChangeTeam4, 4
+			Gui, Add, CheckBox, x%보호5X% y%보호5Y% wp  hp            vGuiCheckChangeTeam5, 5
 			
-			Gui, Add, DropDownList, xp-70 yp-3 w60 h90  Disabled Choose1 gGuiListTeamPosition vGuiListTeamPosition, 보호|공격|기본|밸런스
+			Gui, Add, DropDownList, xp-70 yp-3 w60 h90  Choose1 gGuiListTeamPosition vGuiListTeamPosition, 보호|공격|기본|밸런스
 		}
 		{
 
@@ -211,9 +208,6 @@ funcChangeTab1Status(){
 	GuiControl,  disable%BoolStarted%, GuiDelayForBattle
    GuiControl,  disable%BoolStarted%, GuiDelayForClickAfter
    GuiControl,  disable%BoolStarted%, DelayForFileLoading
-
-   GuiControl,  disable%BoolStarted%, GuiRadioMonsterChangeLoop
-   GuiControl,  disable%BoolStarted%, GuiRadioMonsterChangeCombine
    
    if( BoolStarted = true ){
       goSub DisableLevelupCheckList   
@@ -407,8 +401,6 @@ SaveConfig:
    
    fSaveFile(GuiListTeamPosition, "쫄작", "쫄작진형" )
   
-   fSaveFile(GuiRadioMonsterChangeLoop, "쫄작", "루프교체" )
-   fSaveFile(GuiRadioMonsterChangeCombine, "쫄작", "통합교체" )
    fSaveFile(GuiDragCount, "쫄작", "드래그횟수" )
    fSaveFile(GuiCheckFirstElement, "쫄작", "원소먼저" )
    
@@ -559,20 +551,7 @@ LoadConfig:
 		GuiControl, Choose,GuiListTeamPosition,%vValue%
       gosub GuiListTeamPosition
    }
-   
-   fLoadFile(vValue, "쫄작", "루프교체" )
-	if( vValue <> "" ){
-		GuiControl, ,GuiRadioMonsterChangeLoop,%vValue%
-      if( vValue = true )
-         goSub EnableLevelupCheckList
-   }
-   fLoadFile(vValue, "쫄작", "통합교체" )
-	if( vValue <> "" ){
-		GuiControl, ,GuiRadioMonsterChangeCombine,%vValue%     
-      if( vValue = true )
-         goSub EnableLevelupCheckList
-   }
-   
+      
    fLoadFile(vValue, "쫄작", "드래그횟수" )
 	if( vValue <> "" )
 		GuiControl, ,GuiDragCount,%vValue%     

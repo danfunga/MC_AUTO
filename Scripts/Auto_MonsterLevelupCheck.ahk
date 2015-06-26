@@ -105,17 +105,16 @@ SUB_원소쫄바꾸기:
 	 
 	 ;~ 원소 먼저 
 	if ( GuiCheckFirstElement = true ){
-      gosub SUB_원소쫄바꾸기
+      if( funcSearchAndClick( "5.쫄작하기\buton_원소영웅보기.png" ) = true ){
+         gosub SUB_CHECK_MONSTER_BY_LOOP
+      }
 	}
 	booleanNeedToChangeUp:= funcNeedToMonsterCheck()
    if( booleanNeedToChangeUp = false ){
       goto GOTO_EndLevelUpCheck
    }	 
 	refreshHeroPage()	
-   if( GuiRadioMonsterChangeCombine = true )
-      gosub SUB_CHECK_MONSTER_BY_LEVEL1_PIC	
-   else if ( GuiRadioMonsterChangeLoop = true )
-      gosub, SUB_CHECK_MONSTER_BY_LOOP
+   gosub, SUB_CHECK_MONSTER_BY_LOOP
    
 	goto GOTO_EndLevelUpCheck
 	return
