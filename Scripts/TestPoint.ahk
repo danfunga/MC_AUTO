@@ -17,6 +17,7 @@
 !F7::
 {
 	setUpBeforeStart()
+   testLoopFindTestFolder(830,0,true,false)
    ;funcIsExistImage( "5.쫄작하기\Monster\OutCheck\30Complete.bmp" )
    ;functionByKeyByPoint()
 	;funcIsExistImage( "2.모험돌기\Button_모험_시작하기.bmp" )
@@ -35,225 +36,46 @@
    return
 }
 
-loopFindTestFolder( boolWithCaption, enableClick ){
-	fPrintTitle("그림찾기 테스트")
-	global  ACTIVE_ID
-	Loop,  %A_ScriptDir%\Image\5.쫄작하기\테스트\*.png
-	{
-		vTestPicture=5.쫄작하기\테스트\%A_LoopFileName%	
-		WinGetPos, winX, winY, winW, winH, %ACTIVE_ID%		
-		if ( funcSearchImage(  xStart, yStart, vTestPicture ) = true ){		
-			if( boolWithCaption = true ){
-				SysGet, capH, 4 ; 캡션Height
-				SysGet, bordW, 32 ; 보더Width
-				SysGet, bordH, 33 ; 보더Height
-				xStart:=xStart-winX-bordW
-				yStart:=yStart-winY-bordH-capH			
-			}else{
-				xStart:=xStart-winX
-				yStart:=yStart-winy
-			}
-			mouseMoveOrClick( xStart, yStart , enableClick )
-		}else{
-			MsgBox,,,WRONG:%vTestPicture%,0.3
-		}
+testLoopFindTestFolder( relateX=0, relateY=0 , boolDelay=true, enableClick = false ) {
+	extensions:="png,bmp"
+   global ACTIVE_ID
+   Loop, %A_ScriptDir%\Image\5.쫄작하기\테스트\*
+   {
+      if A_LoopFileExt in %extensions% 
+      {
+         strFileName=5.쫄작하기\테스트\%A_LoopFileName%
+         If ( funcSearchWhiteIgnore( imgX, imgY, strFileName ) = true ) {   
+            
+            if( enableClick ){
+               vSearchResult = %strFileName%을 찾았고, 클릭합니다.
+               fPrintResult(vSearchResult)         
+               imgX:=imgX+relateX
+               imgY:=imgY+relateY
+               funcSendClick( imgX,imgY, boolDelay )		
+            }else{
+               vSearchResult = %strFileName%을 찾았습니다.
+               fPrintResult(vSearchResult) 
+              
+               WinGetPos, winX, winY, winW, winH, %ACTIVE_ID%               
+               imgX:=imgX+relateX
+               imgY:=imgY+relateY
+					imgX:=imgX-winX
+               imgY:=imgY-winy                     
+               mouseMove, imgX,imgY
+            }
+            Return true
+         }   
+      }
 	}
-   Loop,  %A_ScriptDir%\Image\5.쫄작하기\테스트\*.bmp
-	{
-		vTestPicture=5.쫄작하기\테스트\%A_LoopFileName%	
-		WinGetPos, winX, winY, winW, winH, %ACTIVE_ID%		
-		if ( funcSearchImage(  xStart, yStart, vTestPicture ) = true ){		
-			if( boolWithCaption = true ){
-				SysGet, capH, 4 ; 캡션Height
-				SysGet, bordW, 32 ; 보더Width
-				SysGet, bordH, 33 ; 보더Height
-				xStart:=xStart-winX-bordW
-				yStart:=yStart-winY-bordH-capH			
-			}else{
-				xStart:=xStart-winX
-				yStart:=yStart-winy
-			}
-			mouseMoveOrClick( xStart, yStart , enableClick )
-		}else{
-			MsgBox,,,WRONG:%vTestPicture%,0.3
-		}
-	}
-	return
-	
-}
-mouseMoveOrClick( xStart, yStart , enableClick )
-{
-	if( enableClick = true )
-		funcSendClickFixed( xStart, yStart )
-	else{
-		mouseMove, xStart,yStart
-		MsgBox,%A_LoopFileName% : X=%xStart%,Y=%yStart%
-	}
-	return	
+   vSearchResult = No %targetFolder% 을 찾지 못했습니다.
+   fPrintResult(vSearchResult)
+   return false
 }
 
-
-테스트폴더찾기F:
-{
-	fPrintTitle("그림찾기 테스트")
-	;~ global  ACTIVE_ID
-	Loop,  %A_ScriptDir%\Image\5.쫄작하기\테스트\*.bmp
-	{
-		vTestPicture=5.쫄작하기\테스트\%A_LoopFileName%
-		
-		WinGetPos, winX, winY, winW, winH, %ACTIVE_ID%
-		if ( funcSearchImage(  xStart, yStart, vTestPicture ) = true ){		
-			xStart:=xStart-winX
-			yStart:=yStart-winy
-		mouseMove, xStart,yStart
-	}else{
-		MsgBox,,,WRONG:%vTestPicture%,0.3
-	}
-
-	}
-
-	return
-	
-}
-
-
-fSearchNMove( img ){	
-	global  ACTIVE_ID
-	WinGetPos, winX, winY, winW, winH, %ACTIVE_ID%
-	;~ if ( funcSearchImage(  xStart, yStart, img ) = true ){		
-		if ( monsterFinder(  xStart, yStart, img ) = true ){		
-			xStart:=xStart-winX
-			yStart:=yStart-winy
-		mouseMove, xStart,yStart
-		;~ lParam := xStart & 0xFFFF | (yStart & 0xFFFF) << 16
-		;~ PostMessage, 0x201, 1, %lParam%, , 경고 ;WM_LBUTTONDOWN
-		;~ sleep, 100	
-		;~ PostMessage, 0x202, 1, %lParam%, , 경고 ;WM_LBUTTONUP
-	}else{
-		MsgBox,,,WRONG:%img%,0.3
-	}
-	return	
-}
-fSearchNMove2( img ){	
-	global  ACTIVE_ID
-	WinGetPos, winX, winY, winW, winH, %ACTIVE_ID%
-	;~ if ( funcSearchImage(  xStart, yStart, img ) = true ){		
-		if ( funcSearchImage(  xStart, yStart, img ) = true ){		
-			    ;~ SysGet, capH, 4 ; 캡션Height
-			;~ SysGet, bordW, 32 ; 보더Width
-			;~ SysGet, bordH, 33 ; 보더Height
-			xStart:=xStart-winX-bordW
-			yStart:=yStart-winY-bordH-capH			
-		mouseMove, xStart,yStart
-		;~ lParam := xStart & 0xFFFF | (yStart & 0xFFFF) << 16
-		;~ PostMessage, 0x201, 1, %lParam%, , 경고 ;WM_LBUTTONDOWN
-		;~ sleep, 100	
-		;~ PostMessage, 0x202, 1, %lParam%, , 경고 ;WM_LBUTTONUP
-	}else{
-		MsgBox,,,WRONG:%img%,0.3
-	}
-	return	
-}
-
-testSearchNClcik( img ){
-	global ACTIVE_ID	
-    WinGetPos, winX, winY, winW, winH, %ACTIVE_ID%
-	if ( testImageSearch(  xStart, yStart, img ) = true ){		
-			xStart:=xStart-winX
-			yStart:=yStart-winy
-	lParam := xStart & 0xFFFF | (yStart & 0xFFFF) << 16
-	PostMessage, 0x201, 0, %lParam%, , %ACTIVE_ID% ;WM_LBUTTONDOWN
-	sleep, 100	
-	PostMessage, 0x202, 0, %lParam%, , %ACTIVE_ID% ;WM_LBUTTONUP
-	sleep, 100	
-	}
-	return
-	
-}
-testSearchNClcik2( img ){
-	global ACTIVE_ID	
-    WinGetPos, winX, winY, winW, winH, %ACTIVE_ID%
-	if ( testImageSearch(  xStart, yStart, img ) = true ){		
-	    SysGet, capH, 4 ; 캡션Height
-			SysGet, bordW, 32 ; 보더Width
-			SysGet, bordH, 33 ; 보더Height
-			xStart:=xStart-winX-bordW
-			yStart:=yStart-winY-bordH-capH		
-	lParam := xStart & 0xFFFF | (yStart & 0xFFFF) << 16
-	PostMessage, 0x201, 0, %lParam%, , %ACTIVE_ID% ;WM_LBUTTONDOWN
-	sleep, 100	
-	PostMessage, 0x202, 0, %lParam%, , %ACTIVE_ID% ;WM_LBUTTONUP
-	sleep, 100	
-	}
-	return
-	
-}
-
-	
-
-테스트폴더찾기2:
-{
-	fPrintTitle("그림찾기 테스트")
-	Loop,  %A_ScriptDir%\Image\5.쫄작하기\테스트\*.bmp
-	{
-		vTestPicture=5.쫄작하기\테스트\%A_LoopFileName%
-		 ;~ fSearchNMove2( vTestPicture) 
-		 testSearchNClcik2( vTestPicture) 
-	}
-	
-	;~ If(  monsterFinder( xNew, yNew, vNewMonsterFile ) = true ){
-	return
-	
-}
-테스트폴더클릭:
-{
-	fPrintTitle("그림찾기 테스트")
-	Loop,  %A_ScriptDir%\Image\5.쫄작하기\테스트\*.bmp
-	{
-		vTestPicture=5.쫄작하기\테스트\%A_LoopFileName%
-		 testImageSearch( x,y,vTestPicture,true) 
-	}
-	
-	;~ If(  monsterFinder( xNew, yNew, vNewMonsterFile ) = true ){
-	return
-	
-}
-;~ F8::
-모asdf:
-{	
-	fPrintTitle("맵    선택")
-	fPrintStatus("스테이지를 선택합니다.")
-	setUpBeforeStart()	
-	if( GuiRadioStageEasy = true  ){
-		v맵이름 = 쉬%GuiStageList%.bmp
-	}else if( GuiRadioStageNomal = true ){
-		v맵이름 = 보%GuiStageList%.bmp
-	}else if ( GuiRadioStageHard = true ){
-		v맵이름 = 어%GuiStageList%.bmp
-	}else{
-		v맵이름 = 팔%GuiStageList%.bmp
-	}
-	v맵이름 = 2.모험돌기\모험지도\%v맵이름%
-	fPrintStatus(v맵이름 )
-	 ;~ loop
-	;~ {		
-		if( funcIsExistImage(v맵이름) = true ){
-
-		}else{
-			fPrintStatus("다름창을 선택")
-		}		
-		;~ if( A_Index >8 )
-			;~ break
-	;~ }
-
-	;~ fPrintStatus("ERROR_모험입장_ 맵선택중 위치찾기로 이동합니다. 지도 사진이 잘못된것 같습니다.")
-	;~ goto 위치찾기
-	return
-}
-
-testImageSearch( ByRef intPosX, Byref intPosY, target, boolClick=false) {
+funcSearchWhiteIgnore(  ByRef intPosX, Byref intPosY, target ) {
    checkExit()
-	global ACTIVE_ID
+   CoordMode, Pixel, Screen
+	global ACTIVE_ID, BooleanDebugMode
 	vImgSepa=\Image\
 	vPercent=50
 	IfWinExist 후원 세션
@@ -261,32 +83,26 @@ testImageSearch( ByRef intPosX, Byref intPosY, target, boolClick=false) {
 		WinActivate 후원 세션
 		Send {Enter}
 	}	
+	
 	WinGetPos, winX, winY, winW, winH, %ACTIVE_ID%	
-	ImageSearch, oX, oY, winX, winY, winX+winW, winY+winH, *TransWhite *%vPercent% %A_ScriptDir%%vImgSepa%%target%		
+	ImageSearch, oX, oY, winX, winY, winX+winW, winY+winH, *%vPercent%  *TransWhite %A_ScriptDir%%vImgSepa%%target%		
 	If( ErrorLevel = 0 ){
 		intPosX := oX
-		intPosY := oY
-		if( boolClick = true ){
-			vSearchResult = %target%을 찾았고, 클릭합니다.
-			fPrintResult(vSearchResult)
-			funcSendClick( intPosX,intPosY)		
-		}else{
-			vSearchResult = %target%을 찾았습니다.
-			fPrintResult(vSearchResult)
+		intPosY := oY    
+		if( BooleanDebugMode = true ){
+			vSearchResult = %target%을 찾았습니다. X=%intPosX%, Y=%intPosY%
+			fPrintResult(vSearchResult)	
 		}
-		return true
+		 return true
 	}else If(Errorlevel = 2){		
-		vSearchResult = ERROR--- %target% 이 없는것 같습니다.
+		vSearchResult = ERROR --- %target% 파일자체가 존재하지 않습니다.
 		fPrintResult(vSearchResult)
 		return false
-	}else if( Errorlevel = 1 ){
-		vSearchResult = %target%을 찾지 못하였습니다.
-		fPrintResult(vSearchResult)
-		return false	
 	}
+   vSearchResult = CHECK__%target% 을 찾지 못했습니다.
+	fPrintResult(vSearchResult)
 	return false
 }
-
 
 
 
