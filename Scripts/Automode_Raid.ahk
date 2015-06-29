@@ -85,10 +85,16 @@ funcSelectRaidSkill()
 	  stringTitle=%during%초 / %total%초
      funcPrintSubTitle(stringTitle )
 		if( funcIsExistImage( "4.레이드돌기\레이드_전투종료.bmp" ) = true ){		
-         fPrintStatus("레이드 전투가 종료되었습니다.")	
+         fPrintStatus("레이드 전투가 종료되었습니다.")
+         IntMonitorRaidConsume++
+         GuiControl, ,GuiCountRaidConsume,%IntMonitorRaidConsume%
+         funcCaptureSubScreen("Raid")
 			break	
 		}
       if( funcIsExistImage( "4.레이드돌기\레이드_전투종료_종료된레이드.bmp" ) = true ){		
+         IntMonitorRaidConsume++
+         GuiControl, ,GuiCountRaidConsume,%IntMonitorRaidConsume%
+         funcCaptureSubScreen("Raid")
          fPrintStatus("이미 종료된 레이드라고 합니다.")	
          If( funcSearchAndClick( "4.레이드돌기\Button_종료된레이드_확인.bmp" ) = true )
             goto 레이드_입장하기
@@ -135,7 +141,9 @@ funcSelectRaidSkill()
          ; 보상을 수령하자!
          If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_받기.bmp" ) = true ){
             If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_받기_확인.bmp" ) = true ){
-               fPrintStatus("보상 수령 완료!!.")		
+               IntMonitorRaidPrize++
+               GuiControl, ,GuiCountRaidPrize,%IntMonitorRaidPrize%
+               fPrintStatus("Raid 보상 수령 완료!!.")		
             }        
             If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_받기_상태아님.bmp" ) = true ){
                fPrintStatus("이미 보상 수령을 했잖아!!.")		

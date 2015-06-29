@@ -30,48 +30,52 @@ INIT_TAB_MAIN:
 	}
 	{
 		Gui,font,CPurple
-		Gui, Add, GroupBox, x278 y30 w230 h120 , 게임기록
+		Gui, Add, GroupBox, x278 y30  w230 h140 , 게임기록
 		gui,font,
 		
-		Gui, Add, Text, xp+10 yp+18 w65 h15  , 모험총횟수:
-		Gui, Add, Text, xp y+10 wp hp  , 모험클리어:
-		Gui, Add, Text, xp y+2 wp hp  , 모험   실패:
-		Gui, Add, Text, xp y+10 wp hp  , 쫄작   완료:
-		Gui, Add, Text, xp y+2 wp hp  , 업적   수령:
+      Gui, Add, Text, xp+10   yp+18 section w65   h15 , 모험총횟수:
+		Gui, Add, Text, xp      y+2   wp    hp   , 모험클리어:
+		Gui, Add, Text, xp      y+2   wp    hp  , 모험   실패:
+		Gui, Add, Text, xp      y+10  wp    hp  , 쫄작   완료:
+		Gui, Add, Text, xp      y+2   wp    hp  , 업적   수령:
+      Gui, Add, Text, xp      y+10  wp    hp  , 레이드횟수:
 		
-		Gui, Add, Text, x+2 yp-84 w28 h15  right vCountTotalCount ,  0
-		Gui, Add, Text, xp y+10 wp hp  right vCountClearCount ,  0		
-		Gui, Add, Text, xp y+2 wp hp  right vCountFailCount ,  0		
-		Gui, Add, Text, xp y+10 wp hp  right vCountMonsterChange,  0
-		Gui, Add, Text, xp y+2 wp hp  right vGuiReceivePointCount,  0
+		Gui, Add, Text, x+2     ys    w28   h15  right vCountTotalCount ,  0
+		Gui, Add, Text, xp      y+2   wp    hp   right vCountClearCount ,  0		
+		Gui, Add, Text, xp      y+2   wp    hp   right vCountFailCount ,  0		
+		Gui, Add, Text, xp      y+10  wp    hp   right vCountMonsterChange,  0
+		Gui, Add, Text, xp      y+2   wp    hp   right vGuiReceivePointCount,  0      
+      Gui, Add, Text, xp      y+10  wp    hp   right vGuiCountRaidConsume,  0
 
-		Gui, Add, Text, x+10 y48 w65 h15  , 황금방횟수:
-		Gui, Add, Text, xp y+10 wp hp  , 결투장승리:
-		Gui, Add, Text, xp y+2 wp hp  , 결투장패배:
-		Gui, Add, Text, xp y+10 wp hp  , 쫄체크없음:
-		Gui, Add, Text, xp y+2 wp hp  , 열쇠   구입:
+		Gui, Add, Text, x+10    ys w65      h15 , 황금방횟수:
+		Gui, Add, Text, xp      y+2  wp    hp  , 결투장승리:
+		Gui, Add, Text, xp      y+2   wp    hp  , 결투장패배:
+		Gui, Add, Text, xp      y+10  wp    hp  , 쫄체크없음:
+		Gui, Add, Text, xp      y+2   wp    hp  , 열쇠   구입:
+      Gui, Add, Text, xp      y+10  wp    hp  , 레이드보상:
 		
-		Gui, Add, Text, x+2 yp-84 w28 h15  right vCountGoldRoom ,  0
-		Gui, Add, Text, xp y+10 wp hp  right vCountWinCount ,  0
-		Gui, Add, Text, xp y+2 wp hp  right vCountLoseCount ,  0
-		Gui, Add, Text, xp y+10 wp hp  right vNoLevelUp ,  0
-		Gui, Add, Text, xp y+2 wp hp  right vGuiUsingPointCount,  0
+		Gui, Add, Text, x+2     ys    w28   h15   right vCountGoldRoom ,  0
+		Gui, Add, Text, xp      y+2  wp    hp    right vCountWinCount ,  0
+		Gui, Add, Text, xp      y+2   wp    hp    right vCountLoseCount ,  0
+		Gui, Add, Text, xp      y+10  wp    hp    right vNoLevelUp ,  0
+		Gui, Add, Text, xp      y+2   wp    hp    right vGuiUsingPointCount,  0
+      Gui, Add, Text, xp      y+10  wp    hp    right vGuiCountRaidPrize,  0
 	}
 		{
 			Gui,font,CPurple
 			Gui, Add, GroupBox, x2 y155 w140 h65  , 컨텐츠 반복
 			gui,font,
 			
-			Gui, Add, Text, xp+10 yp+16 w58 h15 , 황금의방 :
-			Gui, Add, Text, xp yp+16 wp hp , 결 투  장 :
-			Gui, Add, Text, xp yp+16 wp hp , 쫄업확인 :
+			Gui, Add, Text, xp+10 yp+16 section  w58 h15 , 황금의방 :
+			Gui, Add, Text, xp y+0 wp hp , 결 투  장 :
+			Gui, Add, Text, xp y+0 wp hp , 쫄업확인 :
 		  
-			Gui, Add, Edit, x+0 yp-35 w20 h15 right vCountForGoldRoom, 10
-			Gui, Add, Edit, xp yp+16 wp hp right vCountForBattle, 12
-		   Gui, Add, Edit, xp yp+16 wp hp right   vCountForLevelupCheck, 3
-		   Gui, Add, Text, x+1 yp-30 w40 h15 left, 회 마다
-			Gui, Add, Text, xp yp+16 wp hp left, 회 마다
-			Gui, Add, Text, xp yp+16 wp hp left, 회 마다
+			Gui, Add, Edit, x+0 ys-2 w20 h15 right vCountForGoldRoom, 10
+			Gui, Add, Edit, xp y+0 wp hp right vCountForBattle, 12
+		   Gui, Add, Edit, xp y+0 wp hp right   vCountForLevelupCheck, 3
+		   Gui, Add, Text, x+1 ys w40 h15 left, 회 마다
+			Gui, Add, Text, xp y+0 wp hp left, 회 마다
+			Gui, Add, Text, xp y+0 wp hp left, 회 마다
 		}
 
 
@@ -86,12 +90,12 @@ INIT_TAB_MAIN:
 		}
 		{
 			gui,font,CPurple
-			Gui, Add, GroupBox, x278 y155 w230 h110 , 쫄작
+			Gui, Add, GroupBox, x278 y175  w230 h90 , 쫄작
 			gui,font,
 			
-         Gui, Add, Text		, xp+10  yp+20 h15,     드래그         
+         Gui, Add, Text		, xp+10  yp+20  h15,     드래그         
 			Gui, Add, Edit    , x+5 yp-2 w20 h15 right vGuiDragCount, 3
-         Gui, Add, CheckBox, xp-45 y+30 h15   Checked vGuiCheckFirstElement, 원소먼저
+         Gui, Add, CheckBox, xp-45 y+10 h15   Checked vGuiCheckFirstElement, 원소먼저
          Gui, Add, CheckBox, xp y+10 h15 vGuiBoolStopMonsterLevelUp, 쫄렙업시 정지
          
 			gosub	INIT_TEAM_POSITION

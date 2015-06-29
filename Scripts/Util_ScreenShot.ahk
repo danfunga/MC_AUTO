@@ -7,23 +7,7 @@
 #SingleInstance ignore
 SetBatchLines, 10ms
  
-CaptureErrorScreen:
-	IfNotExist, ScreenShot\errorScreen
-	{
-		FileCreateDir, ScreenShot\errorScreen
-	}
 
-	FormatTime, StringerrorTimeStamp, %A_NOW%, MM-dd tt hhΩ√mm∫–ss√ 
-		/*
-		 * Form the name of new file.
-		 */
-	targetFile := "ScreenShot\errorScreen\ErrorShot_" StringerrorTimeStamp ".png"
-  
-	/*
-	 * Capture screenshot.
-	 */
-	CaptureScreen(1, False, targetFile, 100)
-return
 
 funcCaptureErrorScreen()
 {
@@ -46,6 +30,52 @@ funcCaptureErrorScreen()
    return returnString
 }
 
+funcCaptureSubScreen( strSubFolder )
+{
+	IfNotExist, ScreenShot\%strSubFolder%
+	{
+		FileCreateDir, ScreenShot\%strSubFolder%
+	}
+
+   
+   myCounter:=1    
+   loop
+   {
+      countLoopString := myCounter  
+      
+      loop
+      {
+         if (StrLen(countLoopString) < 5)
+			{
+				countLoopString := "0" countLoopString
+			}else{
+            break
+         }        
+      }
+      targetFile:= "ScreenShot\" strSubFolder "\img_" countLoopString ".png"
+      IfExist, %targetFile%
+		{
+			myCounter++
+		}else{
+         break
+      }
+   }
+      
+	/*
+	 * Capture screenshot.
+	 */
+	CaptureScreen(1, False, targetFile, 100)
+   returnString:=strSubFolder " - img_" StringerrorTimeStamp
+   return returnString
+}
+
+funcCreateScreenShotFolder( strSubFolder ){
+   IfNotExist, ScreenShot\%strSubFolder%
+	{
+		FileCreateDir, ScreenShot\%strSubFolder%
+	}
+   return
+}
 
 /*
  *-------------------------------------------------------------------------------------

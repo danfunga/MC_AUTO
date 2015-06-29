@@ -17,17 +17,16 @@
 !F7::
 {
 	setUpBeforeStart()
-   
    ;funcIsExistImage( "5.쫄작하기\Monster\OutCheck\30Complete.bmp" )
    ;functionByKeyByPoint()
 	;funcIsExistImage( "2.모험돌기\Button_모험_시작하기.bmp" )
    ;funcSearchAndClickFolder( "1.게임실행\기타팝업X" )
    return
 }
+
 !F8::
 {
 	setUpBeforeStart()
-   goto 레이드모드시작
 	;With Catpion, NoClick 
    ;loopFindTestFolder( true, false )
    

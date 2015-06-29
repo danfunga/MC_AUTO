@@ -32,6 +32,10 @@ INIT_GLOBAL_VARIABLES:
    IntMonitorGoldRoomClearCount:=0
    IntMonitorReceiveArcheivementCount:=0
    
+   IntMonitorRaidConsume:=0
+   IntMonitorRaidPrize:=0
+   
+   
    IntMonitorSendingHonorCount:=0
    
  
