@@ -140,15 +140,16 @@ funcSelectRaidSkill()
       If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_입장.bmp" ) = true ){
          ; 보상을 수령하자!
          If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_받기.bmp" ) = true ){
+
             If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_받기_확인.bmp" ) = true ){
                IntMonitorRaidPrize++
                GuiControl, ,GuiCountRaidPrize,%IntMonitorRaidPrize%
                fPrintStatus("Raid 보상 수령 완료!!.")		
-            }        
-            If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_받기_상태아님.bmp" ) = true ){
+            }else if( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_받기_상태아님.bmp" ) = true ){
                fPrintStatus("이미 보상 수령을 했잖아!!.")		
             }        
             
+            fPrintStatus( funcCaptureErrorScreen() )            
             If( funcSearchAndClick( "4.레이드돌기\Button_레이드화면_뒤로가기.bmp" ) = true ){
                fPrintStatus("보상 입장화면으로 이동")		
             } 
