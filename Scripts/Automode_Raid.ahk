@@ -125,7 +125,16 @@ funcSelectRaidSkill()
 {
    fPrintTitle("레이드모드")
    If( funcSearchAndClick( "4.레이드돌기\레이드_전투종료_레이드버튼.bmp" ) = true ){
-		gosub 레이드_보상수령
+      funcWaitingForLoad()
+      
+      If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_종료된레이드.bmp" ) = true ){
+         If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_입장.bmp" ) = true ){
+            gosub 레이드_보상수령
+         }
+      }
+      If( funcSearchAndClick( "4.레이드돌기\Button_레이드화면_뒤로가기.bmp" ) = true ){
+         fPrintStatus("레이드 화면에서 나갑니다.")		
+      }  
    }
 	
    functionMoveTown()
@@ -134,40 +143,32 @@ funcSelectRaidSkill()
 }
 레이드_보상수령:
 {
+ ; 보상을 수령하자!
    funcPrintSubTitle("보상 수령")
-   If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_종료된레이드.bmp" ) = true ){
-      ; 종료된 레이드 있을까??
-      If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_입장.bmp" ) = true ){
-         ; 보상을 수령하자!
-         If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_받기.bmp" ) = true ){
+   If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_받기.bmp" ) = true ){
 
-            If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_받기_확인.bmp" ) = true ){
-               IntMonitorRaidPrize++
-               GuiControl, ,GuiCountRaidPrize,%IntMonitorRaidPrize%
-               fPrintStatus("Raid 보상 수령 완료!!.")		
-            }else if( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_받기_상태아님.bmp" ) = true ){
-               fPrintStatus("이미 보상 수령을 했잖아!!.")		
-            }        
-            
-            fPrintStatus( funcCaptureErrorScreen() )            
-            If( funcSearchAndClick( "4.레이드돌기\Button_레이드화면_뒤로가기.bmp" ) = true ){
-               fPrintStatus("보상 입장화면으로 이동")		
-            } 
-         }
-      }
+      if( funcIsExistImageFolder( "4.레이드돌기\상태_보상받기_보상목록" ) = true ){
+         funcSearchAndClickFolder("4.레이드돌기\버튼_보상목록_확인" )  
+         IntMonitorRaidPrize++
+         GuiControl, ,GuiCountRaidPrize,%IntMonitorRaidPrize%
+         fPrintStatus("Raid 보상 수령 완료!!.")		
+      }else if( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_받기_상태아님.bmp" ) = true ){
+         fPrintStatus("이미 보상 수령을 했잖아!!.")		
+      }        
+      
+                
+      If( funcSearchAndClick( "4.레이드돌기\Button_레이드화면_뒤로가기.bmp" ) = true ){
+         fPrintStatus("보상 입장화면으로 이동")		
+      } 
    }
-   
-   If( funcSearchAndClick( "4.레이드돌기\Button_레이드화면_뒤로가기.bmp" ) = true ){
-      fPrintStatus("레이드 화면에서 나갑니다.")		
-   }  
-   
    return
 }
 	
 레이드_시작화면:
 {
    fPrintTitle("레이드모드")
-  	fPrintStatus("종료된 레이드를 확인합니다.")		
+  	fPrintStatus("종료된 레이드를 확인합니다.")	
+
    If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_종료된레이드.bmp" ) = false ){
       BoolNeedRaidBattle:=false      
       fPrintStatus("ERROR_레이드_버튼_종료된레이드를 찾지 못해서 진행을 하지 않겠다.")
@@ -178,22 +179,7 @@ funcSelectRaidSkill()
    
    ;종료된 레이드 화면 --> 보상 수령을 한다.
    If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_입장.bmp" ) = true ){
-      ; 보상을 수령하자!
-      If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_받기.bmp" ) = true ){
-         If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_받기_확인.bmp" ) = true ){
-            fPrintStatus("보상 수령 완료!!.")		
-         }        
-         If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_받기_상태아님.bmp" ) = true ){
-            fPrintStatus("이미 보상 수령을 했잖아!!.")		
-         }        
-         
-         If( funcSearchAndClick( "4.레이드돌기\Button_레이드화면_뒤로가기.bmp" ) = true ){
-            fPrintStatus("뒤로 돌아가")		
-         } 
-         If( funcSearchAndClick( "4.레이드돌기\Button_레이드화면_뒤로가기.bmp" ) = true ){
-            fPrintStatus("뒤로 돌아가")		
-         }             
-      }
+      gosub 레이드_보상수령
       ;보상 수령 했으면 일단 화면으로 나갔다가 온다. ( reset --> 중복되게 보상을 받을것을 고려 )
       functionMoveTown()
       goto 레이드_입장하기         
