@@ -23,7 +23,7 @@ refreshHeroPage(){
 }
 SUB_원소쫄바꾸기:
 {
-	if( funcSearchAndClick( "5.쫄작하기\buton_원소영웅보기.png" ) = true ){
+	if( funcSearchAndClickFolder( "5.쫄작하기\버튼_원소영웅" ) = true ){
 		Loop, %A_ScriptDir%\Image\5.쫄작하기\Monster\InElements\*,1,0
       {
          vTargetMonsterName = %A_LoopFileName%
@@ -105,7 +105,7 @@ SUB_원소쫄바꾸기:
 	 
 	 ;~ 원소 먼저 
 	if ( GuiCheckFirstElement = true ){
-      if( funcSearchAndClick( "5.쫄작하기\buton_원소영웅보기.png" ) = true ){
+      if( funcSearchAndClickFolder( "5.쫄작하기\버튼_원소영웅.png" ) = true ){
          gosub SUB_CHECK_MONSTER_BY_LOOP
       }
 	}
