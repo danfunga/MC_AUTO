@@ -254,10 +254,8 @@
 		수정이 필요하긴 하다.
 		-------------------------------------
 	*/
-	if( funcSearchAndClick( "2.모험돌기\Button_영웅최대_진행.png" ) = true ){		
-		fPrintStatus("ERROR_영웅이 넘쳐도 진행 합니다.")
-	}else if( funcSearchAndClick(  "2.모험돌기\장비최대_선택_진행.bmp" ) = true ){		
-		fPrintStatus("ERROR_장비가 넘쳐도 진행 합니다.")		
+	if( funcSearchAndClickFolder( "2.모험돌기\버튼_최대_진행" ) = true ){		
+		fPrintStatus("ERROR_영웅 or 장비가  넘쳐도 진행 합니다.")
 	}	
 	
 	if( funcSearchAndClick(  "2.모험돌기\열쇠부족\모험키부족.bmp" ) = true ){		
