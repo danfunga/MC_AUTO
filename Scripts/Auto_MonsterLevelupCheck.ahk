@@ -105,7 +105,7 @@ SUB_원소쫄바꾸기:
 	 
 	 ;~ 원소 먼저 
 	if ( GuiCheckFirstElement = true ){
-      if( funcSearchAndClickFolder( "5.쫄작하기\버튼_원소영웅.png" ) = true ){
+      if( funcSearchAndClickFolder( "5.쫄작하기\버튼_원소영웅" ) = true ){
          gosub SUB_CHECK_MONSTER_BY_LOOP
       }
 	}
