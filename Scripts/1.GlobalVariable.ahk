@@ -3,9 +3,11 @@ INIT_GLOBAL_VARIABLES:
 
    ;~ Application Default
    ACTIVE_ID:="BlueStacks App Player"
-   SysGet, IntWinCapHeight, 4 ; ìº¡ì…˜Height
-   SysGet, IntWinBorderWidth, 32 ; ë³´ë”Width
-   SysGet, IntWinBorderHeight, 33 ; ë³´ë”Height
+   SysGet, IntWinCapHeight, 4 ; Ä¸¼ÇHeight
+   SysGet, IntWinBorderWidth, 32 ; º¸´õWidth
+   SysGet, IntWinBorderHeight, 33 ; º¸´õHeight
+   
+   TICKET_NAME:="ÄíÆù¹øÈ£:  15072b"
    
    ;~ Status
    BoolStarted:=false
