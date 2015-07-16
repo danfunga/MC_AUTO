@@ -12,22 +12,26 @@
    ;funcChoicePlayerSkill( 2 )
    ;funcChoicePlayerSkill( 3 )
    goto 렙업_쫄확인_통합
+   
    return
 } 
 !F7::
 {
 	setUpBeforeStart()
-   testLoopFindTestFolder(830,0,true,false)
-   ;funcIsExistImage( "5.쫄작하기\Monster\OutCheck\30Complete.bmp" )
-   ;functionByKeyByPoint()
-	;funcIsExistImage( "2.모험돌기\Button_모험_시작하기.bmp" )
-   ;funcSearchAndClickFolder( "1.게임실행\기타팝업X" )
+   gosub 레이드_입장하기
+   ;teamName=2팀
+   ;funcChoiceTeam( teamName )
+   ;funcChoicePlayerSkill( teamName )
    return
 }
 
 !F8::
 {
 	setUpBeforeStart()
+;   teamName=3팀
+ ;  funcChoiceTeam( teamName )
+  ; funcChoicePlayerSkill( teamName )
+
 	;With Catpion, NoClick 
    ;loopFindTestFolder( true, false )
    

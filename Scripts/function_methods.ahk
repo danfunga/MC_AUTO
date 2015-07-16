@@ -94,15 +94,17 @@ functionMoveTown()
 }
 funcChoiceTeam( teamName )
 {
-   Loop, %A_ScriptDir%\Image\10.팀선택하기\%teamName%*.bmp
-	{
-		v팀이름=10.팀선택하기\%A_LoopFileName%
-		if ( funcSearchAndClick(v팀이름) = true ){
-                  fPrintResult("해당 팀을 선택하였습니다.")
-                  return
-           }
-	}
-   fPrintResult("이미 선택되어 있는 것으로 보입니다.")
+   StringReplace,teamNum,teamName,팀,,All  
+   
+   teamFolder =10.팀선택하기\team%teamNum%   
+   if( funcSearchAndClickFolder( teamFolder ) = true ){
+      result = %teamName%을 선택하였습니다.
+      fPrintResult(result)
+      return
+   }else{
+      result = %teamName%이 이미 선택되어 있는것으로 보입니다.
+      fPrintResult(result)
+   }
 	return
 }
 funcChoicePlayerSkill( teamName )
@@ -113,32 +115,30 @@ funcChoicePlayerSkill( teamName )
    result="플레이어 스킬%skillNum%을 사용하겠습니다."
    fPrintStatus(result)
    
-   Loop, %A_ScriptDir%\Image\10.팀선택하기\playerSkill\choiced_Skill%skillNum%*.bmp
-   {
-      choicedFile=10.팀선택하기\playerSkill\%A_LoopFileName%
-      if ( funcIsExistImage(choicedFile) = true ){
-         result="이미 플스%skillNum%이 선택되어 있습니다."
-         fPrintResult(result)     
-         return
-      }
-   }
-   Loop, %A_ScriptDir%\Image\10.팀선택하기\playerSkill\playerSkill_button*.bmp
-   {
-      skillButtonFiles=10.팀선택하기\playerSkill\%A_LoopFileName%
-      if ( funcSearchAndClick(skillButtonFiles) = true ){
-         Loop, %A_ScriptDir%\Image\10.팀선택하기\playerSkill\skill%skillNum%*.bmp
-         {
-            choicedFile=10.팀선택하기\playerSkill\%A_LoopFileName%
-            if ( funcSearchAndClick(choicedFile) = true ){
-               result="플스%skillNum%를 선택하였습니다."
-               fPrintResult(result)     
-               break                  
-            }
-         }
-         funcSearchAndClick("10.팀선택하기\playerSkill\exitX.bmp")
-         break
-      }
-
+   
+   ;이미 선택되어 있는지 확인한다.
+   choicedFolder =10.팀선택하기\playerSkill\choiced_skill%skillNum%   
+   if( funcIsExistImageFolder( choicedFolder ) = true ){
+      result=이미 플스%skillNum%이 선택되어 있습니다.
+      fPrintResult(result)
+      return
+   }else{
+      ;일단 skillButton을 클릭한다.
+      
+      skillButtonFolder =10.팀선택하기\playerSkill\skillbutton 
+      if( funcSearchAndClickFolder( skillButtonFolder ) = true ){
+      
+         skillSelectButton =10.팀선택하기\playerSkill\skill%skillNum%         
+         if( funcSearchAndClickFolder( skillSelectButton ) = true ){
+            result="플스%skillNum%를 선택하였습니다."
+            fPrintResult(result)     
+            
+            funcSearchAndClickFolder("10.팀선택하기\playerSkill\exit")
+         }             
+      }else{
+         result = ERROR_플레이어 스킬 버튼 클릭에 실패합니다.
+         fPrintResult(result)      
+      }     
    }
    return    
 }

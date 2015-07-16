@@ -36,9 +36,7 @@
    fPrintTitle("레이드입장")
 	fPrintStatus("레이드를 반복적으로 수행하겠습니다.")
    
-   If( funcSearchAndClick( "4.레이드돌기\마을_스킬버튼.bmp" ) = true ){
-      funcSelectRaidSkill()
-   }
+   funcChoicePlayerSkill( 2 )
    
 	If( funcSearchAndClick( "시작마을\모험입장버튼.bmp" ) = true ){
       If( funcSearchAndClick( "4.레이드돌기\전투입장_레이드버튼.bmp" ) = true  or funcSearchAndClick( "4.레이드돌기\전투입장_레이드버튼2.bmp" ) = true){
@@ -50,28 +48,6 @@
    return
 }
 
-funcSelectRaidSkill()
-{
-   teamName:=2
-   
-   StringReplace,skillNum,teamName,팀,,All  
-   
-   result="플레이어 스킬%skillNum%을 사용하겠습니다."
-   fPrintStatus(result)
-   
- 
-   Loop, %A_ScriptDir%\Image\10.팀선택하기\playerSkill\skill%skillNum%*.bmp
-   {
-      choicedFile=10.팀선택하기\playerSkill\%A_LoopFileName%
-      if ( funcSearchAndClick(choicedFile) = true ){
-         result="플스%skillNum%를 선택하였습니다."
-         fPrintResult(result)     
-         break                  
-      }
-   }
-   funcSearchAndClick("10.팀선택하기\playerSkill\exitX.bmp")
-   return    
-}
 
 레이드모드_전투중:
 레이드_전투_종료대기:
