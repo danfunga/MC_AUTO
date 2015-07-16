@@ -51,6 +51,7 @@
 	vLine=설정된 황금팀은 %GuiListTeamGoldRoom%입니다.
 	fPrintStatus(vLine)   
    funcChoiceTeam( GuiListTeamGoldRoom )
+   funcChoicePlayerSkill( GuiListTeamGoldRoom )
    
 	goto,황금의방_도전시작	
 
