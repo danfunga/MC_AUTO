@@ -10,7 +10,9 @@ INIT_TAB_MAIN:
       Gui, Add, CheckBox	   , xs 	   y+5    Checked vGuiCheckCallFriend, 친구소환
       Gui, Add, CheckBox      , x+5    y      vGuiCheckGoNextStage, 다음      
       Gui, Add, CheckBox      , xs 	   y+5    Checked gSelectGuiLoopMap vGuiLoopMap ,반복		         
+      Gui,font,s7
       Gui, Add, Edit          , x+0    yp-1   w75 h15 right vLoopMapList, 6-6|7-9            
+      Gui,font,
 		Gui, Add, DropDownList	, xs+65 	ys w55 	h200 Choose2  vGuiStageList, 7-9|6-6|8-1|7-10|6-10|5-10|4-10|3-10|2-10|1-10|7-5|9-1|5-1|6-5|3-5|7-1|1-2|3-9|8-15         
 	} 
 	{
