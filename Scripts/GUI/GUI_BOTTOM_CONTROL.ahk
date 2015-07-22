@@ -2,8 +2,8 @@ INIT_BOTTOM_CONTROL:
 {
 	{
 		Gui, Font, S8 CDefault Bold, Verdana
-		
-		Gui, Add, Button, x2 y365 w80 h30  vButton_Start   , 시작[F9]
+      controlHeight:=guiHeight-90
+		Gui, Add, Button, x2 y%controlHeight% section w80 h30  vButton_Start   , 시작[F9]
 		Gui, Add, Button, xs ys w80 h30  +Hidden vButton_Stop   , 정지[F10]
 		
 		vIcon_resume=%A_ScriptDir%\Image\resume.png
@@ -19,7 +19,7 @@ INIT_BOTTOM_CONTROL:
 		
       
 		gui,font,CPurple
-		Gui, Add, GroupBox, x85 y360  w422 h90 , 게임로그
+		Gui, Add, GroupBox, x85 ys-5  w422 h90 , 게임로그
 		gui,font,
 
 		Gui, Add, Text, xp+10 	yp+20 section w70  vBottomTitle, 런칭		

@@ -9,7 +9,7 @@ INIT_TAB_MAIN:
       
       Gui, Add, CheckBox	   , xs 	   y+5    Checked vGuiCheckCallFriend, 친구소환
       Gui, Add, CheckBox      , x+5    y      vGuiCheckGoNextStage, 다음      
-      Gui, Add, CheckBox      , xs 	   y+5    Checked vGuiLoopMap ,반복		         
+      Gui, Add, CheckBox      , xs 	   y+5    Checked gSelectGuiLoopMap vGuiLoopMap ,반복		         
       Gui, Add, Edit          , x+0    yp-1   w75 h15 right vLoopMapList, 6-6|7-9            
 		Gui, Add, DropDownList	, xs+65 	ys w55 	h200 Choose2  vGuiStageList, 7-9|6-6|8-1|7-10|6-10|5-10|4-10|3-10|2-10|1-10|7-5|9-1|5-1|6-5|3-5|7-1|1-2|3-9|8-15         
 	} 
@@ -110,8 +110,8 @@ INIT_TAB_MAIN:
 			gui,font,         
          
 			Gui, Add, CheckBox, xp+6  yp+18 section vGuiBoolFirstGoldRoom, 황금방
-			Gui, Add, CheckBox, x+0  yp  vGuiBoolFirstBattleField, 결투장
-			Gui, Add, CheckBox, x+0  yp  +Disabled vGuiBooFirstlCastleBattle, 공성전
+			Gui, Add, CheckBox, x+10  yp  vGuiBoolFirstBattleField, 결투장
+			Gui, Add, CheckBox, x+10  yp  +Disabled vGuiBooFirstlCastleBattle, 공성전
 			Gui, Add, DropDownList, x+0 yp-3 w40 h100 Choose2 vGuilListCatleBattleTeam, 1팀|2팀|3팀
 		}
 		{
@@ -163,22 +163,15 @@ INIT_TAB_MAIN:
 }
 funcChangeTab1Status(){	
 	global BoolStarted
-
 	
 	GuiControl, hide%BoolStarted%, Button_Start
 	GuiControl, show%BoolStarted%, Button_Stop
 	
 	GuiControl, show%BoolStarted%,PIC_PAUSE		
 	
-	GuiControl, disable%BoolStarted%, Button_Apply
-   
-   GuiControl, disable%BoolStarted%, GuiStageDifficulty
-   
-	GuiControl,  disable%BoolStarted%, GuiStageList
-	GuiControl,  disable%BoolStarted%, GuiCheckGoNextStage
-   
+	GuiControl, disable%BoolStarted%, Button_Apply  
+	GuiControl,  disable%BoolStarted%, GuiCheckGoNextStage   
    GuiControl,  disable%BoolStarted%, GuiLoopMap
-	GuiControl,  disable%BoolStarted%, LoopMapList     
    
 	GuiControl,  disable%BoolStarted%, GuiCheckContentsBattleField
 	GuiControl,  disable%BoolStarted%, GuiCheckContentsGoldRoom
@@ -196,9 +189,13 @@ funcChangeTab1Status(){
    GuiControl,  disable%BoolStarted%, GuiDelayForClickAfter
    GuiControl,  disable%BoolStarted%, DelayForFileLoading
    
-   if( BoolStarted = true ){
+   if( BoolStarted ){
+      GuiControl, disable%BoolStarted%, GuiStageDifficulty   
+      GuiControl,  disable%BoolStarted%, GuiStageList
+      GuiControl,  disable%BoolStarted%, LoopMapList     
       goSub DisableLevelupCheckList   
    }else {
+      gosub SelectGuiLoopMap
       goSub EnableLevelupCheckList
    }   
 	GuiControl,  disable%BoolStarted%, GuiWantByKeyPoint
@@ -312,6 +309,23 @@ EnableLevelupCheckList:
 	}
 	return
 }
+
+
+SelectGuiLoopMap:
+{	
+    guiControlGet, booleanValue,,GuiLoopMap
+    selectMapEnable( booleanValue )
+    return
+}
+selectMapEnable( boolEnable )
+{
+   GuiControl, Disable%boolEnable%,GuiStageDifficulty
+   GuiControl, Disable%boolEnable%,GuiStageList
+   
+   GuiControl, Enable%boolEnable%,LoopMapList
+   return	
+}
+
 
 GuiListTeamPosition:
 {
@@ -455,7 +469,8 @@ LoadConfig:
       
    fLoadFile(vValue, "맵선택", "루프" )
 	if  vValue 
-		GuiControl, ,GuiLoopMap,%vValue%
+		GuiControl, ,GuiLoopMap,%vValue%      
+   selectMapEnable( vValue )
 	
 	fLoadFile(vValue, "맵선택", "루프지역" )	
 	if  vValue 

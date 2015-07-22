@@ -3,7 +3,7 @@ INIT_MCAUTO_GUI:
 	CoordMode, Pixel, Screen
 	Gui, +LastFound  
 	
-	guiWidth:=511 ,guiHeight:=455
+	guiWidth:=511 , guiHeight:=400
 	gosub INIT_BOTTOM_CONTROL
    Gui, Add, Edit, x200  y4  w110  h15 center ,  %TICKET_NAME%
    
