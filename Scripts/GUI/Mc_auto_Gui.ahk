@@ -5,7 +5,7 @@ INIT_MCAUTO_GUI:
 	
 	guiWidth:=511 ,guiHeight:=455
 	gosub INIT_BOTTOM_CONTROL
-   Gui, Add, Edit, x200  y5  w110    hp  center ,  %TICKET_NAME%
+   Gui, Add, Edit, x200  y4  w110  h15 center ,  %TICKET_NAME%
    
 	Gui, Add, Tab, x0 y0 w%guiWidth% h%guiHeight% vGuiAutoTab , Main|모험스킬|기타기능   
 	Gui, Tab, Main

@@ -86,9 +86,7 @@
 	fPrintTitle("난이도선택")
 	fPrintStatus("난이도 선택을 시작합니다.")
 
-	
-	
-	if( GuiRadioStageEasy = true  ){
+	if( GuiStageDifficulty = "쉬움" ){
 		fPrintStatus("설정한 난이도는 쉬움입니다.")
 		If( funcIsExistImage(  "2.모험돌기\모험지도\난이도\버튼쉬움.bmp" ) = true ){
 			fPrintStatus("이미 쉬움이 선택되어 있어 맵선택으로 넘어갑니다.")			
@@ -98,7 +96,7 @@
 			funcSearchAndClick( "2.모험돌기\모험지도\난이도\선택쉬움.bmp")   	
 		}	
 		goto, 모험입장_맵선택		
-	}else if ( GuiRadioStageNomal = true ){	
+	}else if ( GuiStageDifficulty = "보통" ){	
 		fPrintStatus("설정한 난이도는 보통입니다.")
 		If( funcIsExistImage(  "2.모험돌기\모험지도\난이도\버튼보통.bmp" ) = true ){
 			fPrintStatus("이미 보통이 선택되어 있어 맵선택으로 넘어갑니다.")			
@@ -108,7 +106,7 @@
 			funcSearchAndClick( "2.모험돌기\모험지도\난이도\선택보통.bmp")   		
 		}
 		goto, 모험입장_맵선택
-	}else if ( GuiRadioStageHard = true ){
+	}else if ( GuiStageDifficulty = "어려움" ){
 		fPrintStatus("설정한 난이도는 어려움입니다.")
 		If( funcIsExistImage(  "2.모험돌기\모험지도\난이도\버튼어려움.bmp" ) = true ){
 			fPrintStatus("이미 어려움이 선택되어 있어 맵선택으로 넘어갑니다.")			
@@ -131,27 +129,18 @@
 		
    if( GuiLoopMap = true ){
       MapName:=funcGetNextLoopMap()
-      if( GuiRadioStageEasy = true  ){
-         v맵이름 = 쉬%MapName%.bmp
-      }else if( GuiRadioStageNomal = true ){
-         v맵이름 = 보%MapName%.bmp
-      }else if ( GuiRadioStageHard = true ){
-         v맵이름 = 어%MapName%.bmp
-      }else{
-         v맵이름 = 팔%MapName%.bmp
-      }
-   
    }else{
-      if( GuiRadioStageEasy = true  ){
-         v맵이름 = 쉬%GuiStageList%.bmp
-      }else if( GuiRadioStageNomal = true ){
-         v맵이름 = 보%GuiStageList%.bmp
-      }else if ( GuiRadioStageHard = true ){
-         v맵이름 = 어%GuiStageList%.bmp
-      }else{
-         v맵이름 = 팔%GuiStageList%.bmp
-      }
-   }		
+      MapName:=GuiStageList
+   }
+
+      
+   if( GuiStageDifficulty = "쉬움"  ){
+      v맵이름 = 쉬%MapName%.bmp
+   }else if( GuiStageDifficulty = "보통" ){
+      v맵이름 = 보%MapName%.bmp
+   }else if ( GuiStageDifficulty = "어려움" ){
+      v맵이름 = 어%MapName%.bmp
+   }   
 	
 	v맵이름 = 2.모험돌기\모험지도\%v맵이름%
 	 loop

@@ -7,10 +7,6 @@
    ;~setUpBeforeStart()
    ;MsgBox, %GuiWantByKeyPoint% + %GuiWantByKeyRuby%+ %GuiWantReceiveKey%
    
-   if( GuiWantReceiveKey = true ){
-      fPrintStatus("우편 받기를 설정하였기에 수령을 진행합니다.")
-       functionReiceiveKey()   
-   }
    if( GuiWantByKeyPoint = true ){
       fPrintStatus("명예 구입을 설정하여 명예구입 진행합니다.")
       functionByKeyByPoint()   
@@ -47,10 +43,6 @@
    return
 }
 
-functionReiceiveKey()
-{
-   fPrintStatus("우편 수령은 아직 구현이 안되었습니다.")
-}
 
 functionByKeyByPoint()
 {

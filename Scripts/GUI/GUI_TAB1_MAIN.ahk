@@ -2,35 +2,33 @@ INIT_TAB_MAIN:
 {
 	{	
 		Gui,font,CPurple
-		Gui, Add, GroupBox	    , x02 y030 w140 h120 , 난이도/맵
+		Gui, Add, GroupBox	    , x02 y030 w140 h80 , 난이도/맵
 		Gui,font,
-			  
-		Gui, Add, Radio			, xp+10 	yp+16 w65 	h15 					vGuiRadioStageEasy, 				쉬움
-		Gui, Add, Radio			, xp 		yp+16 wp 		hp 					vGuiRadioStageNomal, 			보통
-		Gui, Add, Radio			, xp 		yp+16 wp 		hp Checked 	vGuiRadioStageHard, 				어려움
-		Gui, Add, Radio			, xp 		yp+16 wp 		hp 					vGuiRadioStageMoonIsland, 	달빛의섬
-		Gui, Add, ListBox			, xp+70 	yp-48 w50 	h80 Choose4  vGuiStageList, 7-9|6-6|8-1|7-10|6-10|5-10|4-10|3-10|2-10|1-10|7-5|9-1|5-1|6-5|3-5|7-1|1-2|3-9|8-15
-      Gui, Add, CheckBox	   , xp-70 	yp+65    w65 		h15 		vGuiCheckGoNextStage, 			다음
-      Gui, Add, CheckBox      , xp 	   y+2    h15     vGuiLoopMap ,반복		
-      Gui, Add, Edit          , x+0    yp    w70 h15 right vLoopMapList, 2-10|6-6|7-9
-         
+      
+      Gui, Add, DropDownList  , x12    y45 section w60 h100  Choose3 vGuiStageDifficulty, 쉬움|보통|어려움
+      
+      Gui, Add, CheckBox	   , xs 	   y+5    Checked vGuiCheckCallFriend, 친구소환
+      Gui, Add, CheckBox      , x+5    y      vGuiCheckGoNextStage, 다음      
+      Gui, Add, CheckBox      , xs 	   y+5    Checked vGuiLoopMap ,반복		         
+      Gui, Add, Edit          , x+0    yp-1   w75 h15 right vLoopMapList, 6-6|7-9            
+		Gui, Add, DropDownList	, xs+65 	ys w55 	h200 Choose2  vGuiStageList, 7-9|6-6|8-1|7-10|6-10|5-10|4-10|3-10|2-10|1-10|7-5|9-1|5-1|6-5|3-5|7-1|1-2|3-9|8-15         
 	} 
 	{
 		Gui,font,CPurple
-		Gui, Add, GroupBox, x145 		y30 w130 h120 , 컨텐츠/팀 선택	
+		Gui, Add, GroupBox,     x145 		y30 w125 h80 , 컨텐츠/팀 선택	
 		Gui,font,
 				
-		Gui, Add, CheckBox, xp+10 		yp+18 w65 h15   Checked Disabled, 모험팀		
-		Gui, Add, CheckBox, xp 				yp+25 wp hp Checked vGuiCheckContentsBattleField, 결투장
-		Gui, Add, CheckBox, xp 				yp+25 wp hp Checked vGuiCheckContentsGoldRoom, 황금방
-		Gui, Add, CheckBox, xp 				yp+28 wp hp Checked vGuiCheckCallFriend, 친구소환
-		Gui, Add, DropDownList, x+5 y45 w40 h100  Choose1 vGuiListTeamAdvanture, 1팀|2팀|3팀
-		Gui, Add, DropDownList, xp yp+25 wp h100  Choose1 vGuiListTeamBattle, 1팀|2팀|3팀
-		Gui, Add, DropDownList, xp yp+25 wp h100  Choose1 vGuiListTeamGoldRoom, 1팀|2팀|3팀	
+      Gui, Add, CheckBox,     xp+10    yp+18 section Checked Disabled, 모험팀		
+		Gui, Add, CheckBox,     xs 		y+9 wp hp Checked vGuiCheckContentsBattleField, 결투장
+		Gui, Add, CheckBox,     xs 		y+9 wp hp Checked vGuiCheckContentsGoldRoom, 황금방
+
+		Gui, Add, DropDownList, x+5      ys-3 w42 h100  Choose1 vGuiListTeamAdvanture, 1팀|2팀|3팀
+		Gui, Add, DropDownList, xp       y+0 wp h100  Choose1 vGuiListTeamBattle, 1팀|2팀|3팀
+		Gui, Add, DropDownList, xp       y+0 wp h100  Choose1 vGuiListTeamGoldRoom, 1팀|2팀|3팀	
 	}
 	{
 		Gui,font,CPurple
-		Gui, Add, GroupBox, x278 y30  w230 h140 , 게임기록
+		Gui, Add, GroupBox, x273 y30  w230 h145 , 게임기록
 		gui,font,
 		
       Gui, Add, Text, xp+10   yp+18 section w65   h15 , 모험총횟수:
@@ -63,14 +61,14 @@ INIT_TAB_MAIN:
 	}
 		{
 			Gui,font,CPurple
-			Gui, Add, GroupBox, x2 y155 w140 h65  , 컨텐츠 반복
+			Gui, Add, GroupBox, x2 y110 w140 h65  , 컨텐츠 반복
 			gui,font,
 			
 			Gui, Add, Text, xp+10 yp+16 section  w58 h15 , 황금의방 :
 			Gui, Add, Text, xp y+0 wp hp , 결 투  장 :
 			Gui, Add, Text, xp y+0 wp hp , 쫄업확인 :
 		  
-			Gui, Add, Edit, x+0 ys-2 w20 h15 right vCountForGoldRoom, 10
+			Gui, Add, Edit, x+0 ys-2 w20 h15 right vCountForGoldRoom, 12
 			Gui, Add, Edit, xp y+0 wp hp right vCountForBattle, 12
 		   Gui, Add, Edit, xp y+0 wp hp right   vCountForLevelupCheck, 3
 		   Gui, Add, Text, x+1 ys w40 h15 left, 회 마다
@@ -81,22 +79,21 @@ INIT_TAB_MAIN:
 
 		{
 			Gui,font,CPurple
-			Gui, Add, GroupBox, x145 y155 w130 h65  , 열쇠 부족
+			Gui, Add, GroupBox, x145 y110 w125 h65  , 추가 기능
 			gui,font,
-			
-			Gui, Add, CheckBox,  xp+10 yp+13 wp-15 h15 Disabled vGuiWantReceiveKey, 우편함 받기(미)
-			Gui, Add, CheckBox,  xp  yp+16 wp hp Checked vGuiWantByKeyPoint, 명예구입
+			Gui, Add, CheckBox,  xp+10 yp+13 wp-15 h15 vGuiSelectRaidMod, 레이드 모드
+			Gui, Add, CheckBox,  xp  yp+16 wp hp Checked vGuiWantByKeyPoint, 명예 구입
 			Gui, Add, CheckBox,  xp yp+16 wp hp Disabled vGuiWantByKeyRuby, 루비 구입(미)
 		}
 		{
 			gui,font,CPurple
-			Gui, Add, GroupBox, x278 y175  w230 h90 , 쫄작
+			Gui, Add, GroupBox, x273 y175  w230 h80 , 쫄작
 			gui,font,
 			
-         Gui, Add, Text		, xp+10  yp+20  h15,     드래그         
+         Gui, Add, Text		, xp+10  yp+20  section h15,     드래그         
 			Gui, Add, Edit    , x+5 yp-2 w20 h15 right vGuiDragCount, 3
-         Gui, Add, CheckBox, xp-45 y+10 h15   Checked vGuiCheckFirstElement, 원소먼저
-         Gui, Add, CheckBox, xp y+10 h15 vGuiBoolStopMonsterLevelUp, 쫄렙업시 정지
+         Gui, Add, CheckBox, xs y+5 h15   Checked vGuiCheckFirstElement, 원소먼저
+         Gui, Add, CheckBox, xs y+5 h15 vGuiBoolStopMonsterLevelUp, 쫄렙업시 정지
          
 			gosub	INIT_TEAM_POSITION
 			Gui, Add, CheckBox, x%보호1X% y%보호1Y% w30 h15           vGuiCheckChangeTeam1, 1
@@ -108,20 +105,18 @@ INIT_TAB_MAIN:
 			Gui, Add, DropDownList, xp-70 yp-3 w60 h90  Choose1 gGuiListTeamPosition vGuiListTeamPosition, 보호|공격|기본|밸런스
 		}
 		{
-
 			gui,font,CPurple
-			Gui, Add, GroupBox, x2 y225 w273 h40  ,  모험전 먼저 돌기
-			gui,font,
-			Gui, Add, CheckBox, xp+8  yp+15 w70 h15 vGuiBoolFirstGoldRoom, 황금먼저
-			Gui, Add, CheckBox, x+5  yp wp h15 vGuiBoolFirstBattleField, 결투먼저
-			Gui, Add, CheckBox, x+5  yp wp h15 +Disabled vGuiBooFirstlCastleBattle, 공성먼저	
+			Gui, Add, GroupBox, x2 y175 w268 h40  ,  모험 시작 전 먼저 돌기
+			gui,font,         
+         
+			Gui, Add, CheckBox, xp+6  yp+18 section vGuiBoolFirstGoldRoom, 황금방
+			Gui, Add, CheckBox, x+0  yp  vGuiBoolFirstBattleField, 결투장
+			Gui, Add, CheckBox, x+0  yp  +Disabled vGuiBooFirstlCastleBattle, 공성전
 			Gui, Add, DropDownList, x+0 yp-3 w40 h100 Choose2 vGuilListCatleBattleTeam, 1팀|2팀|3팀
-			
-			
 		}
 		{
 			gui,font,CPurple
-			Gui, Add, GroupBox, x2 y270 w140 h40  ,장비판매(미)
+			Gui, Add, GroupBox, x2 y215 w140 h40  ,장비판매(미)
 			gui,font,
 			
 			Gui, Add, CheckBox, x13 yp+15 w70 h15  Disabled vGuiCheckSellEquip, 장비 판매
@@ -130,7 +125,7 @@ INIT_TAB_MAIN:
 
 		{
 			gui,font,CPurple
-			Gui, Add, GroupBox, x2 y315 w140 h40 , 1성해피 판매
+			Gui, Add, GroupBox, x2 y255 w140 h40 , 1성해피 판매
 			gui,font,
 			;~ Gui, Add, Edit, x10 yp+16 w20 h15 right vGui1LevelHappySave, 3
 		   ;~ Gui, Add, Text, x+0 yp+2 w40 h15 left, 개 유지
@@ -138,42 +133,32 @@ INIT_TAB_MAIN:
 		}
 		{
 			gui,font,CPurple
-			Gui, Add, GroupBox, x145 y270 w130 h85  , 딜레이 설정
+			Gui, Add, GroupBox, x145 y215 w125 h80  , 딜레이 설정
 			gui,font,  
 			Gui, Add, Text,xp+10 yp+18 w60 h15 , 기본전투 :
 			Gui, Add, Text, xp y+7 wp hp , 클릭이후 :
 			Gui, Add, Text, xp y+7 wp hp , 파일로딩 :
 		  
 		  ;~ Gui, Add, Text,xp+10 yp+18 w60 h15 , 기본전투 :
-			Gui, Add, Edit, x+5 yp-47 w25 h15 right vGuiDelayForBattle, 20
-			Gui, Add, Edit, xp y+7 wp hp right vGuiDelayForClickAfter, 2
+			Gui, Add, Edit, x+5 yp-47 w25 h15 right vGuiDelayForBattle, 15
+			Gui, Add, Edit, xp y+7 wp hp right vGuiDelayForClickAfter, 1.5
 		  Gui, Add, Edit, xp y+7 wp hp right vDelayForFileLoading, 3
 		  Gui, Add, Text,  x+1 yp-43 w15 h15 left, 초
 			Gui, Add, Text, xp y+7 wp hp left, 초
 			Gui, Add, Text,  xp y+7 wp hp left, 초
 		}
 		{
-			gui,font,CPurple
-			Gui, Add, GroupBox, x278 y270 w230 h55 , 레이드 모드
-			gui,font,  
-			Gui, Add, CheckBox, xp+15  yp+18 h15 vGuiSelectRaidMod, 레이드 모드
-         Gui, Add, Text, xp yp+18 h15  , 열쇠가 1~2개 있을 경우 레이드.
+
          
          ;Gui, Add, Edit, xp yp+18 w20 h15 Disabled right vGuiRaidMinKey, 2			
 			;Gui, Add, Text, x+5 yp+2  h15 , 개 시작 ->
 			;Gui, Add, Edit, x+5 yp-2 w20 h15 Disabled right vGuiRaidMaxKey, 6
 			;Gui, Add, Text, x+5 yp+2  h15 , 개 -> 모험
 		}
-		{
-			Gui, Font, S8 CDefault Bold, Verdana
-			Gui, Add, Button, x295 y330 w80 h25   vButton_Apply, 설정저장
-			Gui, Font, , 
-			gui,font,CDefault, 맑은고딕
+			;~ gui,font,CDefault, 맑은고딕
 			;~ Gui, Add, Text, x+15 yp+8  hp , Made By Mukchik.
-			Gui, Add, Text, x+15 yp+8  hp , MC_Auto Yosemite.
-			Gui, Font, , 
-			
-		}
+			;~ Gui, Add, Text, x+15 yp+8  hp , MC_Auto Yosemite.
+			;~ Gui, Font, , 
 	return
 }
 funcChangeTab1Status(){	
@@ -186,11 +171,9 @@ funcChangeTab1Status(){
 	GuiControl, show%BoolStarted%,PIC_PAUSE		
 	
 	GuiControl, disable%BoolStarted%, Button_Apply
-  
-	GuiControl, disable%BoolStarted%, GuiRadioStageEasy
-	GuiControl, disable%BoolStarted%, GuiRadioStageNomal
-	GuiControl,  disable%BoolStarted%, GuiRadioStageHard
-	GuiControl,  disable%BoolStarted%, GuiRadioStageMoonIsland
+   
+   GuiControl, disable%BoolStarted%, GuiStageDifficulty
+   
 	GuiControl,  disable%BoolStarted%, GuiStageList
 	GuiControl,  disable%BoolStarted%, GuiCheckGoNextStage
    
@@ -218,9 +201,7 @@ funcChangeTab1Status(){
    }else {
       goSub EnableLevelupCheckList
    }   
-	;~ GuiControl,  disable%BoolStarted%, GuiWantReceiveKey
 	GuiControl,  disable%BoolStarted%, GuiWantByKeyPoint
-	;~ GuiControl,  disable%BoolStarted%, GuiWantByKeyRuby
    
  
 	GuiControl,  disable%BoolStarted%, GuiBoolFirstGoldRoom
@@ -369,11 +350,9 @@ SaveConfig:
 	fSaveFile( GuiCheckContentsBattleField, "컨텐츠", "결투장" )
 	fSaveFile( GuiCheckContentsGoldRoom, "컨텐츠", "황금방" )
 	fSaveFile( GuiCheckCallFriend, "컨텐츠", "친구소환" )
-	
-	fSaveFile( GuiRadioStageEasy, "맵선택", "쉬움" )
-	fSaveFile( GuiRadioStageNomal, "맵선택", "보통" )
-	fSaveFile( GuiRadioStageHard, "맵선택", "어려움" )
-	fSaveFile( GuiRadioStageMoonIsland, "맵선택", "달빛의섬" )
+   
+	fSaveFile( GuiStageDifficulty, "맵선택", "난이도" )
+
 	fSaveFile( GuiStageList, "맵선택", "스테이지" )
 	fSaveFile( GuiCheckGoNextStage, "맵선택", "다음" )
    
@@ -398,19 +377,15 @@ SaveConfig:
 	fSaveFile(GuiCheckSellEquip, "장비관리", "장비판매" )
 	fSaveFile(GuiSellEquipLimit, "장비관리", " 판매등급" )
 	
-	fSaveFile(GuiWantReceiveKey, "열쇠", "우편함")
-	fSaveFile(GuiWantByKeyPoint, "열쇠", "명예구입" )
-	fSaveFile(GuiWantByKeyRuby, "열쇠", "루비구입" )
+	fSaveFile(GuiWantByKeyPoint, "추가기능", "열쇠명예구입" )
+	fSaveFile(GuiWantByKeyRuby, "추가기능", "열쇠루비구입" )
+   fSaveFile(GuiSelectRaidMod, "추가기능", "레이드모드" )
    
    
    fSaveFile(GuiListTeamPosition, "쫄작", "쫄작진형" )
   
    fSaveFile(GuiDragCount, "쫄작", "드래그횟수" )
    fSaveFile(GuiCheckFirstElement, "쫄작", "원소먼저" )
-   
-   fSaveFile(GuiSelectRaidMod, "레이드모드", "모드사용" )
-   
-   
    
    fSaveFile(GuiSendFrindShipCount, "명예보내기", "전송횟수" )
    fSaveFile(GuiCheckSendFriendsShipAll, "명예보내기", "전부보내기" )
@@ -465,18 +440,11 @@ LoadConfig:
 		GuiControl, ,GuiCheckCallFriend,%vValue%
 	;~ GuiControl, , ,%vValue%
 	
-	fLoadFile(vValue, "맵선택", "쉬움" )
+   
+ 	fLoadFile( vValue, "맵선택", "난이도")
 	if( vValue <> "" )
-		GuiControl, ,GuiRadioStageEasy,%vValue%
-	fLoadFile(vValue, "맵선택", "보통" )
-	if( vValue <> "" )
-		GuiControl, ,GuiRadioStageNomal,%vValue%
-	fLoadFile(vValue, "맵선택", "어려움" )
-	if( vValue <> "" )
-		GuiControl, ,GuiRadioStageHard,%vValue%
-	fLoadFile(vValue, "맵선택", "달빛의섬" )
-	if  vValue 
-		GuiControl, ,GuiRadioStageMoonIsland,%vValue%
+		GuiControl,Choose,GuiStageDifficulty,%vValue%	
+
 	fLoadFile(vValue, "맵선택", "다음" )
 	if  vValue 
 		GuiControl, ,GuiCheckGoNextStage,%vValue%
@@ -520,17 +488,20 @@ LoadConfig:
 	fLoadFile(vValue, "장비관리", "판매등급" )
 	if( vValue <> "" )
 		GuiControl,Choose,GuiSellEquipLimit ,%vValue%
-      
-	fLoadFile(vValue, "열쇠", "우편함" )	
-	if( vValue <> "" )
-		GuiControl, ,GuiWantReceiveKey,%vValue%
-	fLoadFile(vValue, "열쇠", "명예구입" )
+      	
+           
+	fLoadFile(vValue, "추가기능", "열쇠명예구입" )
 	if( vValue <> "" )
 		GuiControl, ,GuiWantByKeyPoint,%vValue%
 	
-	fLoadFile(vValue, "열쇠", "루비구입" )
+	fLoadFile(vValue, "추가기능", "열쇠명예구입" )
 	if( vValue <> "" )
 		GuiControl, ,GuiWantByKeyRuby,%vValue%   
+      
+ 	fLoadFile(vValue, "추가기능", "레이드모드" )
+	if( vValue <> "" )
+      GuiControl, ,GuiSelectRaidMod,%vValue%   
+      
       
    fLoadFile(vValue, "먼저돌기", "황금먼저" )
 	if( vValue <> "" )
@@ -563,9 +534,7 @@ LoadConfig:
 	if( vValue <> "" )
 		GuiControl, ,GuiCheckFirstElement,%vValue%           
 	
-	fLoadFile(vValue, "레이드모드", "모드사용" )
-	if( vValue <> "" )
-		GuiControl, ,GuiSelectRaidMod,%vValue%           
+        
 
 
 	;~ 명예 보내는 부분 추가
