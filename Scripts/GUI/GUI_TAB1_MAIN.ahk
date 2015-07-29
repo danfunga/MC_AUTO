@@ -312,7 +312,6 @@ EnableLevelupCheckList:
 	return
 }
 
-
 SelectGuiLoopMap:
 {	
     guiControlGet, booleanValue,,GuiLoopMap
@@ -372,8 +371,8 @@ SaveConfig:
 	fSaveFile( GuiStageList, "맵선택", "스테이지" )
 	fSaveFile( GuiCheckGoNextStage, "맵선택", "다음" )
    
-   fSaveFile( GuiLoopMap, "맵선택", "루프" )
-   fSaveFile( LoopMapList, "맵선택", "루프지역" )      
+   fSaveFile( GuiLoopMap, "맵선택", "반복" )
+   fSaveFile( LoopMapList, "맵선택", "반복지역" )      
    
 	fSaveFile(CountForGoldRoom, "컨텐츠반복", "황금방돌기" )
 	fSaveFile(CountForBattle, "컨텐츠반복", "결투장돌기" )	
@@ -462,20 +461,20 @@ LoadConfig:
 		GuiControl,Choose,GuiStageDifficulty,%vValue%	
 
 	fLoadFile(vValue, "맵선택", "다음" )
-	if  vValue 
+	if( vValue <> "" )
 		GuiControl, ,GuiCheckGoNextStage,%vValue%
 	
 	fLoadFile(vValue, "맵선택", "스테이지" )	
-	if  vValue 
+	if( vValue <> "" )
 		GuiControl, Choose,GuiStageList,%vValue%
       
-   fLoadFile(vValue, "맵선택", "루프" )
-	if  vValue 
+   fLoadFile(vValue, "맵선택", "반복" )
+	if( vValue <> "" )
 		GuiControl, ,GuiLoopMap,%vValue%      
    selectMapEnable( vValue )
 	
-	fLoadFile(vValue, "맵선택", "루프지역" )	
-	if  vValue 
+	fLoadFile(vValue, "맵선택", "반복지역" )	
+	if( vValue <> "" )
 		GuiControl, ,LoopMapList,%vValue%
    
 	
@@ -511,7 +510,7 @@ LoadConfig:
 	if( vValue <> "" )
 		GuiControl, ,GuiWantByKeyPoint,%vValue%
 	
-	fLoadFile(vValue, "추가기능", "열쇠명예구입" )
+	fLoadFile(vValue, "추가기능", "열쇠루비구입" )
 	if( vValue <> "" )
 		GuiControl, ,GuiWantByKeyRuby,%vValue%   
       

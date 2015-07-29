@@ -56,27 +56,46 @@
 	goto, 모험입장_스테이지선택
 	return
 }
+funcIsMoonIsland( strInputStage )
+{
+
+	StringSplit,arrayStageName,strInputStage,-
+   if( arrayStageName1 >= 8 ){
+      return true
+   }else{   
+      return false
+   }
+}
+
 모험입장_스테이지선택:
 {
 	fPrintStatus("설정한 스테이지를 확인합니다.")
-	if( GuiRadioStageMoonIsland = true )	{
+   
+   if( GuiLoopMap = true ){
+      strStageName:=funcGetNextLoopMap()
+   }else{
+      strStageName:=GuiStageList
+   }
+
+   boolMoonIsland := funcIsMoonIsland( strStageName )
+   
+   
+	if( boolMoonIsland = true )	{
 		if( funcIsExistImage(  "2.모험돌기\모험지도\대륙\아스드.bmp" ) = true )	{	
 			fPrintStatus("현재 달빛섬이 선택되었습니다.")
-			goto 모험입장_맵선택
 		}else If( funcSearchAndClick( "2.모험돌기\모험지도\대륙\달빛의섬.bmp" ) = true )	{
-			fPrintStatus("달빛섬을 선택하였습니다.")
-			goto 모험입장_맵선택
+			fPrintStatus("달빛섬을 선택하였습니다.")	
 		}
 	}
 	 else{
 		if( funcIsExistImage(  "2.모험돌기\모험지도\대륙\달빛의섬.bmp" ) = true ){	
-			fPrintStatus("현재 아스드대륙이 선택되었습니다.")
-			goto 모험입장_난이도선택
+			fPrintStatus("현재 아스드대륙이 선택되었습니다.")	
 		}else If( funcSearchAndClick( "2.모험돌기\모험지도\대륙\아스드.bmp" ) = true ){
-			fPrintStatus("아스드 대륙을 선택하였습니다.")
-			goto 모험입장_난이도선택
+			fPrintStatus("아스드 대륙을 선택하였습니다.")	
 		}	
 	}	
+   goto 모험입장_난이도선택
+   
 	fPrintStatus("ERROR_모험입장_스테이지 선택중 위치찾기로 이동합니다.")
 	goto 위치찾기
 }
@@ -126,20 +145,13 @@
 {	
 	fPrintTitle("맵    선택")
 	fPrintStatus("스테이지를 선택합니다.")
-		
-   if( GuiLoopMap = true ){
-      MapName:=funcGetNextLoopMap()
-   }else{
-      MapName:=GuiStageList
-   }
-
       
    if( GuiStageDifficulty = "쉬움"  ){
-      v맵이름 = 쉬%MapName%.bmp
+      v맵이름 = 쉬%strStageName%.bmp
    }else if( GuiStageDifficulty = "보통" ){
-      v맵이름 = 보%MapName%.bmp
+      v맵이름 = 보%strStageName%.bmp
    }else if ( GuiStageDifficulty = "어려움" ){
-      v맵이름 = 어%MapName%.bmp
+      v맵이름 = 어%strStageName%.bmp
    }   
 	
 	v맵이름 = 2.모험돌기\모험지도\%v맵이름%

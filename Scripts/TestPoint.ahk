@@ -18,7 +18,15 @@
 !F7::
 {
 	setUpBeforeStart()
-   gosub 레이드_입장하기
+;      if( GuiLoopMap = true ){
+      ;strStageName:=funcGetNextLoopMap()
+   ;}else{
+      ;strStageName:=GuiStageList
+   ;}
+
+   ;boolMoonIsland := funcIsMoonIsland( strStageName )
+   ;msgbox, StageName(%strStageName%) boolMoonIsland = %boolMoonIsland%
+   
    ;teamName=2팀
    ;funcChoiceTeam( teamName )
    ;funcChoicePlayerSkill( teamName )
