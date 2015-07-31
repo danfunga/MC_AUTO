@@ -4,6 +4,10 @@
 	fPrintStatus("레이드를 반복적으로 수행하겠습니다.")
 	BoolNeedRaidBattle:=true
     
+   if ( bFirstRaidMode != true ){         
+      PushNote(GuiPushBulletToken, "MC_Auto:RaidMode", "StartRaidMode")
+      bFirstRaidMode:=true
+   }
 	if( funcIsExistImage(  "4.레이드돌기\status_레이드_전투중.bmp" ) = true ){		
 	   goto 레이드모드_전투중
 	}else if( funcIsExistImage( "4.레이드돌기\레이드_전투종료.bmp" ) = true ){		

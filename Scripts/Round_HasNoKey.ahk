@@ -18,11 +18,10 @@
    }
      
    if( funcIsExistImage(  "2.모험돌기\열쇠부족\메인키오링1.bmp" ) = true ){	
-      if ( bFirstTimeCheck != true ){
-         
+      if ( bFirstTimeCheck != true ){         
         PushNote(GuiPushBulletToken, "MC_Auto_Keys", "NoKeys")
         bFirstTimeCheck:=true
-     }
+      }
 
       fPrintStatus("열쇠가 없으므로 기다리겠습니다.")
       fPrintStatus("단순히 2분 단위로 확인합니다.")
