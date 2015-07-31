@@ -350,7 +350,9 @@ funcIsMoonIsland( strInputStage )
 	GuiControl, ,CountFailCount,%IntMonitorStageFailCount%
 	GuiControl, ,NoLevelUp,%IntMonitorNoLevelUpCheckCount%
 
-	gosub CaptureScreen
+   if( GuiBoolScreenShotResult = true )
+      funcCaptureSubScreen( "reward" )
+   
 	
 	fPrintStatus("전투 완료가 확인되었습니다.")				
 	goto, 전투결과_모험

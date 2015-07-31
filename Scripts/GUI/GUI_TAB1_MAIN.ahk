@@ -87,9 +87,21 @@ INIT_TAB_MAIN:
 			Gui, Add, CheckBox,  xp  yp+16 wp hp Checked vGuiWantByKeyPoint, 명예 구입
 			Gui, Add, CheckBox,  xp yp+16 wp hp Disabled vGuiWantByKeyRuby, 루비 구입(미)
 		}
+      {
+			gui,font,CPurple
+			Gui, Add, GroupBox, x273 y175  w230 h40 , 스크린샷 설정
+			gui,font,
+         
+         Gui, Add, CheckBox, xp+10 yp+18 section checked vGuiBoolScreenShotResult, 보상         
+         Gui, Add, CheckBox, x+20  yp checked vGuiBoolScreenShotRaid, 레이드
+         Gui, Add, CheckBox, x+20  yp checked disabled vGuiBoolScreenShotError, 에러
+			;~ Gui, Add, Edit, x10 yp+16 w20 h15 right vGui1LevelHappySave, 3
+		   ;~ Gui, Add, Text, x+0 yp+2 w40 h15 left, 개 유지
+		   ;~ Gui, Add, CheckBox, x+5 yp+2 w70 h15  vGui30LevelHappySell, 만렙판매
+		}
 		{
 			gui,font,CPurple
-			Gui, Add, GroupBox, x273 y175  w230 h80 , 쫄작
+			Gui, Add, GroupBox, x273 y215  w230 h80 , 쫄작
 			gui,font,
 			
          Gui, Add, Text		, xp+10  yp+20  section h15,     드래그         
@@ -125,14 +137,7 @@ INIT_TAB_MAIN:
 			Gui, Add, DropDownList, x+10 yp-3 w40 h70 Disabled Choose1 vGuiSellEquipLimit, 1성|2성|3성|4성
 		}
 
-		{
-			gui,font,CPurple
-			Gui, Add, GroupBox, x2 y255 w140 h40 , 1성해피 판매
-			gui,font,
-			;~ Gui, Add, Edit, x10 yp+16 w20 h15 right vGui1LevelHappySave, 3
-		   ;~ Gui, Add, Text, x+0 yp+2 w40 h15 left, 개 유지
-		   ;~ Gui, Add, CheckBox, x+5 yp+2 w70 h15  vGui30LevelHappySell, 만렙판매
-		}
+		
 		{
 			gui,font,CPurple
 			Gui, Add, GroupBox, x145 y215 w125 h80  , 딜레이 설정
@@ -186,6 +191,9 @@ funcChangeTab1Status(){
 	GuiControl,  disable%BoolStarted%, CountForBattle
 	GuiControl,  disable%BoolStarted%, CountForLevelupCheck
 	
+   
+   GuiControl,  disable%BoolStarted%, GuiBoolScreenShotResult
+	GuiControl,  disable%BoolStarted%, GuiBoolScreenShotRaid          
 	
 	GuiControl,  disable%BoolStarted%, GuiDelayForBattle
    GuiControl,  disable%BoolStarted%, GuiDelayForClickAfter
@@ -223,7 +231,7 @@ funcChangeTab1Status(){
 INIT_TEAM_POSITION:
 {
 		PositionX_FirstRow = 470
-		PositionY_Top = 190
+		PositionY_Top = 227
 		PositionX_SeconRow:= PositionX_FirstRow - 30
 		Diff_Y=15
 
@@ -395,10 +403,13 @@ SaveConfig:
 	fSaveFile(GuiWantByKeyPoint, "추가기능", "열쇠명예구입" )
 	fSaveFile(GuiWantByKeyRuby, "추가기능", "열쇠루비구입" )
    fSaveFile(GuiSelectRaidMod, "추가기능", "레이드모드" )
+    
+   fSaveFile(GuiBoolScreenShotResult,  "스크린샷", "모험보상" )
+   fSaveFile(GuiBoolScreenShotRaid,    "스크린샷", "레이드결과" )
+   fSaveFile(GuiBoolScreenShotError,   "스크린샷", "에러화면" )
    
    
    fSaveFile(GuiListTeamPosition, "쫄작", "쫄작진형" )
-  
    fSaveFile(GuiDragCount, "쫄작", "드래그횟수" )
    fSaveFile(GuiCheckFirstElement, "쫄작", "원소먼저" )
    
@@ -532,6 +543,19 @@ LoadConfig:
 	if( vValue <> "" )
 		GuiControl, Choose,GuilListCatleBattleTeam,%vValue%
 
+   fLoadFile(vValue, "스크린샷", "모험보상" )
+	if( vValue <> "" )
+		GuiControl, ,GuiBoolScreenShotResult,%vValue%
+      
+   fLoadFile(vValue, "스크린샷", "레이드결과" )
+	if( vValue <> "" )
+		GuiControl, ,GuiBoolScreenShotRaid,%vValue%
+      
+   fLoadFile(vValue, "스크린샷", "에러화면" )
+	if( vValue <> "" )
+		GuiControl, ,GuiBoolScreenShotError,%vValue%
+   
+   
       
 	fLoadFile(vValue, "추가기능", "쫄업정지" )
 	if( vValue <> "" )

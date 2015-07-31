@@ -68,13 +68,15 @@
          fPrintStatus("레이드 전투가 종료되었습니다.")
          IntMonitorRaidConsume++
          GuiControl, ,GuiCountRaidConsume,%IntMonitorRaidConsume%
-         funcCaptureSubScreen("Raid")
+         if( GuiBoolScreenShotRaid = true )
+            funcCaptureSubScreen("Raid")
 			break	
 		}
       if( funcIsExistImage( "4.레이드돌기\레이드_전투종료_종료된레이드.bmp" ) = true ){		
          IntMonitorRaidConsume++
          GuiControl, ,GuiCountRaidConsume,%IntMonitorRaidConsume%
-         funcCaptureSubScreen("Raid")
+         if( GuiBoolScreenShotRaid = true )
+            funcCaptureSubScreen("Raid")
          fPrintStatus("이미 종료된 레이드라고 합니다.")	
          If( funcSearchAndClick( "4.레이드돌기\Button_종료된레이드_확인.bmp" ) = true )
             goto 레이드_입장하기
@@ -88,9 +90,7 @@
 			fPrintStatus("ERROR_전투중_모험_결과대기중 위치찾기로 이동합니다. ")
 			goto 위치찾기
 		}		
-	}	
-	;gosub CaptureScreen
-	
+	}			
 	fPrintStatus("레이트 전투 종료가 확인되었습니다.")		
    
    

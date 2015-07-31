@@ -11,6 +11,9 @@ SetBatchLines, 10ms
 
 funcCaptureErrorScreen()
 {
+   global GuiBoolScreenShotError
+   if( GuiBoolScreenShotError = false )
+      return "skipped screenshot"
 	IfNotExist, ScreenShot\errorScreen
 	{
 		FileCreateDir, ScreenShot\errorScreen
