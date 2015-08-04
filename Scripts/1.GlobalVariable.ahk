@@ -7,7 +7,7 @@ INIT_GLOBAL_VARIABLES:
    SysGet, IntWinBorderWidth, 32 ; 보더Width
    SysGet, IntWinBorderHeight, 33 ; 보더Height
    
-   TICKET_NAME:="쿠폰(7-4): 15071a"
+   TICKET_NAME:="쿠폰(8-1): 15084c"
    
    ;~ Status
    BoolStarted:=false
