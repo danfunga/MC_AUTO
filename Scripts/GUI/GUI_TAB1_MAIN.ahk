@@ -443,166 +443,74 @@ LoadConfig:
 	{
 		FileCreateDir, Config\Skill
 	}
-	fLoadFile( vValue, "팀선택", "모험팀")
-	if( vValue <> "" )
-		GuiControl,Choose,GuiListTeamAdvanture,%vValue%	
-	fLoadFile( vValue, "팀선택", "결투팀")
-	if( vValue <> "" )
-		GuiControl,Choose,GuiListTeamBattle ,%vValue%
-	fLoadFile( vValue, "팀선택", "황금팀")
-	if( vValue <> "" )
-		GuiControl,Choose,GuiListTeamGoldRoom ,%vValue%
-	
-	fLoadFile(vValue, "컨텐츠", "결투장" )
-	if( vValue <> "" )
-		GuiControl, ,GuiCheckContentsBattleField,%vValue%
-	fLoadFile(vValue, "컨텐츠", "황금방" )
-	if( vValue <> "" )
-		GuiControl, ,GuiCheckContentsGoldRoom,%vValue%
-	
-	
-	fLoadFile(vValue, "컨텐츠", "친구소환" )
-	if( vValue <> "" )
-		GuiControl, ,GuiCheckCallFriend,%vValue%
-	;~ GuiControl, , ,%vValue%
-	
+	fLoadConfig( GuiListTeamAdvanture, true, "팀선택", "모험팀" )
    
- 	fLoadFile( vValue, "맵선택", "난이도")
-	if( vValue <> "" )
-		GuiControl,Choose,GuiStageDifficulty,%vValue%	
-
-	fLoadFile(vValue, "맵선택", "다음" )
-	if( vValue <> "" )
-		GuiControl, ,GuiCheckGoNextStage,%vValue%
-	
-	fLoadFile(vValue, "맵선택", "스테이지" )	
-	if( vValue <> "" )
-		GuiControl, Choose,GuiStageList,%vValue%
-      
-   fLoadFile(vValue, "맵선택", "반복" )
-	if( vValue <> "" )
-		GuiControl, ,GuiLoopMap,%vValue%      
+   fLoadConfig( GuiListTeamBattle, true, "팀선택", "결투팀" )
+   
+   fLoadConfig( GuiListTeamGoldRoom, true, "팀선택", "황금팀" )
+   
+   fLoadConfig( GuiCheckContentsBattleField, false, "컨텐츠", "결투장" )
+   fLoadConfig( GuiCheckContentsGoldRoom, false, "컨텐츠", "황금방" )
+   fLoadConfig( GuiCheckCallFriend, false, "컨텐츠", "친구소환" )
+   
+   fLoadConfig( GuiStageDifficulty, true, "맵선택", "난이도" )
+   fLoadConfig( GuiStageList, true, "맵선택", "스테이지" )
+   
+   fLoadConfig( GuiCheckGoNextStage, false, "맵선택", "다음" )
+   
+   fLoadConfig( GuiLoopMap, false, "맵선택", "반복" )
    selectMapEnable( vValue )
-	
-	fLoadFile(vValue, "맵선택", "반복지역" )	
-	if( vValue <> "" )
-		GuiControl, ,LoopMapList,%vValue%
+   fLoadConfig( LoopMapList, false, "맵선택", "반복지역" )
    
-	
-	fLoadFile(vValue, "컨텐츠반복", "황금방돌기" )
-	if( vValue <> "" )
-		GuiControl, ,CountForGoldRoom,%vValue%
-	fLoadFile(vValue, "컨텐츠반복", "결투장돌기" )
-	if( vValue <> "" )
-		GuiControl, ,CountForBattle,%vValue%
-  	fLoadFile(vValue, "컨텐츠반복", "렙업확인" )
-	if( vValue <> "" )
-		GuiControl, ,CountForLevelupCheck,%vValue%
+   fLoadConfig( CountForGoldRoom, false, "컨텐츠반복", "황금방돌기" )
+   fLoadConfig( CountForBattle, false, "컨텐츠반복", "결투장돌기" )
+   fLoadConfig( CountForLevelupCheck, false, "컨텐츠반복", "렙업확인" )
    
-    fLoadFile(vValue, "딜레이", "기본전투딜레이" )
-	if( vValue <> "" )
-		GuiControl, ,GuiDelayForBattle,%vValue%
-	fLoadFile(vValue, "딜레이", "클릭딜레이" )
-	if( vValue <> "" )
-		GuiControl, ,GuiDelayForClickAfter,%vValue%
-	fLoadFile(vValue, "딜레이", "로딩딜레이" )
-	if( vValue <> "" )
-		GuiControl, ,DelayForFileLoading,%vValue%
-
-	fLoadFile(vValue, "장비관리", "장비판매" )
-	if( vValue <> "" )
-		GuiControl, ,GuiCheckSellEquip,%vValue%	
-	fLoadFile(vValue, "장비관리", "판매등급" )
-	if( vValue <> "" )
-		GuiControl,Choose,GuiSellEquipLimit ,%vValue%
+   fLoadConfig( GuiDelayForBattle, false, "딜레이", "기본전투딜레이" )
+   fLoadConfig( GuiDelayForClickAfter, false, "딜레이", "클릭딜레이" )
+   fLoadConfig( DelayForFileLoading, false, "딜레이", "로딩딜레이" )
+   
+   fLoadConfig( GuiCheckSellEquip, false, "장비관리", "장비판매" )
+   fLoadConfig( GuiSellEquipLimit, true, "장비관리", "판매등급" )
+   
       	
-           
-	fLoadFile(vValue, "추가기능", "열쇠명예구입" )
-	if( vValue <> "" )
-		GuiControl, ,GuiWantByKeyPoint,%vValue%
-	
-	fLoadFile(vValue, "추가기능", "열쇠루비구입" )
-	if( vValue <> "" )
-		GuiControl, ,GuiWantByKeyRuby,%vValue%   
-      
- 	fLoadFile(vValue, "추가기능", "레이드모드" )
-	if( vValue <> "" )
-      GuiControl, ,GuiSelectRaidMod,%vValue%   
-      
-      
-   fLoadFile(vValue, "먼저돌기", "황금먼저" )
-	if( vValue <> "" )
-		GuiControl, ,GuiBoolFirstGoldRoom,%vValue%
-   fLoadFile(vValue, "먼저돌기", "결투먼저" )
-	if( vValue <> "" )
-		GuiControl, ,GuiBoolFirstBattleField,%vValue%
-   fLoadFile(vValue, "먼저돌기", "공성먼저" )
-	if( vValue <> "" )
-		GuiControl, ,GuiBooFirstlCastleBattle,%vValue%      
-   fLoadFile(vValue, "먼저돌기", "공성팀" )
-	if( vValue <> "" )
-		GuiControl, Choose,GuilListCatleBattleTeam,%vValue%
-
-   fLoadFile(vValue, "스크린샷", "모험보상" )
-	if( vValue <> "" )
-		GuiControl, ,GuiBoolScreenShotResult,%vValue%
-      
-   fLoadFile(vValue, "스크린샷", "레이드결과" )
-	if( vValue <> "" )
-		GuiControl, ,GuiBoolScreenShotRaid,%vValue%
-      
-   fLoadFile(vValue, "스크린샷", "에러화면" )
-	if( vValue <> "" )
-		GuiControl, ,GuiBoolScreenShotError,%vValue%
-   
+   fLoadConfig( GuiWantByKeyPoint, false, "추가기능", "열쇠명예구입" )
+   fLoadConfig( GuiWantByKeyRuby, false, "추가기능", "열쇠루비구입" )
+   fLoadConfig( GuiSelectRaidMod, false, "추가기능", "레이드모드" )
+   fLoadConfig( GuiBoolStopMonsterLevelUp, false, "추가기능", "쫄업정지" )
    
       
-	fLoadFile(vValue, "추가기능", "쫄업정지" )
-	if( vValue <> "" )
-		GuiControl, ,GuiBoolStopMonsterLevelUp,%vValue%
+   fLoadConfig( GuiBoolFirstGoldRoom, false, "먼저돌기", "황금먼저" )
+   fLoadConfig( GuiBoolFirstBattleField, false, "먼저돌기", "결투먼저" )
+   fLoadConfig( GuiBooFirstlCastleBattle, false, "먼저돌기", "공성먼저" )
+   fLoadConfig( GuilListCatleBattleTeam, true, "먼저돌기", "공성팀" )
+
+
+   fLoadConfig( GuiBoolScreenShotResult, false, "스크린샷", "모험보상" )
+   fLoadConfig( GuiBoolScreenShotRaid, false, "스크린샷", "레이드결과" )
+   fLoadConfig( GuiBoolScreenShotError, false, "스크린샷", "에러화면" )
+   
       
-   fLoadFile(vValue, "쫄작", "쫄작진형" )
-	if( vValue <> "" ){
-		GuiControl, Choose,GuiListTeamPosition,%vValue%
-      gosub GuiListTeamPosition
-   }
-      
-   fLoadFile(vValue, "쫄작", "드래그횟수" )
-	if( vValue <> "" )
-		GuiControl, ,GuiDragCount,%vValue%     
-   fLoadFile(vValue, "쫄작", "원소먼저" )
-	if( vValue <> "" )
-		GuiControl, ,GuiCheckFirstElement,%vValue%           
-	
-        
-
-
-	;~ 명예 보내는 부분 추가
-	fLoadFile(vValue, "명예보내기", "전송횟수" )
-	if( vValue <> "" )
-		GuiControl, ,GuiSendFrindShipCount,%vValue%     
-	fLoadFile(vValue, "명예보내기", "전부보내기" )
-	if( vValue <> "" )
-		GuiControl, ,GuiCheckSendFriendsShipAll,%vValue%     
-	fLoadFile(vValue, "명예보내기", "차단보내기" )
-	if( vValue <> "" )
-		GuiControl, ,GuiCheckSendFriendsShipOnlyGame,%vValue%     
-	
-	fLoadFile(vValue, "명예보내기", "전송후모험" )
-	if( vValue <> "" )
-		GuiControl, ,GuiSendingAfterAdventure,%vValue%     
-	
-	fLoadFile(vValue, "PushBullet", "Token" )
-	if( vValue <> "" )
-		GuiControl, ,GuiPushBulletToken,%vValue%     
-
+   
+   
+   
+   
+	;~ 명예 보내는 부분 추가   
+   fLoadConfig( GuiSendFrindShipCount, false, "명예보내기", "전송횟수" )      
+   fLoadConfig( GuiCheckSendFriendsShipAll, false, "명예보내기", "전부보내기" )      
+   fLoadConfig( GuiCheckSendFriendsShipOnlyGame, false, "명예보내기", "차단보내기" )      
+   fLoadConfig( GuiSendingAfterAdventure, false, "명예보내기", "전송후모험" )      
+   
+   fLoadConfig( GuiPushBulletToken, false, "PushBullet", "Token" )         
+   
+   fLoadConfig( GuiListTeamPosition, true, "쫄작", "쫄작진형" )     
+   gosub GuiListTeamPosition	
+   fLoadConfig( GuiDragCount, false, "쫄작", "드래그횟수" )      
+   fLoadConfig( GuiCheckFirstElement, false, "쫄작", "원소먼저" )      
    loop, 5
    {
       Target =렙업교체%A_index%
-      fLoadFile(vValue, "쫄작", Target )
-      if( vValue <> "" ){
-         GuiControl, ,GuiCheckChangeTeam%A_index%,%vValue%
-      }
+      fLoadConfig( GuiCheckChangeTeam%A_index%, false, "쫄작", Target )      
    }
 	return
 }
@@ -610,12 +518,20 @@ fSaveFile(  vValue, vTitle, vKey  ){
 	IniWrite, %vValue%,  %A_ScriptDir%\Config\config.ini, %vTitle%, %vKey%
 	return
 }
-
-fLoadFile(  ByRef value, vTitle, vKey ){
+fLoadConfig(  ByRef targetGuiValue, isListGui , vTitle, vKey  ){
 	IniRead, value, %A_ScriptDir%\Config\config.ini ,%vTitle%, %vKey%
 	IfEqual value, ERROR
 	{
-			value:=""
+		value:=""
 	}
+   
+   if( value <> "" ){
+      if( isListGui = false ){
+         GuiControl, ,targetGuiValue,%value%   
+      }else{
+         GuiControl, choose ,targetGuiValue,%value%   
+      }
+      
+   }
 	return
 }
