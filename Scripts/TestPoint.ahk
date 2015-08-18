@@ -36,6 +36,14 @@
 !F8::
 {
 	setUpBeforeStart()
+   if( funcSearchAndClickFolder( "4.레이드돌기\일시정지" ) = true ){
+            funcSearchAndClickFolder("4.레이드돌기\레이드복귀" )  
+                           funcSearchAndClickFolder("4.레이드돌기\예" )     
+            
+                  funcWaitingForLoad()
+
+            goto 레이드_입장하기
+         }
    ;fPrintStatus( funcCaptureErrorScreen() )
 ;   teamName=3팀
  ;  funcChoiceTeam( teamName )

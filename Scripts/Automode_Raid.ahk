@@ -88,7 +88,15 @@
 			fPrintStatus("30분간 기다렸으나 전투가 종료 되지 않습니다.")	
 			fPrintStatus("Error로 판단합니다.")				
 			fPrintStatus("ERROR_전투중_모험_결과대기중 위치찾기로 이동합니다. ")
-			goto 위치찾기
+         if( funcSearchAndClickFolder( "4.레이드돌기\일시정지" ) = true ){
+            funcSearchAndClickFolder("4.레이드돌기\레이드복귀" )     
+                           funcSearchAndClickFolder("4.레이드돌기\예" )     
+   
+                  funcWaitingForLoad()
+
+            goto 레이드_입장하기
+         }
+         goto 위치찾기
 		}		
 	}			
 	fPrintStatus("레이트 전투 종료가 확인되었습니다.")		
