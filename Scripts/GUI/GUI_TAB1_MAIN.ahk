@@ -94,7 +94,7 @@ INIT_TAB_MAIN:
          
          Gui, Add, CheckBox, xp+10 yp+18 section checked vGuiBoolScreenShotResult, 보상         
          Gui, Add, CheckBox, x+20  yp checked vGuiBoolScreenShotRaid, 레이드
-         Gui, Add, CheckBox, x+20  yp checked disabled vGuiBoolScreenShotError, 에러
+         Gui, Add, CheckBox, x+20  yp checked vGuiBoolScreenShotError, 에러
 			;~ Gui, Add, Edit, x10 yp+16 w20 h15 right vGui1LevelHappySave, 3
 		   ;~ Gui, Add, Text, x+0 yp+2 w40 h15 left, 개 유지
 		   ;~ Gui, Add, CheckBox, x+5 yp+2 w70 h15  vGui30LevelHappySell, 만렙판매
@@ -200,7 +200,9 @@ funcChangeTab1Status(){
 	
    
    GuiControl,  disable%BoolStarted%, GuiBoolScreenShotResult
-	GuiControl,  disable%BoolStarted%, GuiBoolScreenShotRaid          
+	GuiControl,  disable%BoolStarted%, GuiBoolScreenShotRaid         
+   GuiControl,  disable%BoolStarted%, GuiBoolScreenShotError         
+   
 	
 	GuiControl,  disable%BoolStarted%, GuiDelayForBattle
    GuiControl,  disable%BoolStarted%, GuiDelayForClickAfter

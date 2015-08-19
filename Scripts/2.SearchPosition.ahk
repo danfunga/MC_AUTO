@@ -1,7 +1,11 @@
 위치찾기:
  
 checkExit()
-fPrintStatus( funcCaptureErrorScreen() )
+if( GuiBoolScreenShotError = true )  {
+   fPrintStatus("위치 찾기 첫 페이지")
+   fPrintStatus( funcCaptureErrorScreen() )
+}
+
 매크로시작:
 {
    fPrintTitle("위치  찾기")
@@ -156,8 +160,10 @@ fPrintStatus( funcCaptureErrorScreen() )
       goto, 레이드_전투_종료
    }
 
-   fPrintStatus("ERROR_어디인지 알수 없습니다")
-   fPrintStatus( funcCaptureErrorScreen() )
+   if( GuiBoolScreenShotError = true )  {
+      fPrintStatus("ERROR_어디인지 알수 없습니다")
+      fPrintStatus( funcCaptureErrorScreen() )
+   }
    funcSendESC()
 
    goto 위치찾기
