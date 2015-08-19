@@ -19,7 +19,7 @@ INIT_MCAUTO_GUI:
 
 	funcGuiLoadCharactors()
 	gosub LoadConfig
-    gosub LoadSkillConfig
+   gosub LoadSkillConfig
 	gosub LoadAutoSkillConfig
 	
 	;~ guiControl, ,GuiAutoTab, |Main|모험스킬||기타기능|

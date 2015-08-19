@@ -16,10 +16,26 @@ BUTTONSAVE:
 	GuiControl,chooseString,GuiSkillFiles,%fileName%.ini
 	
 	fPrintResult( "스킬 설정을 적용하였습니다." )
-	MsgBox, ,,SKill 설정을 저장하였습니다.,0.5
+	MsgBox, ,,SKill 설정을 저장하였습니다.,0.5   
    
-   funcGuiLoadConfigList(fileName)
- 
+   guiControlGet, tempString,,GuiSkillFileName
+   fSaveFile(tempString,   "스킬파일", "파일이름" )
+   
+   funcGuiLoadConfigList(fileName)  
+	return
+}
+BUTTONL:
+{
+	fPrintTitle( "설정 읽기" )
+	fPrintStatus( "설정 파일을을 불러옵니다." )
+   
+	gosub LoadConfig 
+   fLoadConfig( GuiSkillFileName, false, "스킬파일", "파일이름" )
+   guiControlGet, tempString,,GuiSkillFileName
+   funcGuiLoadConfigList( tempString )
+   
+   gosub LoadSkillConfig
+	MsgBox, ,,SKill(%configFileName%) 설정을 불러왔습니다..,0.5
 	return
 }
 BUTTONLOAD:
@@ -27,11 +43,12 @@ BUTTONLOAD:
 	fPrintTitle( "스킬로드" )
 	fPrintStatus( "스킬 파일을 불러옵니다." )
 	gosub LoadSkillConfig
-	guiControlGet, fileName,,GuiSkillFiles
-	
+	guiControlGet, fileName,,GuiSkillFiles	
 	StringReplace,fileName,fileName,.ini
 	GuiControl,,GuiSkillFileName,%filename%	
-
+   fSaveFile(filename,   "스킬파일", "파일이름" )
+   
+   
 	MsgBox, ,,SKill(%filename%) 설정을 불러왔습니다..,0.5
 	return
 }

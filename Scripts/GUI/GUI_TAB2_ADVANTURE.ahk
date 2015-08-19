@@ -91,19 +91,22 @@ INIT_TAB_ADVANTURE:
     advantureSkillGuiEnable(false)
     GoldRoomSkillGuiEnable( false )
     funcCharactorGuiUpdate()
-    funcGuiLoadConfigList( "default" )
+    fLoadConfig( GuiSkillFileName, false, "스킬파일", "파일이름" )
+    guiControlGet, tempString,,GuiSkillFileName
+    funcGuiLoadConfigList( tempString )
 
     return
 }
 
 funcGuiLoadConfigList( choice ){		
+   
 	Loop, %A_ScriptDir%\Config\Skill\*.ini
    {		
         StringReplace, configName, A_LoopFileName, .ini, , All
 		SkillFileList=%SkillFileList%|%configName%
    }
 	GuiControl,,GuiSkillFiles,%SkillFileList%
-	GuiControl,chooseString,GuiSkillFiles, %choice%
+   GuiControl,chooseString,GuiSkillFiles, %choice%
 	return
 }
 funcCharactorGuiUpdate(){

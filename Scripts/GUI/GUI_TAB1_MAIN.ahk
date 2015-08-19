@@ -9,7 +9,7 @@ INIT_TAB_MAIN:
       
       Gui, Add, CheckBox	   , xs 	   y+5    Checked vGuiCheckCallFriend, 친구소환
       Gui, Add, CheckBox      , x+5    y      vGuiCheckGoNextStage, 다음      
-      Gui, Add, CheckBox      , xs 	   y+5    Checked gSelectGuiLoopMap vGuiLoopMap ,반복		         
+      Gui, Add, CheckBox      , xs 	   y+5    Checked vGuiLoopMap ,반복		         
       Gui,font,s7
       Gui, Add, Edit          , x+0    yp-1   w75 h15 right vLoopMapList, 6-6|7-9            
       Gui,font,
@@ -136,8 +136,14 @@ INIT_TAB_MAIN:
 			Gui, Add, CheckBox, x13 yp+15 w70 h15  Disabled vGuiCheckSellEquip, 장비 판매
 			Gui, Add, DropDownList, x+10 yp-3 w40 h70 Disabled Choose1 vGuiSellEquipLimit, 1성|2성|3성|4성
 		}
-
-		
+      
+      {
+			gui,font,CPurple
+			Gui, Add, GroupBox, x2 y250 w140 h45  ,설정(미)
+			gui,font,
+         Gui, Add, DropDownList, xp+6  yp+15 section w90 h100 vGuiConfigFiles       
+         Gui, Add, Button, x+10 ys h20  , L
+		}
 		{
 			gui,font,CPurple
 			Gui, Add, GroupBox, x145 y215 w125 h80  , 딜레이 설정
@@ -154,19 +160,20 @@ INIT_TAB_MAIN:
 			Gui, Add, Text, xp y+7 wp hp left, 초
 			Gui, Add, Text,  xp y+7 wp hp left, 초
 		}
-		{
-
-         
-         ;Gui, Add, Edit, xp yp+18 w20 h15 Disabled right vGuiRaidMinKey, 2			
-			;Gui, Add, Text, x+5 yp+2  h15 , 개 시작 ->
-			;Gui, Add, Edit, x+5 yp-2 w20 h15 Disabled right vGuiRaidMaxKey, 6
-			;Gui, Add, Text, x+5 yp+2  h15 , 개 -> 모험
-		}
-			;~ gui,font,CDefault, 맑은고딕
-			;~ Gui, Add, Text, x+15 yp+8  hp , Made By Mukchik.
-			;~ Gui, Add, Text, x+15 yp+8  hp , MC_Auto Yosemite.
-			;~ Gui, Font, , 
+      
+      funcLoadConfigFileList()
+      
 	return
+}
+funcLoadConfigFileList( ){		
+   Loop, %A_ScriptDir%\Config\*.ini
+   {		
+     StringReplace, configName, A_LoopFileName, .ini, , All
+     configFileList=%configFileList%|%configName%
+   }
+   GuiControl,,GuiConfigFiles,%configFileList%
+   GuiControl,chooseString,GuiConfigFiles, config
+   return
 }
 funcChangeTab1Status(){	
 	global BoolStarted
@@ -199,13 +206,12 @@ funcChangeTab1Status(){
    GuiControl,  disable%BoolStarted%, GuiDelayForClickAfter
    GuiControl,  disable%BoolStarted%, DelayForFileLoading
    
+   GuiControl, disable%BoolStarted%, GuiStageDifficulty   
+   GuiControl,  disable%BoolStarted%, GuiStageList
+   GuiControl,  disable%BoolStarted%, LoopMapList     
    if( BoolStarted ){
-      GuiControl, disable%BoolStarted%, GuiStageDifficulty   
-      GuiControl,  disable%BoolStarted%, GuiStageList
-      GuiControl,  disable%BoolStarted%, LoopMapList     
       goSub DisableLevelupCheckList   
    }else {
-      gosub SelectGuiLoopMap
       goSub EnableLevelupCheckList
    }   
 	GuiControl,  disable%BoolStarted%, GuiWantByKeyPoint
@@ -320,21 +326,6 @@ EnableLevelupCheckList:
 	return
 }
 
-SelectGuiLoopMap:
-{	
-    guiControlGet, booleanValue,,GuiLoopMap
-    selectMapEnable( booleanValue )
-    return
-}
-selectMapEnable( boolEnable )
-{
-   GuiControl, Disable%boolEnable%,GuiStageDifficulty
-   GuiControl, Disable%boolEnable%,GuiStageList
-   
-   GuiControl, Enable%boolEnable%,LoopMapList
-   return	
-}
-
 
 GuiListTeamPosition:
 {
@@ -408,6 +399,7 @@ SaveConfig:
    fSaveFile(GuiBoolScreenShotRaid,    "스크린샷", "레이드결과" )
    fSaveFile(GuiBoolScreenShotError,   "스크린샷", "에러화면" )
    
+   fSaveFile(GuiSkillFileName,   "스킬파일", "파일이름" )
    
    fSaveFile(GuiListTeamPosition, "쫄작", "쫄작진형" )
    fSaveFile(GuiDragCount, "쫄작", "드래그횟수" )
@@ -459,7 +451,7 @@ LoadConfig:
    fLoadConfig( GuiCheckGoNextStage, false, "맵선택", "다음" )
    
    fLoadConfig( GuiLoopMap, false, "맵선택", "반복" )
-   selectMapEnable( vValue )
+   ;selectMapEnable( vValue )
    fLoadConfig( LoopMapList, false, "맵선택", "반복지역" )
    
    fLoadConfig( CountForGoldRoom, false, "컨텐츠반복", "황금방돌기" )
@@ -515,11 +507,16 @@ LoadConfig:
 	return
 }
 fSaveFile(  vValue, vTitle, vKey  ){
-	IniWrite, %vValue%,  %A_ScriptDir%\Config\config.ini, %vTitle%, %vKey%
+   guiControlGet, tempFileName,,GuiConfigFiles
+   targetFileName = %A_ScriptDir%\Config\%tempFileName%.ini
+	IniWrite, %vValue%,  %targetFileName%, %vTitle%, %vKey%
 	return
 }
 fLoadConfig(  ByRef targetGuiValue, isListGui , vTitle, vKey  ){
-	IniRead, value, %A_ScriptDir%\Config\config.ini ,%vTitle%, %vKey%
+
+   guiControlGet, tempFileName,,GuiConfigFiles
+   targetFileName = %A_ScriptDir%\Config\%tempFileName%.ini
+   IniRead, value, %targetFileName% ,%vTitle%, %vKey%
 	IfEqual value, ERROR
 	{
 		value:=""
