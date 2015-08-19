@@ -139,7 +139,7 @@ INIT_TAB_MAIN:
       
       {
 			gui,font,CPurple
-			Gui, Add, GroupBox, x2 y250 w140 h45  ,설정(미)
+			Gui, Add, GroupBox, x2 y250 w140 h45  ,설정
 			gui,font,
          Gui, Add, DropDownList, xp+6  yp+15 section w90 h100 vGuiConfigFiles       
          Gui, Add, Button, x+10 ys h20  , L
