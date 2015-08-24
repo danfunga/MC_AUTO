@@ -23,7 +23,7 @@
    ;}else{
       ;strStageName:=GuiStageList
    ;}
-
+functionByKeyByPoint()
    ;boolMoonIsland := funcIsMoonIsland( strStageName )
    ;msgbox, StageName(%strStageName%) boolMoonIsland = %boolMoonIsland%
    

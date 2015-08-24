@@ -76,8 +76,9 @@ functionByKeyByPoint()
                            GuiControl, ,GuiUsingPointCount,%IntMonitorPointForByKey%
                            funcSendESC()                     
                            fPrintResult("명예 100으로 열쇠를 구입했습니다.")                    
-                        }else{
-                           fPrintResult("ERROR_확인용- 구매했으나 구매완료가 안뜨는듯")                    
+                        }else{                           
+                           fPrintResult("ERROR_확인용- 구매했으나 구매완료가 안뜨는듯")     
+                           fPrintStatus( funcCaptureErrorScreen() )                           
                            funcSendESC()                                               
                         }
                   }else{

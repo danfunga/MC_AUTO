@@ -106,7 +106,7 @@ if( funcIsExistImage("전투입장\명예최대.bmp") = true ){
 			fPrintStatus("최대 명예이지만 전투를 시작합니다.")
       }
    }
-   if( funcSearchAndClick("전투입장\결장키부족.bmp") = true or  funcSearchAndClick("전투입장\결장마감.bmp") = true ){
+   if( funcSearchAndClick("전투입장\결장키부족.bmp") = true or  funcSearchAndClickFolder("전투입장\결장마감") = true ){
 		BoolNeedBattleStage:= false
 		funcSendESC()
 		If( funcIsExistImage( "전투입장\Button_전투_시작하기.bmp"  ) = true ){
