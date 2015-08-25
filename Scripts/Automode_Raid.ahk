@@ -43,7 +43,7 @@
    funcChoicePlayerSkill( 2 )
    
 	If( funcSearchAndClick( "시작마을\모험입장버튼.bmp" ) = true ){      
-      if( funcSearchAndClickFolder( "4.레이드돌기\버튼_레이드입장" ) = true )      
+      if( funcSearchAndClickFolder( "4.레이드돌기\버튼_레이드입장" ) = true ){
          goto 레이드_시작화면
       }      
    }
