@@ -38,7 +38,8 @@ if( GuiBoolScreenShotError = true )  {
       funcSearchAndClickFolder("10.팝업및이벤트\오류팝업확인" )     
       goto 위치찾기
    }
- 
+   
+   
    fPrintStatus("모험입장 화면 인지 확인합니다.")
    If( funcIsExistImage( "2.모험돌기\모험지도\모험입장화면.bmp" ) = true ){      
       goto, 모험입장
@@ -147,11 +148,12 @@ if( GuiBoolScreenShotError = true )  {
       goto, 시작마을
    }
    fPrintStatus("공지 화면인지 찾기.")
-   if( funcIsExistImageFolder( "1.게임실행\공지닫기" ) = true or funcIsExistImageFolder( "1.게임실행\입장터치" ) = true ){
+   if( funcIsExistImageFolder( "1.게임실행\공지닫기" ) = true 
+      or funcIsExistImageFolder( "1.게임실행\도우미확인" ) = true
+      or funcIsExistImageFolder( "1.게임실행\입장터치" ) = true ){
       goto 공지사항
    }		
 
-   
     
    if( funcIsExistImage(  "4.레이드돌기\status_레이드_전투중.bmp" ) = true ){		
       goto 레이드모드_전투중
