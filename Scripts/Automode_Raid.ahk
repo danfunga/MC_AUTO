@@ -57,7 +57,7 @@
  {
 	fPrintStatus("5초씩 지속적으로 종료를 확인합니다.")
    
-   total := 240*5
+   total := 360*5
    
 	loop{          
       during:=a_index*5      
