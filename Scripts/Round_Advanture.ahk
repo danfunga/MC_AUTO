@@ -199,10 +199,8 @@ funcIsMoonIsland( strInputStage )
 }
 
 모험시작_모험시작:
-{	
-	fPrintTitle("모험  시작")
-	fPrintStatus("모험을 시작합니다.")
-	
+   fPrintTitle("모험  시작")
+	fPrintStatus("모험을 시작합니다.")	
 	/*
 	----------------------------------------------------------------
 		렙업 확인을 통해서 쫄업이 확인 되었을 경우 종료하자
@@ -238,12 +236,14 @@ funcIsMoonIsland( strInputStage )
       }   
    }
    
+   모험시작_모험시작_버튼클릭:
 	if ( funcSearchAndClick("2.모험돌기\Button_모험_시작하기.bmp") = true ){
 			goto, 모험시작_전투시작체크
 	}
 	fPrintStatus("ERROR_모험시작_모험시작중 위치찾기로 이동합니다. ")
-	goto 위치찾기
-}
+	goto 위치찾기   
+return
+
 모험시작_전투시작체크:
 {	
    fPrintTitle("시작 체크")	
@@ -263,6 +263,11 @@ funcIsMoonIsland( strInputStage )
 		fPrintStatus("열쇠가 부족한 상황입니다.")
 		goto 모험시작_모험키부족
 	}	
+   if ( funcIsExistImage("2.모험돌기\Button_모험_시작하기.bmp") = true ){
+      fPrintStatus("INFO_모험시작하기 버튼이 안눌렸나 보다 다시 누르자")
+		goto 모험시작_모험시작_버튼클릭
+	}
+   
 	if( GuiAdvantureAutoSkill = true ){
 		fPrintStatus("매크로 자동 스킬 시작하였습니다. 전투 시작을 기다립니다.")		
 		if( funcWaitAndReturn(  "전투중\통합전투중" ) = true ){

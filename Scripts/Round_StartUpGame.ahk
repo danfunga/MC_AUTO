@@ -22,6 +22,8 @@
    fPrintStatus("출석 체크 여부를 확인합니다.")	
    funcSearchAndClickFolder( "1.게임실행\출석체크" )
    
+   fPrintStatus("이벤트 팝업을 닫습니다.")	
+   funcSearchAndClickFolder( "1.게임실행\이벤트_팝업" )
    
    fPrintStatus("친구 사용에 따른 도우미를 확인합니다...")	
    funcSearchAndClickFolder( "1.게임실행\도우미확인" )
