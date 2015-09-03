@@ -8,10 +8,11 @@
       플레이어 스킬 확인
       ------------------------------------------------------------
    */
+   goto 레이드모드시작
    ;funcChoicePlayerSkill( 1 )
    ;funcChoicePlayerSkill( 2 )
-   ;funcChoicePlayerSkill( 3 )
-   goto 렙업_쫄확인_통합
+   
+   ;goto 렙업_쫄확인_통합
    
    return
 } 
@@ -23,7 +24,8 @@
    ;}else{
       ;strStageName:=GuiStageList
    ;}
-functionByKeyByPoint()
+   funcChoicePlayerSkill( 2 )
+
    ;boolMoonIsland := funcIsMoonIsland( strStageName )
    ;msgbox, StageName(%strStageName%) boolMoonIsland = %boolMoonIsland%
    
@@ -36,14 +38,8 @@ functionByKeyByPoint()
 !F8::
 {
 	setUpBeforeStart()
-   if( funcSearchAndClickFolder( "4.레이드돌기\일시정지" ) = true ){
-            funcSearchAndClickFolder("4.레이드돌기\레이드복귀" )  
-                           funcSearchAndClickFolder("4.레이드돌기\예" )     
-            
-                  funcWaitingForLoad()
-
-            goto 레이드_입장하기
-         }
+   funcChoicePlayerSkill( 3 )
+   
    ;fPrintStatus( funcCaptureErrorScreen() )
 ;   teamName=3팀
  ;  funcChoiceTeam( teamName )
