@@ -4,6 +4,7 @@ funcReceiveAchievement(){
    global INT_PREVENT_ACHIEVELOOP	
    global GuiWantByKeyPoint	
    global IntMonitorReceiveArcheivementCount
+   
    fPrintTitle("업적  수령")
 	fPrintStatus("달성한 업적을 수령합니다")
    
@@ -12,42 +13,44 @@ funcReceiveAchievement(){
       boolNeedCheckAchievement:= false
       return
    }
-         
-	If( funcSearchAndClick( "시작마을\모두받기.bmp"  ) = true  or funcSearchAndClick( "시작마을\모두받기1.bmp"  ) = true){
-		fPrintStatus("수령을 확인합니다")					
-		if( funcSearchAndClick( "시작마을\receiveConfirm.bmp" ) = true ){
-               IntMonitorReceiveArcheivementCount++
-               GuiControl, ,GuiReceivePointCount,%IntMonitorReceiveArcheivementCount%
-               fPrintStatus("수령을 확인하였습니다.")					
-		}else{
-               fPrintStatus("명예 수령에 실패한것으로 보입니다.")		
-			funcSendESC()
-               fPrintStatus("명예 수령을 중단합니다.")		
-               funcSendESC()
-               if( GuiWantByKeyPoint = true ){
-                  fPrintStatus("열쇠 구입 설정이 되어 있으니 명예로 열쇠를 구입하겠습니다.")		
-                     if( INT_PREVENT_ACHIEVELOOP < 5 ){
-                        INT_PREVENT_ACHIEVELOOP++
-                         fPrintStatus("명예로 열쇠를 구입하겠습니다.")		
-                         functionMoveTown()            
-                         functionByKeyByPoint()
-                      }else{
-                           fPrintResult("ERROR_무한루프를 대비하기 위해 일단 명예 수령을 멈춥니다.")		
-                           boolNeedCheckAchievement:= false
-                           return
-                        }
-                }else{
-                   boolNeedCheckAchievement:= false
-                   return
-                }
-		}
-		funcSendESC()
-	}else{
+   if( funcSearchAndClickFolder("8.업적확인\버튼_모두받기") = false ) {
       boolNeedCheckAchievement:= false
       fPrintStatus( funcCaptureErrorScreen() )
 		fPrintResult("모두받기 버튼을 찾지 못하였습니다.")
       funcSendESC()
-	}
+      return
+   }        
+	fPrintStatus("수령을 확인합니다")					
+	if( funcSearchAndClickFolder( "8.업적확인\버튼_수령확인" ) = true ){
+      IntMonitorReceiveArcheivementCount++
+      GuiControl, ,GuiReceivePointCount,%IntMonitorReceiveArcheivementCount%
+      fPrintStatus("수령을 확인하였습니다.")					
+      funcSendESC()
+      return
+	}else{
+      fPrintStatus("명예 수령에 실패한것으로 보입니다.")		
+		funcSendESC()
+      
+      fPrintStatus("명예 수령을 중단합니다.")		
+      funcSendESC()
+      if( GuiWantByKeyPoint = true ){
+         fPrintStatus("열쇠 구입 설정이 되어 있으니 명예로 열쇠를 구입하겠습니다.")		
+         if( INT_PREVENT_ACHIEVELOOP < 5 ){
+            INT_PREVENT_ACHIEVELOOP++
+            fPrintStatus("명예로 열쇠를 구입하겠습니다.")		
+            functionMoveTown()            
+            functionByKeyByPoint()
+            return
+         }else{
+            fPrintResult("ERROR_무한루프를 대비하기 위해 일단 명예 수령을 멈춥니다.")		
+            boolNeedCheckAchievement:= false
+            return
+         }
+      }else{
+         boolNeedCheckAchievement:= false
+         return
+      }
+   }	
 }
 
 functionMoveTown()

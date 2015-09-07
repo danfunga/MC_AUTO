@@ -496,6 +496,7 @@ return
 	loop,5
 	{
 		if( funcIsExistImageFolder("10.팝업및이벤트\업적확인창"  ) = true ){
+         boolNeedCheckAchievement:=true
 			If( funcSearchAndClickFolder("10.팝업및이벤트\업적확인") = true ){
 				vLine = 업적확인을 수행합니다. %A_Index%회
 				fPrintStatus(vLine)
