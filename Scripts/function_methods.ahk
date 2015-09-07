@@ -4,9 +4,16 @@ funcReceiveAchievement(){
    global INT_PREVENT_ACHIEVELOOP	
    global GuiWantByKeyPoint	
    global IntMonitorReceiveArcheivementCount
-   fPrintTitle("명예  수령")
+   fPrintTitle("업적  수령")
 	fPrintStatus("달성한 업적을 수령합니다")
-	 If( funcSearchAndClick( "시작마을\모두받기.bmp"  ) = true  or funcSearchAndClick( "시작마을\모두받기1.bmp"  ) = true){
+   
+   fPrintStatus("일반 업적을 수령합니다.")
+   if( funcSearchAndClickFolder("8.업적확인\버튼_일반업적") = false ) {
+      boolNeedCheckAchievement:= false
+      return
+   }
+         
+	If( funcSearchAndClick( "시작마을\모두받기.bmp"  ) = true  or funcSearchAndClick( "시작마을\모두받기1.bmp"  ) = true){
 		fPrintStatus("수령을 확인합니다")					
 		if( funcSearchAndClick( "시작마을\receiveConfirm.bmp" ) = true ){
                IntMonitorReceiveArcheivementCount++

@@ -6,7 +6,7 @@
    { 
 	     if( boolNeedCheckAchievement = true ){
 			fPrintStatus("업적이 있는지 확인합니다.")
-			 if( funcSearchAndClick("시작마을\업적아이콘.bmp") = true ) {
+			if( funcSearchAndClickFolder("8.업적확인\상태_업적있음") = true ) {
 				funcReceiveAchievement()
 			}else{
 				fPrintResult("업적이 없습니다.")
