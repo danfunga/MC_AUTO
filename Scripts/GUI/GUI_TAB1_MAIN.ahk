@@ -13,7 +13,7 @@ INIT_TAB_MAIN:
       Gui,font,s7
       Gui, Add, Edit          , x+0    yp-1   w75 h15 right vLoopMapList, 6-6|7-9            
       Gui,font,
-		Gui, Add, DropDownList	, xs+65 	ys w55 	h200 Choose2  vGuiStageList, 7-9|6-6|8-1|7-10|6-10|5-10|4-10|3-10|2-10|1-10|7-5|9-1|5-1|6-5|3-5|7-1|1-2|3-9|8-15         
+		Gui, Add, DropDownList	, xs+65 	ys w55 	h200 Choose2  vGuiStageList, 7-9|6-6|8-1|8-15|7-1|1-10|2-10|3-10|4-10|5-10|6-10|7-10|3-5|3-6|4-5|4-6|5-5|5-6|
 	} 
 	{
 		Gui,font,CPurple
