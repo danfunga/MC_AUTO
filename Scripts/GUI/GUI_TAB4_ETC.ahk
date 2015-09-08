@@ -111,24 +111,24 @@ BUTTON보내기:
 
 			funcSendClickFixed( SEND_HONOR_BUTTON_X ,SEND_HONOR_BUTTON_Y_%a_index%, true)
 			fPrintStatus("명예 버튼 클릭")
-			if( funcIsExistImage( "7.명예보내기\button_명예선물.png" ) = false ){
+			if( funcIsExistImageFolder( "7.명예보내기\버튼_명예선물" ) = false ){
 					continue
 			}
 			if( GuiCheckSendFriendsShipOnlyGame = true ) {
-				if( funcIsExistImage( "7.명예보내기\status_수신차단사용자.png" ) = true  ){
+				if( funcIsExistImageFolder( "7.명예보내기\상?_수신차단" ) = true  ){
 					IntMonitorSendingHonorCount++
 					intCountTemp++
 					GuiControl, ,GuiSendHonorMoniotor,%IntMonitorSendingHonorCount%
                
                stringTitle=%intCountTemp% / %intCountTry%
 					funcPrintSubTitle(stringTitle)
-					funcSearchAndClick( "7.명예보내기\button_명예선물.png" )					
+					funcSearchAndClickFolder( "7.명예보내기\버튼_명예선물" )					
 				}else{
 					fPrintStatus("차단 하지 않은 사용자입니다.")
 					funcSendESC()	
 				}
 			}else if( GuiCheckSendFriendsShipAll = true ){
-				funcSearchAndClick( "7.명예보내기\button_명예선물.png" )								
+				funcSearchAndClickFolder( "7.명예보내기\버튼_명예선물" )								
 			}			
 			if( intCountTemp >= GuiSendFrindShipCount )
 				break			
@@ -147,22 +147,27 @@ BUTTON보내기:
 	return
 }
 gotoKakaoFriends(){
-	if( funcIsExistImage( "7.명예보내기\status_카톡친구선택.png" ) = true  ){
-		funcSearchAndClick( "7.명예보내기\button_접속일Up.png" )
+
+   if( funcIsExistImageFolder("7.명예보내기\상태_카톡친구선택" ) = true ){
+		funcSearchAndClickFolder( "7.명예보내기\버튼_접속일업" )
 		return
-	}else if( funcIsExistImage( "10.현재상태체크\page_친구관리.png" ) = true  ){
-		if ( funcSearchAndClick("7.명예보내기\button_카톡친구.png") = true ){
-			funcSearchAndClick( "7.명예보내기\button_접속일Up.png" )
+	}else if( funcIsExistImageFolder( "7.명예보내기\상태_친구관리" ) = true  ){
+		if ( funcSearchAndClickFolder("7.명예보내기\버튼_카톡친구") = true ){
+			funcSearchAndClickFolder( "7.명예보내기\버튼_접속일업" )
 			return
 		}
 	}else{
 		functionMoveTown()
 	}
 	
-	if ( funcSearchAndClick("7.명예보내기\button_친구.png") = true ){
-		if ( funcSearchAndClick("7.명예보내기\button_카톡친구.png") = true ){
-			funcSearchAndClick( "7.명예보내기\button_접속일Up.png" )
-			return
+	if ( funcSearchAndClickFolder("7.명예보내기\버튼_소셜") = true ){
+		if ( funcSearchAndClickFolder("7.명예보내기\버튼_친구") = true ){
+			if( funcIsExistImageFolder( "7.명예보내기\상태_친구관리" ) = true  ){
+            if ( funcSearchAndClickFolder("7.명예보내기\버튼_카톡친구") = true ){
+               funcSearchAndClickFolder( "7.명예보내기\버튼_접속일업" )
+               return
+            }
+         }
 		}
 	}	
 	fPrintStatus("카카오톡 친구 페이지로 이동을 실패하였습니다. ")
