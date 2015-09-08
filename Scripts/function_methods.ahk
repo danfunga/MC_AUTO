@@ -11,6 +11,8 @@ funcReceiveAchievement(){
    fPrintStatus("일반 업적을 수령합니다.")
    if( funcSearchAndClickFolder("8.업적확인\버튼_일반업적") = false ) {
       boolNeedCheckAchievement:= false
+      fPrintResult("일반 업적이 없습니다. 업적 받기를 종료합니다.")
+      funcSendESC()
       return
    }
    if( funcSearchAndClickFolder("8.업적확인\버튼_모두받기") = false ) {

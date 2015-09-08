@@ -7,14 +7,8 @@
       ------------------------------------------------------------
       플레이어 스킬 확인
       ------------------------------------------------------------
-   */
-    if( funcSearchAndClickFolder("8.업적확인\상태_업적있음") = true ) {
-				funcReceiveAchievement()
-			}else{
-				fPrintResult("업적이 없습니다.")
-
-			}
-   ;goto 레이드모드시작
+   */    
+   goto 레이드모드시작
    ;funcChoicePlayerSkill( 1 )
    ;funcChoicePlayerSkill( 2 )
    
