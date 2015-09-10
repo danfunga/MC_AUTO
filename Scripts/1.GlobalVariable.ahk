@@ -1,14 +1,11 @@
 INIT_GLOBAL_VARIABLES:
 {
-
    ;~ Application Default
    ACTIVE_ID:="BlueStacks App Player"
    SysGet, IntWinCapHeight, 4 ; Ä¸¼ÇHeight
    SysGet, IntWinBorderWidth, 32 ; º¸´õWidth
    SysGet, IntWinBorderHeight, 33 ; º¸´õHeight
-   
-   TICKET_NAME:="ÄíÆù(8-1): 15084c"
-   
+        
    ;~ Status
    BoolStarted:=false
    BoolPaused:=false
@@ -21,21 +18,7 @@ INIT_GLOBAL_VARIABLES:
    BoolNeedCastleBattle:=false
    BoolNeedRaidBattle:=false
    
-   
-   ;~ Monitoring
-   IntMonitorPointForByKey:=0
-   IntMonitorNoLevelUpCheckCount:=0
-   IntMonitorTotalStageCount:=0
-   IntMonitorStageClearCount:=0
-   IntMonitorStageFailCount:=0
-   IntMonitorBattleWinCount:=0
-   IntMonitorBattleLoseCount:=0
-   IntMonitorMonsterLevelUpCount:=0
-   IntMonitorGoldRoomClearCount:=0
-   IntMonitorReceiveArcheivementCount:=0
-   
-   IntMonitorRaidConsume:=0
-   IntMonitorRaidPrize:=0
+   gosub INIT_MONITORING
    
    
    IntMonitorSendingHonorCount:=0
@@ -60,9 +43,25 @@ INIT_GLOBAL_VARIABLES:
     
    gosub HeroPositionInit
    
+   
    return
 }
-
+INIT_MONITORING:   
+   ;~ Monitoring
+   IntMonitorPointForByKey:=0
+   IntMonitorNoLevelUpCheckCount:=0
+   IntMonitorTotalStageCount:=0
+   IntMonitorStageClearCount:=0
+   IntMonitorStageFailCount:=0
+   IntMonitorBattleWinCount:=0
+   IntMonitorBattleLoseCount:=0
+   IntMonitorMonsterLevelUpCount:=0
+   IntMonitorGoldRoomClearCount:=0
+   IntMonitorReceiveArcheivementCount:=0
+   
+   IntMonitorRaidConsume:=0
+   IntMonitorRaidPrize:=0
+return   
 setUpBeforeStart(){
 	Gui, Submit, NoHide
    

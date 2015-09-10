@@ -30,31 +30,33 @@ INIT_TAB_MAIN:
 	}
 	{
 		Gui,font,CPurple
-		Gui, Add, GroupBox, x273 y30  w230 h145 , 게임기록
+		Gui, Add, GroupBox, x273 y30  w230 h145 section , 게임기록
 		gui,font,
 		
-      Gui, Add, Text, xp+10   yp+18 section w65   h15 , 모험총횟수:
+      Gui, Add, Button, xp+70 yp-5  w50 h20  g기록리셋하기 , 리셋
+      
+      Gui, Add, Text, xs+10   ys+18 w65   h15 , 모험총횟수:
 		Gui, Add, Text, xp      y+2   wp    hp   , 모험클리어:
 		Gui, Add, Text, xp      y+2   wp    hp  , 모험   실패:
 		Gui, Add, Text, xp      y+10  wp    hp  , 쫄작   완료:
 		Gui, Add, Text, xp      y+2   wp    hp  , 업적   수령:
       Gui, Add, Text, xp      y+10  wp    hp  , 레이드횟수:
 		
-		Gui, Add, Text, x+2     ys    w28   h15  right vCountTotalCount ,  0
+		Gui, Add, Text, x+2     ys+18    w28   h15  right vCountTotalCount ,  0
 		Gui, Add, Text, xp      y+2   wp    hp   right vCountClearCount ,  0		
 		Gui, Add, Text, xp      y+2   wp    hp   right vCountFailCount ,  0		
 		Gui, Add, Text, xp      y+10  wp    hp   right vCountMonsterChange,  0
 		Gui, Add, Text, xp      y+2   wp    hp   right vGuiReceivePointCount,  0      
       Gui, Add, Text, xp      y+10  wp    hp   right vGuiCountRaidConsume,  0
 
-		Gui, Add, Text, x+10    ys w65      h15 , 황금방횟수:
+		Gui, Add, Text, x+10    ys+18 w65      h15 , 황금방횟수:
 		Gui, Add, Text, xp      y+2  wp    hp  , 결투장승리:
 		Gui, Add, Text, xp      y+2   wp    hp  , 결투장패배:
 		Gui, Add, Text, xp      y+10  wp    hp  , 쫄체크없음:
 		Gui, Add, Text, xp      y+2   wp    hp  , 열쇠   구입:
       Gui, Add, Text, xp      y+10  wp    hp  , 레이드보상:
 		
-		Gui, Add, Text, x+2     ys    w28   h15   right vCountGoldRoom ,  0
+		Gui, Add, Text, x+2     ys+18    w28   h15   right vCountGoldRoom ,  0
 		Gui, Add, Text, xp      y+2  wp    hp    right vCountWinCount ,  0
 		Gui, Add, Text, xp      y+2   wp    hp    right vCountLoseCount ,  0
 		Gui, Add, Text, xp      y+10  wp    hp    right vNoLevelUp ,  0
@@ -233,6 +235,22 @@ funcChangeTab1Status(){
    GuiControl,  disable%BoolStarted%, GuiCheckFirstElement	
      
 }
+기록리셋하기:
+   fPrintStatus(" 게임 기록을 리셋합니다.")   
+   gosub INIT_MONITORING
+   GuiControl, ,CountTotalCount,       0
+   GuiControl, ,CountClearCount,       0
+   GuiControl, ,CountFailCount,        0
+   GuiControl, ,CountMonsterChange,    0
+   GuiControl, ,GuiReceivePointCount,  0
+   GuiControl, ,GuiCountRaidConsume,   0
+   GuiControl, ,CountGoldRoom,         0
+   GuiControl, ,CountWinCount,         0
+   GuiControl, ,CountLoseCount,        0
+   GuiControl, ,NoLevelUp,             0
+   GuiControl, ,GuiUsingPointCount,    0
+   GuiControl, ,GuiCountRaidPrize,     0
+return
 
 
 
