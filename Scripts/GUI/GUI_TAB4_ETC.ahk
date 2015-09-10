@@ -115,7 +115,7 @@ BUTTON보내기:
 					continue
 			}
 			if( GuiCheckSendFriendsShipOnlyGame = true ) {
-				if( funcIsExistImageFolder( "7.명예보내기\상?_수신차단" ) = true  ){
+				if( funcIsExistImageFolder( "7.명예보내기\상태_수신차단" ) = true  ){
 					IntMonitorSendingHonorCount++
 					intCountTemp++
 					GuiControl, ,GuiSendHonorMoniotor,%IntMonitorSendingHonorCount%
