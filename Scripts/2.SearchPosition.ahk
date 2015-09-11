@@ -32,10 +32,10 @@ if( GuiBoolScreenShotError = true )  {
    }
    
    fPrintStatus("오류팝업들을 확인합니다. ")
-   if( funcIsExistImageFolder( "10.팝업및이벤트\오류팝업" ) = true ){
+   if( funcIsExistImageFolder( "11.오류화면\오류팝업" ) = true ){
       fPrintStatus("ERROR_오류 Screen샷 기록")
       fPrintStatus( funcCaptureErrorScreen() )
-      funcSearchAndClickFolder("10.팝업및이벤트\오류팝업확인" )     
+      funcSearchAndClickFolder("11.오류화면\오류팝업확인" )     
       goto 위치찾기
    }
    
