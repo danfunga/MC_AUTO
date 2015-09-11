@@ -56,7 +56,7 @@
             fPrintStatus("ERROR_출석은 못했지만 방문표시도 나지 않습니다. ")      
          }
       }
-      funcSendESC()
+      funcSearchAndClickFolder( "9.공성전\버튼_뒤로" )
    }else{
       fPrintStatus("ERROR_길드버튼이 변경되었나 봅니다. 확인하세요")
    }
