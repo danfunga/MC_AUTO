@@ -22,7 +22,8 @@
         PushNote(GuiPushBulletToken, "MC_Auto_Keys", "NoKeys")
         bFirstTimeCheck:=true
       }
-
+      gosub 길드출석체크
+      fPrintTitle("10분대기")
       fPrintStatus("열쇠가 없으므로 기다리겠습니다.")
       fPrintStatus("단순히 2분 단위로 확인합니다.")
    	Loop, 5
@@ -41,7 +42,25 @@
 	goto 위치찾기
    return
 }
+길드출석체크:
+   fPrintTitle("출석체크")
+   fPrintStatus("10분대기전 짬을 내 출석을 체크합니다.")
 
+   if( funcSearchAndClickFolder( "9.공성전\버튼_길드" ) = true ){
+      if( funcSearchAndClickFolder( "9.공성전\버튼_출석" ) = true ){
+         fPrintStatus(" 출석하였습니다. ^^")      
+      }else{
+         if( funcIsExistImageFolder( "9.공성전\버튼_자기방문" ) = true ){
+            fPrintStatus("출석이 확인되었습니다.")      
+         }else{         
+            fPrintStatus("ERROR_출석은 못했지만 방문표시도 나지 않습니다. ")      
+         }
+      }
+      funcSendESC()
+   }else{
+      fPrintStatus("ERROR_길드버튼이 변경되었나 봅니다. 확인하세요")
+   }
+return
 
 functionByKeyByPoint()
 {

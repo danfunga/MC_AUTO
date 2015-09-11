@@ -24,7 +24,7 @@
    ;}else{
       ;strStageName:=GuiStageList
    ;}
-   funcChoicePlayerSkill( 2 )
+   goto 길드출석체크
 
    ;boolMoonIsland := funcIsMoonIsland( strStageName )
    ;msgbox, StageName(%strStageName%) boolMoonIsland = %boolMoonIsland%
