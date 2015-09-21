@@ -11,6 +11,12 @@ if( GuiBoolScreenShotError = true )  {
    fPrintTitle("위치  찾기")
    fPrintStatus("현재 어디인지 확인합니다.")
    
+   
+    If( funcIsExistImageFolder( "9.공성전\상태_길드" ) = true ){      
+      funcSearchAndClickFolder( "9.공성전\버튼_뒤로" )
+      funcWaitingForLoad()
+   }
+   
    fPrintStatus("시작마을인지 확인합니다" )
    If( funcIsExistImage( "시작마을\모험입장버튼.bmp" ) = true ){
       goto, 시작마을
@@ -39,11 +45,11 @@ if( GuiBoolScreenShotError = true )  {
       goto 위치찾기
    }
    
-   
    fPrintStatus("모험입장 화면 인지 확인합니다.")
    If( funcIsExistImage( "2.모험돌기\모험지도\모험입장화면.bmp" ) = true ){      
       goto, 모험입장
    }
+  
 
       
    fPrintStatus("모험시작 화면 인지 확인합니다.")
