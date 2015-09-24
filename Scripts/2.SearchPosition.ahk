@@ -58,10 +58,10 @@ if( GuiBoolScreenShotError = true )  {
       goto, 모험시작_모험시작
    }
    fPrintStatus("레이드 전투중인지 확인합니다.")
-   if( funcIsExistImage(  "4.레이드돌기\status_레이드_전투중.bmp" ) = true ){		
+   if( funcIsExistImageFolder("4.레이드돌기\상태_전투중") = true ){		
       goto 레이드모드_전투중
    }
-   if( funcIsExistImage( "4.레이드돌기\레이드_전투종료.bmp" ) = true ){		
+   if( funcIsExistImageFolder( "4.레이드돌기\상태_전투종료" ) = true ){		
       fPrintStatus("레이드 전투가 종료되었습니다.")	
       goto 레이드_전투_종료	
    }
@@ -161,9 +161,9 @@ if( GuiBoolScreenShotError = true )  {
    }		
 
     
-   if( funcIsExistImage(  "4.레이드돌기\status_레이드_전투중.bmp" ) = true ){		
+   if( funcIsExistImageFolder("4.레이드돌기\상태_전투중") = true ){		
       goto 레이드모드_전투중
-   }else if( funcIsExistImage( "4.레이드돌기\레이드_전투종료.bmp" ) = true ){		
+   }else if( funcIsExistImageFolder( "4.레이드돌기\상태_전투종료" ) = true ){		
       fPrintStatus("레이드 전투가 종료되었습니다.")	
       goto, 레이드_전투_종료
    }

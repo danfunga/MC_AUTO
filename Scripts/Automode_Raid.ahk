@@ -8,9 +8,9 @@
       PushNote(GuiPushBulletToken, "MC_Auto:RaidMode", "StartRaidMode")
       bFirstRaidMode:=true
    }
-	if( funcIsExistImage(  "4.레이드돌기\status_레이드_전투중.bmp" ) = true ){		
+	if( funcIsExistImageFolder("4.레이드돌기\상태_전투중") = true ){		
 	   goto 레이드모드_전투중
-	}else if( funcIsExistImage( "4.레이드돌기\레이드_전투종료.bmp" ) = true ){		
+	}else if( funcIsExistImageFolder( "4.레이드돌기\상태_전투종료" ) = true ){		
 		fPrintStatus("레이드 전투가 종료되었습니다.")	
       goto, 레이드_전투_종료
 	}else if( funcIsExistImage( "시작마을\모험입장버튼.bmp" ) = true ){		
@@ -43,7 +43,7 @@
    funcChoicePlayerSkill( 2 )
    
 	If( funcSearchAndClick( "시작마을\모험입장버튼.bmp" ) = true ){      
-      if( funcSearchAndClickFolder( "4.레이드돌기\버튼_레이드입장" ) = true ){
+      if( funcSearchAndClickFolder( "4.레이드돌기\버튼_레이드모드" ) = true ){
          goto 레이드_시작화면
       }      
    }
@@ -63,7 +63,7 @@
       during:=a_index*5      
 	  stringTitle=%during%초 / %total%초
      funcPrintSubTitle(stringTitle )
-		if( funcIsExistImage( "4.레이드돌기\레이드_전투종료.bmp" ) = true ){		
+		if( funcIsExistImageFolder( "4.레이드돌기\상태_전투종료" ) = true ){		
          fPrintStatus("레이드 전투가 종료되었습니다.")
          IntMonitorRaidConsume++
          GuiControl, ,GuiCountRaidConsume,%IntMonitorRaidConsume%
@@ -114,8 +114,8 @@
    If( funcSearchAndClick( "4.레이드돌기\레이드_전투종료_레이드버튼.bmp" ) = true ){
       funcWaitingForLoad()
       
-      If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_종료된레이드.bmp" ) = true ){
-         If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_입장.bmp" ) = true ){
+      If( funcSearchAndClickFolder( "4.레이드돌기\버튼_종료된레이드" ) = true ){
+         If( funcSearchAndClickFolder( "4.레이드돌기\버튼_레이드입장" ) = true ){
             gosub 레이드_보상수령
          }
       }
@@ -132,7 +132,7 @@
 {
  ; 보상을 수령하자!
    funcPrintSubTitle("보상 수령")
-   If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_받기.bmp" ) = true ){
+   If( funcSearchAndClickFolder( "4.레이드돌기\버튼_보상받기" ) = true ){
 
       if( funcIsExistImageFolder( "4.레이드돌기\상태_보상받기_보상목록" ) = true ){
          funcSearchAndClickFolder("4.레이드돌기\버튼_보상목록_확인" )  
@@ -156,7 +156,7 @@
    fPrintTitle("레이드모드")
   	fPrintStatus("종료된 레이드를 확인합니다.")	
 
-   If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_종료된레이드.bmp" ) = false ){
+   If( funcSearchAndClickFolder( "4.레이드돌기\버튼_종료된레이드" ) = false ){
       BoolNeedRaidBattle:=false      
       fPrintStatus("ERROR_레이드_버튼_종료된레이드를 찾지 못해서 진행을 하지 않겠다.")
       fPrintStatus( funcCaptureErrorScreen() )
@@ -165,7 +165,7 @@
    
    
    ;종료된 레이드 화면 --> 보상 수령을 한다.
-   If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_보상_입장.bmp" ) = true ){
+   If( funcSearchAndClickFolder( "4.레이드돌기\버튼_레이드입장" ) = true ){
       gosub 레이드_보상수령
       ;보상 수령 했으면 일단 화면으로 나갔다가 온다. ( reset --> 중복되게 보상을 받을것을 고려 )
       functionMoveTown()
@@ -188,13 +188,13 @@
    
    
    If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_미참여레이드.bmp" ) = true ){
-      If( funcIsExistImage( "4.레이드돌기\레이드_버튼_미참여레이드_입장.bmp" ) = false ){
+      If( funcIsExistImageFolder( "4.레이드돌기\버튼_레이드입장" ) = false ){
          fPrintStatus("새로운 레이드가 없으니 기존 레이드를 돕니다.")
          funcSearchAndClick( "4.레이드돌기\레이드_버튼_참여레이드.bmp" )
       }            
-      If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_미참여레이드_입장.bmp" ) = true ){
-         If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_미참여레이드_입장_레이드입장.bmp" ) = true ){
-            If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_미참여레이드_입장_레이드입장_시작.bmp" ) = true ){
+      If( funcSearchAndClickFolder( "4.레이드돌기\버튼_레이드입장" ) = true ){
+         If( funcSearchAndClickFolder( "4.레이드돌기\버튼_레이드준비하기" ) = true ){
+            If( funcSearchAndClickFolder( "4.레이드돌기\버튼_레이드시작" ) = true ){
                if( funcIsExistImage(  "4.레이드돌기\레이드_입장실패.bmp" ) = true ){		
                   BoolNeedRaidBattle:=false
                   funcSearchAndClick( "4.레이드돌기\레이드_입장실패_아니오.bmp" )                        
@@ -214,7 +214,7 @@
                }
                
                funcWaitingForBattleCheck()                    
-               if( funcIsExistImage(  "4.레이드돌기\status_레이드_전투중.bmp" ) = true ){		
+               if( funcIsExistImageFolder("4.레이드돌기\상태_전투중") = true ){		
                   goto 레이드모드_전투중
                }
                fPrintStatus("ERROR_레이드 도는데 실패한 모양이다.")
