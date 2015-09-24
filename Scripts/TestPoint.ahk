@@ -24,7 +24,7 @@
    ;}else{
       ;strStageName:=GuiStageList
    ;}
-   goto 길드출석체크
+   goto 렙업_쫄확인_통합
 
    ;boolMoonIsland := funcIsMoonIsland( strStageName )
    ;msgbox, StageName(%strStageName%) boolMoonIsland = %boolMoonIsland%

@@ -153,7 +153,7 @@ SUB_CHECK_MONSTER_BY_LOOP:
                
                If( funcSearchAndClick( "5.쫄작하기\팀배치.bmp" ) = true ){   
                   funcSendClickFixed( positionX%a_index%,positionY%a_index%, true)
-                  If( funcSearchAndClick( "5.쫄작하기\팀설정실패.bmp" ) = true ){
+                  If( funcSearchAndClickFolder( "5.쫄작하기\상태_팀설정실패" ) = true ){
                      vSearchResult = 이미 팀에 동일한 몬스터(%vTargetMonsterName%)가 있네요 -현재대상: %a_index%번 
                         fPrintStatus(vSearchResult)
                      continue
