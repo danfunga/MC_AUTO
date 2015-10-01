@@ -16,10 +16,13 @@ refreshHeroPage(){
    }else{
       vStatus=위치가 잘못되었습니다.
 		fPrintStatus(vStatus)
-		return
+		return 
    }   
-   funcSearchAndClick("5.쫄작하기\button_영웅관리.png")
-   return
+   if( funcSearchAndClick("5.쫄작하기\button_영웅관리.png") = false ){
+      fPrintStatus("ERROR_영웅 관리 페이지를 찾는 도중 문제가 발생했다..")
+      goto 위치찾기
+   }
+   return 
 }
 SUB_원소쫄바꾸기:
 {
@@ -490,7 +493,7 @@ HeroPositionInit:
 	fPrintTitle(stringTitle)
 	fPrintStatus("레벨업한 쫄 바꾸기를 시도합니다.")
 	updateLevelUpCheckZero()
-	fPrintStatus("최신 몹 반영을 위해 영웅 관리를 들어갔다 나옵니다.")
+	fPrintStatus("몹 반영을 위해 영웅 관리를 들어갔다 나옵니다.")
 	refreshHeroPage()
    
 	return
