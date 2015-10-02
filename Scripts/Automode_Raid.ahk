@@ -53,6 +53,9 @@
 
 
 레이드모드_전투중:
+if( GuiCheckCallFriend = true ) {
+   gosub 모험중_약식친구소환
+}
 레이드_전투_종료대기:
  {
 	fPrintStatus("5초씩 지속적으로 종료를 확인합니다.")
