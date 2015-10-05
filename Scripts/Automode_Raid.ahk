@@ -3,7 +3,9 @@
 	fPrintTitle("레이드모드")
 	fPrintStatus("레이드를 반복적으로 수행하겠습니다.")
 	BoolNeedRaidBattle:=true
-    
+   
+   gosub 길드출석체크
+   
    if ( bFirstRaidMode != true ){         
       PushNote(GuiPushBulletToken, "MC_Auto:RaidMode", "StartRaidMode")
       bFirstRaidMode:=true

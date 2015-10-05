@@ -22,7 +22,7 @@
         PushNote(GuiPushBulletToken, "MC_Auto_Keys", "NoKeys")
         bFirstTimeCheck:=true
       }
-      gosub 길드출석체크
+      
       fPrintTitle("10분대기")
       fPrintStatus("열쇠가 없으므로 기다리겠습니다.")
       fPrintStatus("단순히 2분 단위로 확인합니다.")
