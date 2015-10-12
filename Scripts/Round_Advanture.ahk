@@ -435,7 +435,7 @@ return
 	if( funcIsExistImageFolder(  "10.팝업및이벤트\레이드발견" ) = true ){		
 		fPrintStatus("레이드가 발견되었습니다.")
 		gosub 이벤트_레이드발견
-		fPrintTitle("모험지도로 나왔을것으로 예상됩니다." )
+
       
       
       fPrintStatus("업적이 발생하였는지 확인합니다.")
@@ -449,7 +449,10 @@ return
          gosub 모험시작_렙업확인         
          fPrintStatus("쫄들의 렙업을 확인해야 합니다.")
       }   
-		goto 모험입장	
+            
+      fPrintStatus("모험 입장 버튼이 없다면 그곳은 모험 지도이겠지." )
+      funcSearchAndClick( "시작마을\모험입장버튼.bmp"  )
+      goto 모험입장
 	}
 	
 	fPrintStatus("업적이 발생하였는지 확인합니다.")

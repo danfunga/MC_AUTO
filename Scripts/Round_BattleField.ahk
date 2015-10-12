@@ -28,6 +28,9 @@
    if( funcIsExistImageFolder( "전투입장\결장마감" ) = true )	{      
 		fPrintStatus("결투장이 마감 된것 같습니다. ESC")
       funcSendESC()
+      BoolNeedBattleStage:=false
+      functionMoveTown()
+      goto, 시작마을      
 	}	   
 	if( funcIsExistImageFolder( "전투입장\결장팝업" ) = true )	{      
 		fPrintStatus("팝업은 무시합니다., ESC")
