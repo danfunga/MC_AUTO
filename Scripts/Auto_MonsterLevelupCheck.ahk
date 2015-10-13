@@ -285,13 +285,24 @@ SUB_Read_LevelUpCheckConfig:
             funcPrintSubTitle(stringTitle)
             vStatus=%GuiListTeamPosition%진형 %a_index%번 몬스터 확인 -> 교체 필요
             fPrintStatus(vStatus) 
+            ;~ 영웅 화면으로 이동
+            funcSendESC()
+         }else if( funcIsExistImage( "5.쫄작하기\window_영웅관리.png" ) = true ){
+            booleanNeedToChangeUp:=true
+            boolNeedChangeMonster%a_index%:=true
+            stringTitle=%stringTitle% : %a_index%-E
+            funcPrintSubTitle(stringTitle)
+            vStatus=%GuiListTeamPosition%진형 %a_index%번 몬스터 확인 -> 교체 필요
+            fPrintStatus(vStatus) 
          }else {
             stringTitle=%stringTitle% : %a_index%-X
             funcPrintSubTitle(stringTitle)
             boolNeedChangeMonster%a_index%:=false
+            ;~ 영웅 화면으로 이동
+            funcSendESC()
          }
-         ;~ 영웅 화면으로 이동
-         funcSendESC()
+         
+         
       }
    }
    return
