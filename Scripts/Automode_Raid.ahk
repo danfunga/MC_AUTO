@@ -86,23 +86,30 @@ if( GuiCheckCallFriend = true ) {
             goto 레이드_입장하기
 			break	
 		}
+      if( funcSearchAndClickFolder( "1.게임실행\세나아이콘" ) = true ){
+         fPrintStatus(" 레이드 도중 바탕 화면으로 튕겼나 봅니다. (ERROR - 확인용 스샷 추가)")
+         fPrintStatus( funcCaptureErrorScreen() )
+         Waiting := GuiDelayForBattle*2 
+         vStatus=부팅 로딩을 위해  %Waiting%초간 대기합니다.
+         fPrintResult(vStatus)
+         funcSleep(Waiting)          
+         goto 공지사항
+      }
       funcWaitingForBattleCheck()
 	
-	if( A_index > 360 ){
-			fPrintStatus("30분간 기다렸으나 전투가 종료 되지 않습니다.")	
-			fPrintStatus("Error로 판단합니다.")				
-			fPrintStatus("ERROR_전투중_모험_결과대기중 위치찾기로 이동합니다. ")
-         if( funcSearchAndClickFolder( "4.레이드돌기\일시정지" ) = true ){
-            funcSearchAndClickFolder("4.레이드돌기\레이드복귀" )     
-                           funcSearchAndClickFolder("4.레이드돌기\예" )     
-   
-                  funcWaitingForLoad()
-
-            goto 레이드_입장하기
-         }
-         goto 위치찾기
-		}		
-	}			
+      if( A_index > 360 ){
+            fPrintStatus("30분간 기다렸으나 전투가 종료 되지 않습니다.")	
+            fPrintStatus("Error로 판단합니다.")				
+            fPrintStatus("ERROR_전투중_모험_결과대기중 위치찾기로 이동합니다. ")
+            if( funcSearchAndClickFolder( "4.레이드돌기\일시정지" ) = true ){
+               funcSearchAndClickFolder("4.레이드돌기\레이드복귀" )     
+               funcSearchAndClickFolder("4.레이드돌기\예" )     
+               funcWaitingForLoad()
+               goto 레이드_입장하기
+            }
+            goto 위치찾기
+         }		
+      }			
 	fPrintStatus("레이트 전투 종료가 확인되었습니다.")		
    
    

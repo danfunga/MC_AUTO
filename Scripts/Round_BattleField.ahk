@@ -42,7 +42,7 @@
       goto, 시작마을
    }
    
-	if( funcSearchAndClick( "전투입장\Button_준비하기.bmp" ) = true )	{
+	if( funcSearchAndClickFolder( "전투입장\결투장\Button_준비하기" ) = true )	{
 		goto 결투장_도전시작
 	}	
 		
@@ -83,7 +83,7 @@
 	else{
 		BoolNeedBattleStage:= false
 		funcSendESC()
-		If( funcIsExistImage( "전투입장\Button_준비하기.bmp"  ) = true ){
+		If( funcIsExistImageFolder( "전투입장\결투장\Button_준비하기"  ) = true ){
 			fPrintStatus("결투장 화면 입니다.")
 			funcSendESC()
 		}
@@ -116,7 +116,7 @@ if( funcIsExistImage("전투입장\명예최대.bmp") = true ){
 			fPrintStatus("결투 입장 화면 입니다.")
 			funcSendESC()
 		}
-      If( funcIsExistImage( "전투입장\Button_준비하기.bmp"  ) = true ){
+      If( funcIsExistImageFolder( "전투입장\결투장\Button_준비하기"  ) = true ){
 			fPrintStatus("결투장 화면 입니다.")
 			funcSendESC()
 		}
@@ -145,7 +145,7 @@ if( funcIsExistImage("전투입장\명예최대.bmp") = true ){
 			fPrintStatus("결투 입장 화면 입니다.")
 			funcSendESC()
 		}
-		If( funcIsExistImage( "전투입장\Button_준비하기.bmp"  ) = true ){
+		If( funcIsExistImageFolder( "전투입장\결투장\Button_준비하기"  ) = true ){
 			fPrintStatus("결투장 화면 입니다.")
 			funcSendESC()
 		}

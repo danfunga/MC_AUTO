@@ -134,7 +134,7 @@ if( GuiBoolScreenShotError = true )  {
       goto, 전투입장_무한의탑
    }
    fPrintStatus("결투장 준비 화면인지 확인합니다.")
-   if( funcIsExistImage( "전투입장\Button_준비하기.bmp" ) = true )	{
+   if( funcIsExistImageFolder( "전투입장\결투장\Button_준비하기" ) = true )	{
       goto 전투입장_결투장
    }	
    if( funcIsExistImage( "전투입장\공성전\Button_공성전준비.png" ) = true ){
