@@ -404,7 +404,7 @@ return
 	}else if( funcSearchAndClick( "10.전투결과이미지\모험\모험W다시.bmp" ) = true ){				
 		goto 모험시작_시작체크
 	}else {
-      funcWaitingClick()
+      funcSleep(2)
       fPrintStatus("ERROR_망할 케릭터 득 장면이 오래 걸리니 1초간 기다렸다 다시해본다.")
       if( funcSearchAndClick( "10.전투결과이미지\모험\모험W다시.bmp" ) = true ){				
          goto 모험시작_시작체크
