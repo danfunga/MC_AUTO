@@ -403,10 +403,15 @@ return
 		goto 모험시작_시작체크
 	}else if( funcSearchAndClick( "10.전투결과이미지\모험\모험W다시.bmp" ) = true ){				
 		goto 모험시작_시작체크
-	}else if( funcSearchAndClick( "10.전투결과이미지\모험\모험F다시.bmp" ) = true ){				
-		goto 모험시작_시작체크
+	}else {
+      funcWaitingClick()
+      fPrintStatus("ERROR_망할 케릭터 득 장면이 오래 걸리니 1초간 기다렸다 다시해본다.")
+      if( funcSearchAndClick( "10.전투결과이미지\모험\모험W다시.bmp" ) = true ){				
+         goto 모험시작_시작체크
+      }else if( funcSearchAndClick( "10.전투결과이미지\모험\모험F다시.bmp" ) = true ){				
+         goto 모험시작_시작체크
+      }
 	}
-	
 	fPrintStatus("ERROR_모험완료중 위치찾기로 이동합니다. ")
 	goto 위치찾기
 }

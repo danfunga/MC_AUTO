@@ -60,6 +60,7 @@ if( GuiCheckCallFriend = true ) {
 }
 레이드_전투_종료대기:
  {
+   fPrintTitle("레이드전투중")
 	fPrintStatus("5초씩 지속적으로 종료를 확인합니다.")
    
    total := 360*5
