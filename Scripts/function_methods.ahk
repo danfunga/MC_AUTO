@@ -64,7 +64,7 @@ functionMoveTown()
       if( funcIsExistImage( "시작마을\모험입장버튼.bmp" ) = true ){		
          fPrintStatus("마을에 도착 했습니다.")
          return
-      }else if( funcSearchAndClick( "시작마을\마을.bmp" ) = true ){		
+      }else if( funcSearchAndClick( "10.전투결과이미지\버튼_마을" ) = true ){		
          fPrintStatus("마을로 이동합니다")
       }else if( funcIsExistImage( "2.모험돌기\Button_모험_시작하기.bmp" ) = true ){		
          fPrintStatus("모험 시작 화면에 있습니다")

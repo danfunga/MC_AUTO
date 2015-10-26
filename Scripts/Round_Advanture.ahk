@@ -371,25 +371,32 @@ return
 	if( BoolNeedBattleStage = true )			
       fPrintStatus("결투장을 돌아야 합니다.")
 	if( BoolNeedBattleStage =true or BoolNeedGoldRoomStage =true ){
-	  	if( funcSearchAndClick( "10.전투결과이미지\모험\마을.bmp" ) = true ){					
-			funcWaitingForLoad()			
-			fPrintStatus("업적이 발생하였는지 확인합니다.")
-			if( funcIsExistImageFolder(  "10.팝업및이벤트\업적확인창" ) = true ){		
-				fPrintStatus("업적 확인으로 이동합니다.")
-				gosub 모험시작_업적확인
-			}
-			fPrintStatus("렙업을 하였는지 확인합니다.")
-			if( funcIsExistImageFolder(  "10.팝업및이벤트\렙업확인창" ) = true ){		
-				fPrintStatus("렙업 확인으로 이동합니다.")
-				gosub 모험시작_렙업확인
-			}
-			If( funcIsExistImage( "시작마을\모험입장버튼.bmp"  ) = true ){			
-				goto, 시작마을
-			}else{
-				fPrintStatus("이벤트 처리를 위해 위치 찾기로 갑니다.")
-				goto 위치찾기
-			}
-		}
+      if( funcSearchAndClickFolder( "10.전투결과이미지\버튼_마을" ) = true ){					
+         funcWaitingForLoad()			
+            
+         fPrintStatus("레이드가 발견됐는지를 확인합니다.")
+         if( funcIsExistImageFolder(  "10.팝업및이벤트\레이드발견" ) = true ){		
+            fPrintStatus("레이드가 발견되었습니다.")
+            gosub 이벤트_레이드발견
+         }
+         fPrintStatus("업적이 발생하였는지 확인합니다.")
+         if( funcIsExistImageFolder(  "10.팝업및이벤트\업적확인창" ) = true ){		
+            fPrintStatus("업적 확인으로 이동합니다.")
+            gosub 모험시작_업적확인
+         }
+         
+         fPrintStatus("렙업을 하였는지 확인합니다.")
+         if( funcIsExistImageFolder(  "10.팝업및이벤트\렙업확인창" ) = true ){		
+            fPrintStatus("렙업 확인으로 이동합니다.")
+            gosub 모험시작_렙업확인
+         }
+         If( funcIsExistImage( "시작마을\모험입장버튼.bmp"  ) = true ){			
+            goto, 시작마을
+         }else{
+            fPrintStatus("이벤트 처리를 위해 위치 찾기로 갑니다.")
+            goto 위치찾기
+         }
+      }
 		fPrintStatus("ERROR_전투결과_모험중 위치찾기로 이동합니다. ")
 		goto 위치찾기   
    }
