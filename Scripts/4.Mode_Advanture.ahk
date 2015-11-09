@@ -81,16 +81,16 @@ funcIsMoonIsland( strInputStage )
    
    
 	if( boolMoonIsland = true )	{
-		if( funcIsExistImage(  "2.모험돌기\모험지도\대륙\아스드.bmp" ) = true )	{	
+		if( funcIsExistImageFolder(  "2.모험돌기\모험지도\대륙\버튼_아스드대륙" ) = true )	{	
 			fPrintStatus("현재 달빛섬이 선택되었습니다.")
-		}else If( funcSearchAndClick( "2.모험돌기\모험지도\대륙\달빛의섬.bmp" ) = true )	{
+		}else If( funcSearchAndClickFolder( "2.모험돌기\모험지도\대륙\버튼_달빛의섬" ) = true )	{
 			fPrintStatus("달빛섬을 선택하였습니다.")	
 		}
 	}
 	 else{
-		if( funcIsExistImage(  "2.모험돌기\모험지도\대륙\달빛의섬.bmp" ) = true ){	
+		if( funcIsExistImageFolder(  "2.모험돌기\모험지도\대륙\버튼_달빛의섬" ) = true ){	
 			fPrintStatus("현재 아스드대륙이 선택되었습니다.")	
-		}else If( funcSearchAndClick( "2.모험돌기\모험지도\대륙\아스드.bmp" ) = true ){
+		}else If( funcSearchAndClickFolder( "2.모험돌기\모험지도\대륙\버튼_아스드대륙" ) = true ){
 			fPrintStatus("아스드 대륙을 선택하였습니다.")	
 		}	
 	}	
