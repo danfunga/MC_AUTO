@@ -1,10 +1,8 @@
-PushNote("토큰","제목","내용")
-
 PushNote(Token,Title,Body)
 {
 	Title:=UriEncode(Title)
 	Body:=UriEncode(Body)
-	runwait, %A_ScriptDir%\Image\curl.exe https://api.pushbullet.com/api/pushes -u %Token%: -d type=note -d title=%Title% -d body=%Body% -X POST -k
+	runwait, %A_ScriptDir%\Resource\Image\curl.exe https://api.pushbullet.com/api/pushes -u %Token%: -d type=note -d title=%Title% -d body=%Body% -X POST -k
 }
 UriEncode(Uri, Enc = "UTF-8")
 {

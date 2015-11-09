@@ -27,13 +27,13 @@ refreshHeroPage(){
 SUB_원소쫄바꾸기:
 {
 	if( funcSearchAndClickFolder( "5.쫄작하기\버튼_원소영웅" ) = true ){
-		Loop, %A_ScriptDir%\Image\5.쫄작하기\Monster\InElements\*,1,0
+		Loop, %A_ScriptDir%\Resource\Image\5.쫄작하기\Monster\InElements\*,1,0
       {
          vTargetMonsterName = %A_LoopFileName%
          vStatus=교체할 몬스터(%vTargetMonsterName%)를 찾습니다. ( 원소 먼저 )
          fPrintStatus(vStatus)		
          booleanThisMonsterDone:=false
-         Loop, %A_ScriptDir%\Image\5.쫄작하기\Monster\InElements\%vTargetMonsterName%\*.bmp
+         Loop, %A_ScriptDir%\Resource\Image\5.쫄작하기\Monster\InElements\%vTargetMonsterName%\*.bmp
          {
             vNewMonsterFile=5.쫄작하기\monster\InElements\%vTargetMonsterName%\%A_LoopFileName%
             If(  monsterFinder( xNew, yNew, vNewMonsterFile ) = true ){					
@@ -192,14 +192,14 @@ SUB_CHECK_MONSTER_BY_LEVEL1_PIC:
    repeatCount:=GuiDragCount+1
    Loop, %repeatCount%
 	{	
-		Loop, %A_ScriptDir%\Image\5.쫄작하기\Monster\InMonster\*,1,0
+		Loop, %A_ScriptDir%\Resource\Image\5.쫄작하기\Monster\InMonster\*,1,0
 		{
 			vTargetMonsterName = %A_LoopFileName%
 			vStatus=교체할 몬스터(%vTargetMonsterName%) 찾습니다
 			fPrintStatus(vStatus)		
 			booleanThisMonsterDone:=false
 			booleanMonsterFind :=false
-			Loop, %A_ScriptDir%\Image\5.쫄작하기\Monster\InMonster\%vTargetMonsterName%\*.bmp
+			Loop, %A_ScriptDir%\Resource\Image\5.쫄작하기\Monster\InMonster\%vTargetMonsterName%\*.bmp
 			{
 				vNewMonsterFile=5.쫄작하기\monster\InMonster\%vTargetMonsterName%\%A_LoopFileName%
 				If(  monsterFinder( xNew, yNew, vNewMonsterFile ) = true ){					
@@ -343,7 +343,7 @@ fDragUpHero(){
 monsterFinder(  ByRef intPosX, ByRef intPosY, img){
 	checkExit()
 	global ACTIVE_ID
-	vImgSepa=\Image\
+	vImgSepa=\Resource\Image\
 	vPercent=80
 	IfWinExist 후원 세션
 	{
@@ -378,7 +378,7 @@ monsterFinder(  ByRef intPosX, ByRef intPosY, img){
 {
 	fPrintTitle("그림찾기 테스트")
 	;~ global  ACTIVE_ID
-	Loop,  %A_ScriptDir%\Image\5.쫄작하기\테스트\*.png
+	Loop,  %A_ScriptDir%\Resource\Image\5.쫄작하기\테스트\*.png
 	{
 		vTestPicture=5.쫄작하기\테스트\%A_LoopFileName%
 		

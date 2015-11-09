@@ -29,7 +29,7 @@ INIT_MCAUTO_GUI:
 
 
 funcGuiLoadCharactors(){
-	Loop, %A_ScriptDir%\Image\10.스킬이미지\*,1,0
+	Loop, %A_ScriptDir%\Resource\Image\10.스킬이미지\*,1,0
 	{
 		strCharList=%strCharList%|%A_LoopFileName%
 	}

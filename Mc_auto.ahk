@@ -51,30 +51,22 @@ BUTTON´Ù½Ã[F12]:
 }
 
 
-
-
-
-#include Scripts\1.GlobalVariable.ahk
-
 #include %A_ScriptDir%\Scripts\GUI\Mc_auto_Gui.ahk
 #include Scripts\GUI\GUI_action.ahk
+#Include Scripts\1.Function_Macro.ahk
+#Include Scripts\1.Launch_Macro.ahk
+#Include Scripts\2.Function_Game.ahk
+#Include Scripts\2.Launch_Game.ahk
 
-#Include Scripts\2.SearchPosition.ahk
-#Include Scripts\AUTOMODE_CASTLEBATTLE.ahk
-#Include Scripts\Automode_Raid.ahk
-#Include Scripts\Round_Advanture.ahk
-#Include Scripts\Round_StartUpGame.ahk
-#Include Scripts\Round_HasNoKey.ahk
-#Include Scripts\Round_BattlePassive.ahk
-#Include Scripts\Round_BattleField.ahk
-#Include Scripts\Round_GoldRoom.ahk
-#Include Scripts\Auto_MonsterLevelupCheck.ahk
-
-#Include Scripts\function_methods.ahk
-#Include Scripts\function_waitAndDelay.ahk
-
-#Include Scripts\function_ImageSearchAndClick.ahk
-
-#Include Scripts\TestPoint.ahk
-#Include Scripts\Util_PushBullet.ahk
-#Include Scripts\Util_ScreenShot.ahk
+#Include Scripts\3.SearchPosition.ahk
+#Include Scripts\4.Mode_CASTLEBATTLE.ahk
+#Include Scripts\4.Mode_Raid.ahk
+#Include Scripts\4.Mode_Advanture.ahk
+#Include Scripts\4.Mode_HasNoKey.ahk
+#Include Scripts\4.Mode_BattlePassive.ahk
+#Include Scripts\4.Mode_BattleField.ahk
+#Include Scripts\4.Mode_GoldRoom.ahk
+#Include Scripts\4.Mode_MonsterLevelupCheck.ahk
+#Include Scripts\5.Util_PushBullet.ahk
+#Include Scripts\5.Util_ScreenShot.ahk
+#Include Scripts\6.TestPoint.ahk

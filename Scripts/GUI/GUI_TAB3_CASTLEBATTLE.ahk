@@ -78,7 +78,7 @@ fUpdateGongsungGui(  charNum ){
 	guiControlGet, charName,,GuiWarChar%charNum%
 	skillAfterIndex:="D."
 	indexSkill=1
-	Loop, %A_ScriptDir%\Image\10.스킬이미지\%charName%\*.bmp
+	Loop, %A_ScriptDir%\Resource\Image\10.스킬이미지\%charName%\*.bmp
 	{
 		if A_LoopFileName not contains %skillAfterIndex%
 		{

@@ -110,7 +110,7 @@ funcGuiLoadConfigList( choice ){
 	return
 }
 funcCharactorGuiUpdate(){
-    	Loop, %A_ScriptDir%\Image\10.스킬이미지\*,2,0
+    	Loop, %A_ScriptDir%\Resource\Image\10.스킬이미지\*,2,0
 	{
 		strCharList=%strCharList%|%A_LoopFileName%
 	}
@@ -223,7 +223,7 @@ advantureSkillGuiEnable( boolEnable )
 funcGoldCharGuiUpdate( charNum ) {
 	guiControlGet, charName,,GuiGoldChar%charNum%
 	indexSkill=1
-	Loop, %A_ScriptDir%\Image\10.스킬이미지\%charName%\*,2,0
+	Loop, %A_ScriptDir%\Resource\Image\10.스킬이미지\%charName%\*,2,0
 	{
       GuiControl, ,GuiSkill%indexSkill%GoldChar%charNum%,%A_LoopFileName%
 		indexSkill++
@@ -237,7 +237,7 @@ funcGoldCharGuiUpdate( charNum ) {
 fUpdateGui(  charNum ){
 	guiControlGet, charName,,GuiChar%charNum%
    indexSkill=1
-	Loop, %A_ScriptDir%\Image\10.스킬이미지\%charName%\*,2,0
+	Loop, %A_ScriptDir%\Resource\Image\10.스킬이미지\%charName%\*,2,0
 	{      
 		GuiControl, ,GuiChar%charNum%Skill%indexSkill%,%A_LoopFileName%
       indexSkill++    

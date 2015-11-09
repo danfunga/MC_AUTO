@@ -8,6 +8,7 @@
       플레이어 스킬 확인
       ------------------------------------------------------------
    */    
+   ;funcTestGetString("First", "Second" )
    goto 레이드모드시작
    ;funcChoicePlayerSkill( 1 )
    ;funcChoicePlayerSkill( 2 )
@@ -53,10 +54,12 @@
    return
 }
 
+
+
 testLoopFindTestFolder( relateX=0, relateY=0 , boolDelay=true, enableClick = false ) {
 	extensions:="png,bmp"
    global ACTIVE_ID
-   Loop, %A_ScriptDir%\Image\5.쫄작하기\테스트\*
+   Loop, %A_ScriptDir%\Resource\Image\5.쫄작하기\테스트\*
    {
       if A_LoopFileExt in %extensions% 
       {
@@ -93,7 +96,7 @@ funcSearchWhiteIgnore(  ByRef intPosX, Byref intPosY, target ) {
    checkExit()
    CoordMode, Pixel, Screen
 	global ACTIVE_ID, BooleanDebugMode
-	vImgSepa=\Image\
+	vImgSepa=\Resource\Image\
 	vPercent=50
 	IfWinExist 후원 세션
 	{

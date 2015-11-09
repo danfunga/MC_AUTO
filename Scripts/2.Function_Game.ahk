@@ -1,3 +1,34 @@
+/*
+------------------------------------------------------------
+기본적인 wait : 전투 시작후 지속적 전투 종료 체크 전에 기본 Wait 기본(40초 )
+------------------------------------------------------------
+*/
+funcWaitingBattleBasicDuration(){
+   global GuiDelayForBattle
+   global BATTLE_CHECK_DELAY
+
+   vStatus=%GuiDelayForBattle% 초 후 전투 종료를 %BATTLE_CHECK_DELAY%초 씩 지속적으로 확인합니다.
+   fPrintStatus(vStatus)
+   funcSleep( GuiDelayForBattle )
+}
+
+/*
+---------------------------------------------------------------------------------------------------------------------------
+열쇠가 없을 경우 얼마 주기로 열쇠 있는 여부를 체크할 것인가 기본: 2분 ( 120 )
+---------------------------------------------------------------------------------------------------------------------------
+*/
+funcWaitingForNoKeyDelay(){
+   global BATTLE_CHECK_DELAY
+   loop 24
+   {
+      funcSleep(BATTLE_CHECK_DELAY)
+      checkExit()
+   }
+}
+
+
+
+
 funcReceiveAchievement(){	
     
 	global boolNeedCheckAchievement	
@@ -154,35 +185,6 @@ funcChoicePlayerSkill( teamName )
    }
    return    
 }
-
-func_windowResize( boolForce = false ){
-   global ACTIVE_ID, RUN_WIDTH, RUN_HEIGHT, DEFAULT_WIDTH, DEFAULT_HEIGHT,BoolReSized
-   if( boolForce = false ){
-
-         if( BoolReSized =  false ){
-            WinMove, %ACTIVE_ID%,,,,RUN_WIDTH,RUN_HEIGHT   
-            BoolReSized :=true
-         }else{
-            WinMove, %ACTIVE_ID%,,,,DEFAULT_WIDTH,DEFAULT_HEIGHT
-           BoolReSized:=false
-      }
-   }else{
-      WinMove, %ACTIVE_ID%,,,,RUN_WIDTH,RUN_HEIGHT   
-   }
-}
-fRetrun(){
-	gosub StopPoint   
-   return
-}
-fLog( vContent , boolIsDebug=false){
-	FormatTime, sFileName, %A_NOW%, MM월dd일
-	FormatTime, TimeString, %A_NOW%, MM-dd tt hh시mm분ss초
-	if( boolIsDebug = false ){
-		FileAppend, `n[%TimeString%]: %vContent%, %A_ScriptDir%\Logs\log(%sFileName%).txt	
-	}else{
-		FileAppend, `n[%TimeString%]: %vContent%, %A_ScriptDir%\Logs\debug(%sFileName%).txt	
-	}
-}
 funcGetNextLoopMap()
 {
 	global LoopMapList
@@ -200,14 +202,4 @@ funcGetNextLoopMap()
 	
 	return thisTimeMap
 
-}
-
-
-funcLoadConstants( ByRef value, strTitile, strKey ){
-	IniRead, value, %A_ScriptDir%\Image\Constants.ini ,%strTitile%, %strKey%
-	IfEqual value, ERROR
-	{
-		value:=""
-	}
-	return value
 }
