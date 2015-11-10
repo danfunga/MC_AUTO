@@ -282,6 +282,12 @@ return
 		if( funcWaitAndReturn(  "전투중\통합전투중" ) = true ){
 			fPrintStatus("모험이 정상적으로 시작되었습니다.")			
 		}
+      
+      if( GuiAutoSkillOff = true ){
+         if( funcIsExistImageFolder( "전투중\자동스킬\Off" ) = false ){
+            funcSearchAndClickFolder( "전투중\자동스킬\On" )         
+         }         
+      }
 		if( GuiCheckCallFriend = true ) {
 				gosub 모험중_약식친구소환
 		}

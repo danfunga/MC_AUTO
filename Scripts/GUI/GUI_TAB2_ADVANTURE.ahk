@@ -6,6 +6,7 @@ INIT_TAB_ADVANTURE:
         gui,font,
 
         Gui, Add, Checkbox, x110 yp  gSelectAdvatureAutoSkill vGuiAdvantureAutoSkill ,사용
+        Gui, Add, Checkbox, x+10 yp  vGuiAutoSkillOff ,자동스킬Off
         
         Gui, Add, Checkbox, x10 yp+20 section w30 h15  vGuiChar1Check ,1.
         Gui, Add, Edit, x+0 yp w30 h15  right vGuiChar1SkillDelay, 0
@@ -265,6 +266,8 @@ SaveSkillConfig:
 	fSaveSkillFile( fileName, GuiSearchLimit, "딜레이", "검색제한" )
    
 	fSaveSkillFile( fileName, GuiAdvantureAutoSkill, "자동스킬", "모험자동스킬" )
+   fSaveSkillFile( fileName, GuiAutoSkillOff, "자동스킬", "모험자동스킬Off" )
+   
 	fSaveSkillFile( fileName, GuiGoldRoomAutoSkill, "자동스킬", "황금방자동스킬" )
 	Loop, 5
 	{
@@ -322,6 +325,11 @@ LoadSkillConfig:
       else 
          advantureSkillGuiEnable( false )
 	}
+    fLoadSkillFile( fileName, vValue, "자동스킬", "모험자동스킬Off")
+	if( vValue <> "" )
+		GuiControl,,GuiAutoSkillOff,%vValue%	
+   
+   
 	fLoadSkillFile( fileName, vValue, "자동스킬", "황금방자동스킬" )
    if( vValue <> "" ){	
 		GuiControl,,GuiGoldRoomAutoSkill,%vValue%	
