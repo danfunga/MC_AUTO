@@ -79,6 +79,7 @@ funcIsMoonIsland( strInputStage )
 
    boolMoonIsland := funcIsMoonIsland( strStageName )
    
+   모험입장_대륙선택:
    
 	if( boolMoonIsland = true )	{
 		if( funcIsExistImageFolder(  "2.모험돌기\모험지도\대륙\버튼_아스드대륙" ) = true )	{	
@@ -86,13 +87,21 @@ funcIsMoonIsland( strInputStage )
 		}else If( funcSearchAndClickFolder( "2.모험돌기\모험지도\대륙\버튼_달빛의섬" ) = true )	{
 			fPrintStatus("달빛섬을 선택하였습니다.")	
 		}
-	}
-	 else{
+	}else{
 		if( funcIsExistImageFolder(  "2.모험돌기\모험지도\대륙\버튼_달빛의섬" ) = true ){	
-			fPrintStatus("현재 아스드대륙이 선택되었습니다.")	
-		}else If( funcSearchAndClickFolder( "2.모험돌기\모험지도\대륙\버튼_아스드대륙" ) = true ){
+         if( funcIsExistImageFolder(  "2.모험돌기\모험지도\대륙\버튼_아스드대륙" ) = true )	{	
+            fPrintStatus("현재 아스드대륙이 선택되었습니다.")	
+         }else{
+            fPrintStatus("그림자의 눈에 있나봅니다..")	
+            If( funcSearchAndClickFolder( "2.모험돌기\모험지도\대륙\버튼_달빛의섬" ) = true )	{
+               fPrintStatus("달빛섬을 선택하였습니다.")	          
+               goto 모험입장_대륙선택
+            }
+         }
+         
+		}else if( funcSearchAndClickFolder( "2.모험돌기\모험지도\대륙\버튼_아스드대륙" ) = true ){
 			fPrintStatus("아스드 대륙을 선택하였습니다.")	
-		}	
+		}
 	}	
    goto 모험입장_난이도선택
    
