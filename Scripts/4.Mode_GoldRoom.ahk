@@ -106,6 +106,9 @@
        funcWaitingForLoad()
        if( funcWaitAndReturn(  "전투중\통합전투중" ) = true ){
           fPrintStatus("황금방 전투가 정상적으로 확인되었습니다..")
+         if( funcIsExistImageFolder( "전투중\자동스킬\On" ) = false ){
+            funcSearchAndClickFolder( "전투중\자동스킬\Off" )         
+         }    
           if( GuiGoldRoomAutoSkill = true ){
             fPrintStatus("황금방 스킬 매크로 사용을 선택하였습니다.")	
             goto 황금방스킬매크로사용	
