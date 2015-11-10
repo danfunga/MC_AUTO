@@ -287,6 +287,10 @@ return
          if( funcIsExistImageFolder( "전투중\자동스킬\Off" ) = false ){
             funcSearchAndClickFolder( "전투중\자동스킬\On" )         
          }         
+      }else{
+        if( funcIsExistImageFolder( "전투중\자동스킬\On" ) = false ){
+            funcSearchAndClickFolder( "전투중\자동스킬\Off" )         
+         }               
       }
 		if( GuiCheckCallFriend = true ) {
 				gosub 모험중_약식친구소환
