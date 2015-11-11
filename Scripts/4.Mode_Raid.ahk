@@ -45,7 +45,7 @@
    funcChoicePlayerSkill( 2 )
    
 	If( funcSearchAndClick( "시작마을\모험입장버튼.bmp" ) = true ){      
-      if( funcSearchAndClickFolder( "4.레이드돌기\버튼_레이드모드" ) = true ){
+      if( funcSearchAndClickFolder( "4.레이드돌기\버튼_모험맵_레이드" ) = true ){
          goto 레이드_시작화면
       }      
    }
@@ -103,7 +103,7 @@ if( GuiCheckCallFriend = true ) {
             fPrintStatus("Error로 판단합니다.")				
             fPrintStatus("ERROR_전투중_모험_결과대기중 위치찾기로 이동합니다. ")
             if( funcSearchAndClickFolder( "4.레이드돌기\일시정지" ) = true ){
-               funcSearchAndClickFolder("4.레이드돌기\레이드복귀" )     
+               funcSearchAndClickFolder("4.레이드돌기\버튼_레이드복귀" )     
                funcSearchAndClickFolder("4.레이드돌기\예" )     
                funcWaitingForLoad()
                goto 레이드_입장하기
@@ -132,7 +132,7 @@ if( GuiCheckCallFriend = true ) {
             gosub 레이드_보상수령
          }
       }
-      If( funcSearchAndClick( "4.레이드돌기\Button_레이드화면_뒤로가기.bmp" ) = true ){
+      If( funcSearchAndClickFolder( "4.레이드돌기\버튼_뒤로가기" ) = true ){
          fPrintStatus("레이드 화면에서 나갑니다.")		
       }  
    }
@@ -214,7 +214,7 @@ if( GuiCheckCallFriend = true ) {
                   functionMoveTown()
                   fPrintStatus("열쇠가 없어 레이드를 돌지 않겠습니다.")
                   goto 시작마을                     
-               }else if( funcIsExistImage(  "4.레이드돌기\상태_추가_입장팝업.bmp" ) = true ){		
+               }else if( funcIsExistImageFolder(  "4.레이드돌기\상태_추가_입장팝업" ) = true ){		
                   BoolNeedRaidBattle:=false
                   if( funcSearchAndClick( "4.레이드돌기\레이드_입장실패_아니오.bmp" ) = false ){
                      fPrintStatus( funcCaptureErrorScreen() )
