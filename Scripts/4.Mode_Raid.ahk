@@ -2,14 +2,16 @@
 {
 	fPrintTitle("레이드모드")
 	fPrintStatus("레이드를 반복적으로 수행하겠습니다.")
-	BoolNeedRaidBattle:=true
    
-   gosub 길드출석체크
+	BoolNeedRaidBattle:=true   
+
    
    if ( bFirstRaidMode != true ){         
       PushNote(GuiPushBulletToken, "MC_Auto:RaidMode", "StartRaidMode")
       bFirstRaidMode:=true
    }
+   
+   
 	if( funcIsExistImageFolder("4.레이드돌기\상태_전투중") = true ){		
 	   goto 레이드모드_전투중
 	}else if( funcIsExistImageFolder( "4.레이드돌기\상태_전투종료" ) = true ){		
@@ -42,8 +44,7 @@
    fPrintTitle("레이드입장")
 	fPrintStatus("레이드를 반복적으로 수행하겠습니다.")
    
-   funcChoicePlayerSkill( 2 )
-   
+   gosub 길드출석체크
 	If( funcSearchAndClick( "시작마을\모험입장버튼.bmp" ) = true ){      
       if( funcSearchAndClickFolder( "4.레이드돌기\버튼_모험맵_레이드" ) = true ){
          goto 레이드_시작화면
@@ -58,6 +59,10 @@
 if( GuiCheckCallFriend = true ) {
    gosub 모험중_약식친구소환
 }
+if( funcIsExistImageFolder( "전투중\자동스킬\On" ) = false ){
+   funcSearchAndClickFolder( "전투중\자동스킬\Off" )         
+}
+
 레이드_전투_종료대기:
  {
    fPrintTitle("레이드전투중")
@@ -207,6 +212,7 @@ if( GuiCheckCallFriend = true ) {
       }            
       If( funcSearchAndClickFolder( "4.레이드돌기\버튼_레이드입장" ) = true ){
          If( funcSearchAndClickFolder( "4.레이드돌기\버튼_레이드준비하기" ) = true ){
+            funcChoicePlayerSkill( 2 )
             If( funcSearchAndClickFolder( "4.레이드돌기\버튼_레이드시작" ) = true ){
                if( funcIsExistImage(  "4.레이드돌기\레이드_입장실패.bmp" ) = true ){		
                   BoolNeedRaidBattle:=false
