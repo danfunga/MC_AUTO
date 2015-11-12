@@ -44,7 +44,7 @@
 }
 길드출석체크:
    fPrintTitle("출석체크")
-   fPrintStatus("10분대기전 짬을 내 출석을 체크합니다.")
+   fPrintStatus("레이드 돌기전 출석 확인합니다.")
 
    if( funcSearchAndClickFolder( "9.공성전\버튼_길드" ) = true ){
       if( funcSearchAndClickFolder( "9.공성전\버튼_출석" ) = true ){

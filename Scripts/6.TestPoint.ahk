@@ -9,8 +9,8 @@
       ------------------------------------------------------------
    */    
    ;funcTestGetString("First", "Second" )
-   ;goto 레이드모드시작
-   funcChoicePlayerSkill( 2 )
+   goto 레이드모드시작
+   ;funcChoicePlayerSkill( 2 )
    ;funcChoicePlayerSkill( 1 )
    ;funcChoicePlayerSkill( 2 )
    
