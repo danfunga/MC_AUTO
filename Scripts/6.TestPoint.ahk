@@ -9,13 +9,22 @@
       ------------------------------------------------------------
    */    
    ;funcTestGetString("First", "Second" )
-   goto 레이드모드시작
+   ;goto 레이드모드시작
+   
+   ;functionByKeyByPoint()
    ;funcChoicePlayerSkill( 2 )
    ;funcChoicePlayerSkill( 1 )
    ;funcChoicePlayerSkill( 2 )
    
    ;goto 렙업_쫄확인_통합
    
+   
+   
+   ;테스트
+   ; 1. 황금, 모험 먼저 실행
+   ; 2. 레이드 모드
+   ; 3. 열쇠 구입
+   ; 4. 
    return
 } 
 !F7::
