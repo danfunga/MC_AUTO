@@ -70,27 +70,27 @@ functionByKeyByPoint()
    fPrintTitle("열쇠구입:명예")
 	fPrintStatus("명예로 열쇠를 구입합니다.")	
       
-   if( funcSearchAndClick( "6.열쇠구입하기\1_상점입장.bmp" ) = true ){
+   if( funcSearchAndClickFolder( "6.열쇠구입하기\버튼_상점" ) = true ){
       fPrintResult("상점에 들어왔습니다.")
-      if( funcIsExistImage( "6.열쇠구입하기\2_상점팝업.bmp" ) = true ){             
+      if( funcIsExistImageFolder( "6.열쇠구입하기\팝업_상점팝업" ) = true ){             
          fPrintResult("요일 팝업이 떠있는것 같습니다.")
          funcSendESC()
       }
-      if( funcIsExistImage( "6.열쇠구입하기\상점화면.bmp" ) = false ){
+      if( funcIsExistImageFolder( "6.열쇠구입하기\상태_상점화면" ) = false ){
          fPrintStatus( funcCaptureErrorScreen() )
          fPrintResult("ERROR 팝업화면 새로 스샷 필요 --> 요일 팝업이 떠있는것 같습니다.")
          funcSendESC()
       }
-      if( funcIsExistImage( "6.열쇠구입하기\상점화면.bmp" ) = true ){             
+      if( funcIsExistImageFolder( "6.열쇠구입하기\상태_상점화면" ) = true ){             
          fPrintStatus("열쇠 구입을 시작합니다")
-         if( funcSearchAndClick( "6.열쇠구입하기\상점열쇠탭.bmp" ) = true ){
+         if( funcSearchAndClickFolder( "6.열쇠구입하기\상태_상점화면\버튼_열쇠탭" ) = true ){
             
             fPrintStatus("명예 100짜리 구입을 시도합니다.")
             loop
             {
-               if( funcSearchAndClick( "6.열쇠구입하기\명예100.bmp" ) = true ){
-                  if(  funcSearchAndClick( "6.열쇠구입하기\구매버튼.bmp" ) = true ){
-                        if( funcIsExistImage( "6.열쇠구입하기\구매완료.bmp" ) = true ){                               
+               if( funcSearchAndClickFolder( "6.열쇠구입하기\상태_상점화면\버튼_명예100" ) = true ){
+                  if(  funcSearchAndClickFolder( "6.열쇠구입하기\버튼_구매하기" ) = true ){
+                        if( funcIsExistImageFolder( "6.열쇠구입하기\구매완료" ) = true ){                               
                            IntMonitorPointForByKey:=IntMonitorPointForByKey+100
                            GuiControl, ,GuiUsingPointCount,%IntMonitorPointForByKey%
                            funcSendESC()                     
@@ -113,7 +113,7 @@ functionByKeyByPoint()
             ;~ fPrintStatus("명예 10으로 열쇠 구입을 시도합니다.")
             ;~ loop
             ;~ {
-               ;~ if( funcSearchAndClick( "6.열쇠구입하기\명예10.bmp" ) = true ){
+               ;~ if( funcSearchAndClickFolder( "6.열쇠구입하기\상태_상점화면\버튼_명예10" ) = true ){
                   ;~ if(  funcSearchAndClick( "6.열쇠구입하기\구매버튼.bmp" ) = true ){
                         ;~ if( funcIsExistImage( "6.열쇠구입하기\구매완료.bmp" ) = true ){                               
                            ;~ INT_POINT_FOR_BUY_KEY:=INT_POINT_FOR_BUY_KEY+10

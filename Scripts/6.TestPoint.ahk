@@ -1,6 +1,6 @@
 ;~ PushNote("G4FPReaqdyZFu4njtx9cGTw4RgWwow2M", "테스트", "와우....")
 
-!F6::
+^F6::
 {	
   	setUpBeforeStart()
    /*
@@ -24,7 +24,9 @@
    ; 1. 황금, 모험 먼저 실행
    ; 2. 레이드 모드
    ; 3. 열쇠 구입
-   ; 4. 
+      goto 모험시작_모험키부족
+   ; 4. 렙업 쫄확인
+      ; goto 렙업_쫄확인_통합
    return
 } 
 !F7::
