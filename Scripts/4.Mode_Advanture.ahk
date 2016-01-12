@@ -28,8 +28,8 @@
 		goto 시작마을_결투장시작	
 	}
    if( GuiSelectRaidMod= true and BoolNeedRaidBattle = true ){
-      if ( funcIsExistImage("4.레이드돌기\열쇠\status_열쇠_1개.bmp") = true or funcIsExistImage("4.레이드돌기\열쇠\status_열쇠_2개.bmp") = true ){
-         fPrintStatus("열쇠 1~2 개가 확인되었습니다. ")
+      if ( funcIsExistImageFolder("4.레이드돌기\열쇠_제한") = true ){
+         fPrintStatus("열쇠 제한이 확인되었습니다. ")
          fPrintStatus("레이드를 돌겠습니다.")
          goto 레이드모드시작
       }        
@@ -231,8 +231,8 @@ funcIsMoonIsland( strInputStage )
 		}			
 	}
    if( GuiSelectRaidMod = true and BoolNeedRaidBattle = true){
-      if ( funcIsExistImage("4.레이드돌기\열쇠\status_열쇠_2개_battle.bmp") = true ){
-         fPrintStatus("열쇠 2개가 확인되었습니다. ")
+      if ( funcIsExistImageFolder("4.레이드돌기\열쇠_제한") = true ){
+         fPrintStatus("모험 중 열쇠 제한이 확인되었습니다. ")
          BoolNeedRaidBattle:=true
          functionMoveTown() 
          goto 시작마을
