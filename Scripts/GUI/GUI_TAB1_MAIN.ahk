@@ -8,7 +8,7 @@ INIT_TAB_MAIN:
       Gui, Add, DropDownList  , x12    y45 section w60 h100  Choose3 vGuiStageDifficulty, 쉬움|보통|어려움
       
       Gui, Add, CheckBox	   , xs 	   y+5    Checked vGuiCheckCallFriend, 친구소환
-      Gui, Add, CheckBox      , x+5    y      vGuiCheckGoNextStage, 다음      
+      Gui, Add, CheckBox      , x+5    yp      vGuiCheckGoNextStage, 다음      
       Gui, Add, CheckBox      , xs 	   y+5    Checked vGuiLoopMap ,반복		         
       Gui,font,s7
       Gui, Add, Edit          , x+0    yp-1   w75 h15 right vLoopMapList, 6-6|7-9            

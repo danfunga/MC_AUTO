@@ -91,7 +91,7 @@ fPrintStatus( vStatus , boolIsDebug=false){
 }
 
 fPrintResult( vStatus ){	
-	vResult:= "         --> ". vStatus
+	vResult:= "         --> " . vStatus
 	GuiControl,, 결과창 , [결과] %vStatus%
 	fLog(vResult)
 	return

@@ -1,4 +1,4 @@
-#SingleInstance,force
+
 gosub INIT_GLOBAL_VARIABLES
 gosub INIT_MCAUTO_GUI
 
@@ -28,6 +28,9 @@ BUTTON시작[F9]:
 	return
 }
 
+!enter::
+send {tab 4}{space}+{tab 4}
+return 
 !F10::
 BUTTON정지[F10]:
 {

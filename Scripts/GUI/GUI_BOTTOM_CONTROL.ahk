@@ -3,6 +3,7 @@ INIT_BOTTOM_CONTROL:
 	{
 		Gui, Font, S8 CDefault Bold, Verdana
       controlHeight:=guiTabHeight-90
+
 		Gui, Add, Button, x2 y%controlHeight% section w80 h30  vButton_Start   , 시작[F9]
 		Gui, Add, Button, xs ys w80 h30  +Hidden vButton_Stop   , 정지[F10]
 		
@@ -16,8 +17,6 @@ INIT_BOTTOM_CONTROL:
 		Gui, Font, , 
 	} 
 	{
-		
-      
 		gui,font,CPurple
 		Gui, Add, GroupBox, x85 ys-5  w422 h90 , 게임로그
 		gui,font,

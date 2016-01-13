@@ -20,7 +20,7 @@ refreshHeroPage(){
    }   
    if( funcSearchAndClick("5.쫄작하기\button_영웅관리.png") = false ){
       fPrintStatus("ERROR_영웅 관리 페이지를 찾는 도중 문제가 발생했다..")
-      goto 위치찾기
+      return false
    }
    return 
 }
@@ -96,7 +96,9 @@ SUB_원소쫄바꾸기:
 	fPrintStatus("레벨업한 쫄 바꾸기를 시도합니다.")
 	updateLevelUpCheckZero()
 	fPrintStatus("최신 몹 반영을 위해 영웅 관리를 들어갔다 나옵니다.")
-	refreshHeroPage()
+	if( refreshHeroPage() = false ){
+      goto 위치찾기
+   }
    
    booleanNeedToChangeUp:= false   
    gosub SUB_Read_LevelUpCheckConfig
@@ -116,7 +118,9 @@ SUB_원소쫄바꾸기:
    if( booleanNeedToChangeUp = false ){
       goto GOTO_EndLevelUpCheck
    }	 
-	refreshHeroPage()	
+	if( refreshHeroPage() = false ){
+      goto 위치찾기
+   }
    gosub, SUB_CHECK_MONSTER_BY_LOOP
    
 	goto GOTO_EndLevelUpCheck
@@ -505,7 +509,9 @@ HeroPositionInit:
 	fPrintStatus("레벨업한 쫄 바꾸기를 시도합니다.")
 	updateLevelUpCheckZero()
 	fPrintStatus("몹 반영을 위해 영웅 관리를 들어갔다 나옵니다.")
-	refreshHeroPage()
+	if( refreshHeroPage() = false ){
+      goto 위치찾기
+   }
    
 	return
 

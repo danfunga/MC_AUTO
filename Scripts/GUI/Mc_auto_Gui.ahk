@@ -3,11 +3,18 @@ INIT_MCAUTO_GUI:
 	CoordMode, Pixel, Screen
 	Gui, +LastFound  
 	
-	guiWidth:=511 , guiHeight:=400
+	guiWidth:=511 
+   guiTabHeight:=400
+   guiChatHeight:=200   
+   
 	gosub INIT_BOTTOM_CONTROL
+      
+   guiHeight:=guiTabHeight+guiChatHeight
+   
+   gosub INIT_BOTTOM_CHATROOM
    ;Gui, Add, Edit, x200  y4  w110  h15 center ,  %TICKET_NAME%
    
-	Gui, Add, Tab, x0 y0 w%guiWidth% h%guiChatHeight% vGuiAutoTab , Main|모험스킬|기타기능   
+	Gui, Add, Tab, x0 y0 w%guiWidth% h%guiTabHeight% vGuiAutoTab , Main|모험스킬|기타기능   
 	Gui, Tab, Main
 	gosub INIT_TAB_MAIN 
 	Gui, Tab, 모험
@@ -16,17 +23,16 @@ INIT_MCAUTO_GUI:
 	;~ gosub INIT_TAB_CASTLEBATTLE
 	Gui, Tab , 기타기능
 	gosub INIT_TAB4
-       
-   gosub INIT_BOTTOM_CHATROOM
-   guiChatHeight=:200   
-   guiHeight:=guiTabHeight+guiChatHeight                                                              
+   
+
 	funcGuiLoadCharactors()
 	gosub LoadConfig
    gosub LoadSkillConfig
 	gosub LoadAutoSkillConfig
 	
+
 	;~ guiControl, ,GuiAutoTab, |Main|모험스킬||기타기능|
-	Gui, Show, x+1150 y w%guiWidth% h%guiHeight%   ,  MC_Auto Ver 0.95
+	Gui, Show, x+1150 y0 w%guiWidth% h%guiHeight% , MC_Auto Ver 0.95   
 	return 
 }
 
