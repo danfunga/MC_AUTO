@@ -19,7 +19,7 @@
      
    if( funcIsExistImage(  "2.모험돌기\열쇠부족\메인키오링1.bmp" ) = true ){	
       if ( bFirstTimeCheck != true ){         
-        PushNote(GuiPushBulletToken, "MC_Auto_Keys", "NoKeys")
+       ; PushNote(GuiPushBulletToken, "MC_Auto_Keys", "NoKeys")
         bFirstTimeCheck:=true
       }
       

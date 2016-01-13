@@ -7,7 +7,7 @@
 
    
    if ( bFirstRaidMode != true ){         
-      PushNote(GuiPushBulletToken, "MC_Auto:RaidMode", "StartRaidMode")
+      ;PushNote(GuiPushBulletToken, "MC_Auto:RaidMode", "StartRaidMode")
       bFirstRaidMode:=true
    }
    
