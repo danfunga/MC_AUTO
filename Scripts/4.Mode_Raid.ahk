@@ -56,11 +56,12 @@
 
 
 레이드모드_전투중:
-if( GuiCheckCallFriend = true ) {
-   gosub 모험중_약식친구소환
-}
 if( funcIsExistImageFolder( "전투중\자동스킬\On" ) = false ){
    funcSearchAndClickFolder( "전투중\자동스킬\Off" )         
+}
+
+if( GuiCheckCallFriend = true ) {
+   gosub 모험중_약식친구소환
 }
 
 레이드_전투_종료대기:
