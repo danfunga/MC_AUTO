@@ -2,7 +2,7 @@ INIT_BOTTOM_CONTROL:
 {
 	{
 		Gui, Font, S8 CDefault Bold, Verdana
-      controlHeight:=guiHeight-90
+      controlHeight:=guiTabHeight-90
 		Gui, Add, Button, x2 y%controlHeight% section w80 h30  vButton_Start   , 시작[F9]
 		Gui, Add, Button, xs ys w80 h30  +Hidden vButton_Stop   , 정지[F10]
 		
@@ -34,7 +34,13 @@ INIT_BOTTOM_CONTROL:
 		;~ Gui, show
 	return
 }
-
+INIT_BOTTOM_CHATROOM:
+{
+   URL = http://www.gagalive.kr/livechat1.swf?chatroom=MC_AUTO&position=1
+   Gui Add, ActiveX, x2 y%guiTabHeight% w510 h200 vWB, Shell.Explorer  ; The final parameter is the name of the ActiveX component.
+   WB.Navigate(URL)  
+	return
+}
 ICON_PAUSE:
 {
 	if( BoolStarted = true ){

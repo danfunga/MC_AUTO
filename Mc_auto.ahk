@@ -1,4 +1,4 @@
-
+#SingleInstance,force
 gosub INIT_GLOBAL_VARIABLES
 gosub INIT_MCAUTO_GUI
 
