@@ -1,100 +1,100 @@
 INIT_TAB_ADVANTURE:
 { 
     {
-        gui,font,CPurple
-        Gui, Add, GroupBox,  x02 y030 w505 h125, 모험 자동 스킬
-        gui,font,
+        gui, 2: font,CPurple
+        Gui, 2:  Add, GroupBox,  x02 y030 w505 h125, 모험 자동 스킬
+        gui, 2: font,
 
-        Gui, Add, Checkbox, x110 yp  gSelectAdvatureAutoSkill vGuiAdvantureAutoSkill ,사용
-        Gui, Add, Checkbox, x+10 yp  vGuiAutoSkillOff ,자동스킬Off
+        Gui, 2:  Add, Checkbox, x110 yp  gSelectAdvatureAutoSkill vGuiAdvantureAutoSkill ,사용
+        Gui, 2:  Add, Checkbox, x+10 yp  vGuiAutoSkillOff ,자동스킬Off
         
-        Gui, Add, Checkbox, x10 yp+20 section w30 h15  vGuiChar1Check ,1.
-        Gui, Add, Edit, x+0 yp w30 h15  right vGuiChar1SkillDelay, 0
-        Gui, Add, Text, x+0 yp+2 w40 h15 , 초 후
-        Gui, Add, DropDownList, x+0 yp-5 w80  gSelectChar1  vGuiChar1, 아일린|레이
-        Gui, Add, Radio, x+10 yp+3 w110 h15 vGuiChar1Skill1, 공격1
-        Gui, Add, Radio, x+20 yp w110 h15 vGuiChar1Skill2, 공격2
+        Gui, 2:  Add, Checkbox, x10 yp+20 section w30 h15  vGuiChar1Check ,1.
+        Gui, 2:  Add, Edit, x+0 yp w30 h15  right vGuiChar1SkillDelay, 0
+        Gui, 2:  Add, Text, x+0 yp+2 w40 h15 , 초 후
+        Gui, 2:  Add, DropDownList, x+0 yp-5 w80  gSelectChar1  vGuiChar1, 아일린|레이
+        Gui, 2:  Add, Radio, x+10 yp+3 w110 h15 vGuiChar1Skill1, 공격1
+        Gui, 2:  Add, Radio, x+20 yp w110 h15 vGuiChar1Skill2, 공격2
 
-        Gui, Add, Checkbox, xs y+5 w30 h15  vGuiChar2Check,2.
-        Gui, Add, Edit, x+0 yp w30 h15  right vGuiChar2SkillDelay, 3
-        Gui, Add, Text, x+0 yp+2 w40 h15 , 초 후
-        Gui, Add, DropDownList, x+0 yp-5 w80  gSelectChar2 vGuiChar2, 아일린|레이
-        Gui, Add, Radio, x+10 yp+3 w110 h15 vGuiChar2Skill1, 공격1
-        Gui, Add, Radio, x+20 yp w110 h15 vGuiChar2Skill2,공격2
+        Gui, 2:  Add, Checkbox, xs y+5 w30 h15  vGuiChar2Check,2.
+        Gui, 2:  Add, Edit, x+0 yp w30 h15  right vGuiChar2SkillDelay, 3
+        Gui, 2:  Add, Text, x+0 yp+2 w40 h15 , 초 후
+        Gui, 2:  Add, DropDownList, x+0 yp-5 w80  gSelectChar2 vGuiChar2, 아일린|레이
+        Gui, 2:  Add, Radio, x+10 yp+3 w110 h15 vGuiChar2Skill1, 공격1
+        Gui, 2:  Add, Radio, x+20 yp w110 h15 vGuiChar2Skill2,공격2
 
-        Gui, Add, Checkbox, xs y+5 w30 h15  vGuiChar3Check,3.
-        Gui, Add, Edit, x+0 yp w30 h15  right vGuiChar3SkillDelay, 3
-        Gui, Add, Text, x+0 yp+2 w40 h15 , 초 후
-        Gui, Add, DropDownList,  x+0 yp-5 w80  gSelectChar3 vGuiChar3, 아일린|레이
-        Gui, Add, Radio, x+10 yp+3 w110 h15 vGuiChar3Skill1, 공격1
-        Gui, Add, Radio, x+20 yp w110 h15 vGuiChar3Skill2, 공격2
+        Gui, 2:  Add, Checkbox, xs y+5 w30 h15  vGuiChar3Check,3.
+        Gui, 2:  Add, Edit, x+0 yp w30 h15  right vGuiChar3SkillDelay, 3
+        Gui, 2:  Add, Text, x+0 yp+2 w40 h15 , 초 후
+        Gui, 2:  Add, DropDownList,  x+0 yp-5 w80  gSelectChar3 vGuiChar3, 아일린|레이
+        Gui, 2:  Add, Radio, x+10 yp+3 w110 h15 vGuiChar3Skill1, 공격1
+        Gui, 2:  Add, Radio, x+20 yp w110 h15 vGuiChar3Skill2, 공격2
 
-        Gui, Add, Checkbox, xs y+5 w30 h15  vGuiChar4Check,4.
-        Gui, Add, Edit, x+0 yp w30 h15  right vGuiChar4SkillDelay, 3
-        Gui, Add, Text, x+0 yp+2 w40 h15 , 초 후
-        Gui, Add, DropDownList, x+0 yp-5 w80  gSelectChar4  vGuiChar4, 아일린|레이
-        Gui, Add, Radio, x+10 yp+3 w110 h15 vGuiChar4Skill1, 공격1
-        Gui, Add, Radio, x+20 yp w110 h15 vGuiChar4Skill2, 공격2
+        Gui, 2:  Add, Checkbox, xs y+5 w30 h15  vGuiChar4Check,4.
+        Gui, 2:  Add, Edit, x+0 yp w30 h15  right vGuiChar4SkillDelay, 3
+        Gui, 2:  Add, Text, x+0 yp+2 w40 h15 , 초 후
+        Gui, 2:  Add, DropDownList, x+0 yp-5 w80  gSelectChar4  vGuiChar4, 아일린|레이
+        Gui, 2:  Add, Radio, x+10 yp+3 w110 h15 vGuiChar4Skill1, 공격1
+        Gui, 2:  Add, Radio, x+20 yp w110 h15 vGuiChar4Skill2, 공격2
 
-        Gui, Add, Checkbox, xs y+5 w30 h15  vGuiChar5Check,5.
-        Gui, Add, Edit, x+0 yp w30 h15  right vGuiChar5SkillDelay, 3
-        Gui, Add, Text, x+0 yp+2 w40 h15 , 초 후
-        Gui, Add, DropDownList, x+0 yp-5 w80  gSelectChar5  vGuiChar5, 아일린|레이
-        Gui, Add, Radio, x+10 yp+3 w110 h15 vGuiChar5Skill1, 공격1
-        Gui, Add, Radio, x+20 yp w110 h15 vGuiChar5Skill2, 공격2
+        Gui, 2:  Add, Checkbox, xs y+5 w30 h15  vGuiChar5Check,5.
+        Gui, 2:  Add, Edit, x+0 yp w30 h15  right vGuiChar5SkillDelay, 3
+        Gui, 2:  Add, Text, x+0 yp+2 w40 h15 , 초 후
+        Gui, 2:  Add, DropDownList, x+0 yp-5 w80  gSelectChar5  vGuiChar5, 아일린|레이
+        Gui, 2:  Add, Radio, x+10 yp+3 w110 h15 vGuiChar5Skill1, 공격1
+        Gui, 2:  Add, Radio, x+20 yp w110 h15 vGuiChar5Skill2, 공격2
     }
     {
-         gui,font,CPurple
-        Gui, Add, GroupBox,  x02 y+10 w505 h85, 황금방 자동 스킬
-        gui,font,       
-        Gui, Add, Checkbox, x110 yp  h15  gSelectGoldAutoSkill vGuiGoldRoomAutoSkill ,사용
+        gui, 2: font,CPurple
+        Gui, 2:  Add, GroupBox,  x02 y+10 w505 h85, 황금방 자동 스킬
+        gui, 2: font,       
+        
+        Gui, 2:  Add, Checkbox, x110 yp  h15  gSelectGoldAutoSkill vGuiGoldRoomAutoSkill ,사용
 
-        Gui, Add, Checkbox, x10 yp+20 w30 h15  vGuiCheckGoldChar1 ,1.
-        Gui, Add, Edit, x+0 yp w30 h15  right vGuiGoldSkillDelay1, 0
-        Gui, Add, Text, x+0 yp+2 w40 h15 , 초 후
-        Gui, Add, DropDownList, x+0 yp-5 w80  gSelectGoldChar1  vGuiGoldChar1, 아일린|레이
-        Gui, Add, Radio, x+10 yp+3 w110 h15 vGuiSkill1GoldChar1, 공격1
-        Gui, Add, Radio, x+20 yp w110 h15 vGuiSkill2GoldChar1, 공격2
+        Gui, 2:  Add, Checkbox, x10 yp+20 w30 h15  vGuiCheckGoldChar1 ,1.
+        Gui, 2:  Add, Edit, x+0 yp w30 h15  right vGuiGoldSkillDelay1, 0
+        Gui, 2:  Add, Text, x+0 yp+2 w40 h15 , 초 후
+        Gui, 2:  Add, DropDownList, x+0 yp-5 w80  gSelectGoldChar1  vGuiGoldChar1, 아일린|레이
+        Gui, 2:  Add, Radio, x+10 yp+3 w110 h15 vGuiSkill1GoldChar1, 공격1
+        Gui, 2:  Add, Radio, x+20 yp w110 h15 vGuiSkill2GoldChar1, 공격2
 
-        Gui, Add, Checkbox, x10 y+5 w30 h15  vGuiCheckGoldChar2,2.
-        Gui, Add, Edit, x+0 yp w30 h15  right vGuiGoldSkillDelay2, 3
-        Gui, Add, Text, x+0 yp+2 w40 h15 , 초 후
-        Gui, Add, DropDownList, x+0 yp-5 w80  gSelectGoldChar2 vGuiGoldChar2, 아일린|레이
-        Gui, Add, Radio, x+10 yp+3 w110 h15 vGuiSkill1GoldChar2, 공격1
-        Gui, Add, Radio, x+20 yp w110 h15 vGuiSkill2GoldChar2,공격2
+        Gui, 2:  Add, Checkbox, x10 y+5 w30 h15  vGuiCheckGoldChar2,2.
+        Gui, 2:  Add, Edit, x+0 yp w30 h15  right vGuiGoldSkillDelay2, 3
+        Gui, 2:  Add, Text, x+0 yp+2 w40 h15 , 초 후
+        Gui, 2:  Add, DropDownList, x+0 yp-5 w80  gSelectGoldChar2 vGuiGoldChar2, 아일린|레이
+        Gui, 2:  Add, Radio, x+10 yp+3 w110 h15 vGuiSkill1GoldChar2, 공격1
+        Gui, 2:  Add, Radio, x+20 yp w110 h15 vGuiSkill2GoldChar2,공격2
 
-        Gui, Add, Checkbox, x10 y+5 w30 h15  vGuiCheckGoldChar3,3.
-        Gui, Add, Edit, x+0 yp w30 h15  right vGuiGoldSkillDelay3, 3
-        Gui, Add, Text, x+0 yp+2 w40 h15 , 초 후
-        Gui, Add, DropDownList,  x+0 yp-5 w80  gSelectGoldChar3 vGuiGoldChar3, 아일린|레이
-        Gui, Add, Radio, x+10 yp+3 w110 h15 vGuiSkill1GoldChar3, 공격1
-        Gui, Add, Radio, x+20 yp w110 h15 vGuiSkill2GoldChar3, 공격2
+        Gui, 2:  Add, Checkbox, x10 y+5 w30 h15  vGuiCheckGoldChar3,3.
+        Gui, 2:  Add, Edit, x+0 yp w30 h15  right vGuiGoldSkillDelay3, 3
+        Gui, 2:  Add, Text, x+0 yp+2 w40 h15 , 초 후
+        Gui, 2:  Add, DropDownList,  x+0 yp-5 w80  gSelectGoldChar3 vGuiGoldChar3, 아일린|레이
+        Gui, 2:  Add, Radio, x+10 yp+3 w110 h15 vGuiSkill1GoldChar3, 공격1
+        Gui, 2:  Add, Radio, x+20 yp w110 h15 vGuiSkill2GoldChar3, 공격2
     }
 
     {
-        gui,font,CPurple
-        Gui, Add, GroupBox, x2 y+10 w505 h60  , 딜레이 설정
-        gui,font,    
-        Gui, Add, Text, x10   yp+20 section w60 h15 , 검색주기 :
-        Gui, Add, Edit, x+0   ys-2 w25 h15 right vGuiDelayForSearch, 0.5
-        Gui, Add, Text, x+0   ys w200 h15 Left , 초 마다 스킬을 체크합니다. ( 0.5초 )
-        Gui, Add, Edit, x+10  ys-3 w80 h15 Left vGuiSkillFileName, default       
-        Gui, Add, Button, x+15 ys-5 w80 h20  , SAVE
+        gui, 2: font,CPurple
+        Gui, 2:  Add, GroupBox, x2 y+10 w505 h60  , 딜레이 설정
+        gui, 2: font,    
         
-        Gui, Add, Text, xs    y+4 section w60 h15 , 검색제한 :       
-        Gui, Add, Edit, x+0   ys-2 w25 h15 right vGuiSearchLimit, 20
-        Gui, Add, Text, x+0   ys w200 h15 Left , 번 스킬 검색을 지속합니다.( 20번)
-        Gui, Add, DropDownList, x+10  ys-5 w80 h100  gSelectSkillFiles vGuiSkillFiles,       
-        Gui, Add, Button, x+15 ys-5 w80 h20  , LOAD
+        Gui, 2:  Add, Text, x10   yp+20 section w60 h15 , 검색주기 :
+        Gui, 2:  Add, Edit, x+0   ys-2 w25 h15 right vGuiDelayForSearch, 0.5
+        Gui, 2:  Add, Text, x+0   ys w200 h15 Left , 초 마다 스킬을 체크합니다. ( 0.5초 )
+        Gui, 2:  Add, Edit, x+10  ys-3 w80 h15 Left vGuiSkillFileName, default       
+        Gui, 2:  Add, Button, x+15 ys-5 w80 h20  , SAVE
+        
+        Gui, 2:  Add, Text, xs    y+4 section w60 h15 , 검색제한 :       
+        Gui, 2:  Add, Edit, x+0   ys-2 w25 h15 right vGuiSearchLimit, 20
+        Gui, 2:  Add, Text, x+0   ys w200 h15 Left , 번 스킬 검색을 지속합니다.( 20번)
+        Gui, 2:  Add, DropDownList, x+10  ys-5 w80 h100  gSelectSkillFiles vGuiSkillFiles,       
+        Gui, 2:  Add, Button, x+15 ys-5 w80 h20  , LOAD
         
      
     }
     advantureSkillGuiEnable(false)
     GoldRoomSkillGuiEnable( false )
     funcCharactorGuiUpdate()
-    fLoadConfig( GuiSkillFileName, false, "스킬파일", "파일이름" )
-    guiControlGet, tempString,,GuiSkillFileName
-    funcGuiLoadConfigList( tempString )
+
 
     return
 }
@@ -309,6 +309,9 @@ SaveSkillConfig:
 
 LoadSkillConfig:
 {
+     
+   
+   
 	IfNotExist, Logs
 	{
 		FileCreateDir, Logs

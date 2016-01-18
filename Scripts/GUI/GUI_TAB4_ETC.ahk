@@ -1,53 +1,20 @@
 INIT_TAB4:
 { 
-	{	
-        gui,font,CPurple
-        Gui, Add, GroupBox,  x02 y030 w505 h100, 명예 포인트 보내기
-        gui,font,
-		Gui, Add, Text,x20 yp+18  h15 , 설명 : 설정된 사람 또는 2배이상 시도 하여 명예 보냅니다.
-		
-		Gui, Add, Text, x20 yp+18  h15 , 보내기 제한 :
-		Gui, Add, Edit, x+5 yp-2 w30 h15 right vGuiSendFrindShipCount, 30
-		Gui, Add, Text, x+5 yp+2  h15 , 명  ( Main 페이지에서 설정 저장 가능합니다. )
-		
-		Gui, Add, Checkbox, x21 y+3  h15 Checked vGuiSendingAfterAdventure, 보낸후 모험시작
-		Gui, Add, Radio			, x+40			yp   		hp Checked 	vGuiCheckSendFriendsShipOnlyGame, 차단한 사람만 보내기
-		Gui, Add, Radio			, x+10 			yp  		hp  	vGuiCheckSendFriendsShipAll, 전부 보내기
-		{
-			Gui, Add, Text, x20 yp+18  h15  , 보낸 명예수:
-			Gui, Add, Text, x+0 yp  w30 h15 right vGuiSendHonorMoniotor , 0			
-		}
-		{
-			Gui, Font, S8 CDefault Bold, Verdana
-			Gui, Add, Button, x270 yp w100 h25   vBUTTON_START_SEND_FRIENDSHIP, 보내기
-			Gui, Add, Button, x+30 yp wp hp   vBUTTON_STOP_SEND_FRIENDSHIP, 보내기 종료
-			Gui, Font, , 
-		}
-	}
-	{	
-        gui,font,CPurple
-        Gui, Add, GroupBox,  x02 y130 w505 h50, 레이드 반복하기
-        gui,font,
-		Gui, Add, Text,x20 yp+18  h15 , 설명 : 레이드를 반복적으로 돕니다.
-		
-	}
-		{
-			Gui, Font, S8 CDefault Bold, Verdana
-			
-			Gui, Add, Button, x270 yp w100 h25   vBUTTON_START_LOOP_RAID, 레이드시작
-			Gui, Add, Button, x+30 yp wp hp   vBUTTON_END_LOOP_RAID, 레이드종료
-			Gui, Font, , 
-		}
-{	
-        gui,font,CPurple
-        Gui, Add, GroupBox,  x02 yp+35 w505 h60, PushBullet 알림
-        gui,font,
-		Gui, Add, Text,x20 yp+18  h15 , 설명 : 열쇠가 없으면 알림합니다.
-		
-		Gui, Add, Text, x20 yp+18  h15 , ID :
-		Gui, Add, Edit, x+5 yp-2 w450 h15 right vGuiPushBulletToken,  
-	}
 	
+   {	
+     gui, 2: font,CPurple
+     Gui, 2: Add, GroupBox,  x02 y130 w505 h50, 레이드 반복하기
+     gui, 2: font,
+     Gui, 2: Add, Text,x20 yp+18  h15 , 설명 : 레이드를 반복적으로 돕니다.
+
+   }
+		{
+			Gui, 2: Font, S8 CDefault Bold, Verdana
+			
+			Gui, 2: Add, Button, x270 yp w100 h25   vBUTTON_START_LOOP_RAID, 레이드시작
+			Gui, 2: Add, Button, x+30 yp wp hp   vBUTTON_END_LOOP_RAID, 레이드종료
+			Gui, 2: Font, , 
+		}
 	return
 }
 fDragUpFriends(){	
@@ -70,7 +37,7 @@ fDragUpFriends(){
 }
 
 
-funcChangeTab4Status(){	
+funcChangePage4Status(){	
 	global BoolStarted
 
 	GuiControl, disable%BoolStarted%, GuiSendFrindShipCount

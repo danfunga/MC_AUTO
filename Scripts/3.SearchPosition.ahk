@@ -6,7 +6,7 @@ if( GuiBoolScreenShotError = true )  {
    fPrintStatus( funcCaptureErrorScreen() )
 }
 
-매크로시작:
+매크로MAIN:
 {
    fPrintTitle("위치  찾기")
    fPrintStatus("현재 어디인지 확인합니다.")

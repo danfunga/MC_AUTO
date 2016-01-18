@@ -1,20 +1,26 @@
-BUTTON설정저장:
+2BUTTON설정저장:
 {
 	fPrintTitle( "설정저장" )
 	fPrintStatus( "설정 파일을 저장합니다." )
 	gosub SaveConfig
+   
+   guiControlGet, fileName,,GuiConfigFiles  
+   mainConfig.saveValue("설정파일", "파일이름", fileName )
+   
 	fPrintResult( "설정을 적용하였습니다." )
    MsgBox, ,,Main 설정을 저장하였습니다.,0.5
 	return   
 }
-BUTTONSAVE:
+2BUTTONSAVE:
 {
    fPrintTitle( "스킬저장" )
 	fPrintStatus( "스킬 파일을 저장합니다." )
+   
+   
 	gosub SaveSkillConfig
 	guiControlGet, fileName,,GuiSkillFileName
 	GuiControl,chooseString,GuiSkillFiles,%fileName%.ini
-	
+   
 	fPrintResult( "스킬 설정을 적용하였습니다." )
 	MsgBox, ,,SKill 설정을 저장하였습니다.,0.5   
    
@@ -24,12 +30,16 @@ BUTTONSAVE:
    funcGuiLoadConfigList(fileName)  
 	return
 }
-BUTTONL:
+2BUTTON불러오기:
 {
 	fPrintTitle( "설정 읽기" )
 	fPrintStatus( "설정 파일을을 불러옵니다." )
    
+   guiControlGet, tempFileName,,GuiConfigFiles
+   mainConfig.saveValue("설정파일", "파일이름", tempFileName )
+
 	gosub LoadConfig 
+   
    fLoadConfig( GuiSkillFileName, false, "스킬파일", "파일이름" )
    guiControlGet, tempString,,GuiSkillFileName
    funcGuiLoadConfigList( tempString )
@@ -38,7 +48,7 @@ BUTTONL:
 	MsgBox, ,,SKill(%configFileName%) 설정을 불러왔습니다..,0.5
 	return
 }
-BUTTONLOAD:
+2BUTTONLOAD:
 {
 	fPrintTitle( "스킬로드" )
 	fPrintStatus( "스킬 파일을 불러옵니다." )
@@ -53,25 +63,6 @@ BUTTONLOAD:
 	return
 }
 
-checkExit(){
-	global BoolWantToStop
-	if ( BoolWantToStop = true ){		
-		gosub StopPoint   
-	}
-}
-StopPoint:
-{
-	fPrintTitle("매크로종료")
-	fPrintStatus("매크로를 정지합니다.")
-	fPrintResult("매크로 종료")
-	BoolStarted:=false
-	BoolWantToStop:=false
-	loop 4
-	{
-		funcChangeTab%a_index%Status()	
-	}		
-	exit
-}
 
 fPrintTitle( vTitle ){
 	GuiControl,, BottomTitle ,%vTitle%

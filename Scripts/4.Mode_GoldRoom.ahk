@@ -123,7 +123,9 @@
 }
 황금방스킬매크로사용:
 {	
-	Gui, Submit, NoHide
+	;Gui, Submit, NoHide
+   ;Gui, 2: Submit, NoHide
+   
 	fPrintTitle("황금방스킬")
 	fPrintStatus("설정한 스킬을 사용합니다.")	
 	Loop, 3
@@ -131,9 +133,9 @@
 		if( GuiCheckGoldChar%a_index% = true ) {		
 			strCharName:=GuiGoldChar%a_index%
 			if( GuiSkill1GoldChar%a_index% = true ){
-				guiControlGet, skillName,,GuiSkill1GoldChar%a_index%,text
+				guiControlGet, skillName, 2: ,GuiSkill1GoldChar%a_index%,text
 			}else if (  GuiSkill2GoldChar%a_index% = true ){
-				guiControlGet, skillName,,GuiSkill2GoldChar%a_index%,text
+				guiControlGet, skillName, 2: ,GuiSkill2GoldChar%a_index%,text
 			}else{
 				fPrintStatus("두 스킬 모두 사용하지 않음으로 설정되어 있습니다.")
 				continue

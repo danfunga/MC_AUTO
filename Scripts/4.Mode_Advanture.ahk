@@ -218,7 +218,7 @@ funcIsMoonIsland( strInputStage )
 	if( BoolNeedLevelUpCheck = true ){
 		if( GuiBoolStopMonsterLevelUp = true ){
          updateLevelUpCheckZero()
-			gosub, StopPoint
+			gosub, 매크로종료
 		}
 	}
 	
@@ -608,7 +608,7 @@ return
 		}else{
 			if( GuiBoolStopMonsterLevelUp = true ){
             updateLevelUpCheckZero()
-				gosub, StopPoint
+				gosub, 매크로종료
          }      
          fPrintStatus("어디서 발생된 이벤트인지 알수없기에 위치찾기로 이동합니다. ")
          goto 위치찾기
@@ -640,11 +640,11 @@ return
 
 
 checkBattleNeeds(iBattleCount){
-	guiControlGet, iCount,,CountForBattle
-	vSearchResult = 전투횟수: %iBattleCount% , 결투장돌기:%iCount%
+	global CountForBattle
+	vSearchResult = 전투횟수: %iBattleCount% , 결투장돌기:%CountForBattle%
 
 	fPrintResult(vSearchResult)
-	iRemain :=Mod(iBattleCount , iCount)    
+	iRemain :=Mod(iBattleCount , CountForBattle)    
 	if( iRemain = 0 ){
 		fPrintResult("결투장을  돌겠습니다.")
 		return true
@@ -654,11 +654,10 @@ checkBattleNeeds(iBattleCount){
 }
 
 checkGoldRoomNeeds( iBattleCount ){
-	guiControlGet, iCount,,CountForGoldRoom
-	vSearchResult = 전투횟수: %iBattleCount% , 황금방돌기:%iCount%
-
+   global CountForGoldRoom
+   vSearchResult = 전투횟수: %iBattleCount% , 황금방:%CountForGoldRoom%
 	fPrintResult(vSearchResult)
-	iRemain :=Mod(iBattleCount , iCount)    
+	iRemain :=Mod(iBattleCount , CountForGoldRoom)    
 	if( iRemain = 0 ){
 		fPrintResult("황금방을 돌겠습니다.")
 		return true
@@ -668,10 +667,11 @@ checkGoldRoomNeeds( iBattleCount ){
 }
 
 checkLevelUpNeeds( iBattleCount ){
-	guiControlGet, iCount,,CountForLevelupCheck
-	vSearchResult = 전투횟수: %iBattleCount% , 렙업확인:%iCount%
+   global CountForLevelupCheck
+
+	vSearchResult = 전투횟수: %iBattleCount% , 렙업확인:%CountForLevelupCheck%
 	fPrintResult(vSearchResult)
-	iRemain := ( iBattleCount >= iCount  )
+	iRemain := ( iBattleCount >= CountForLevelupCheck  )
 
 if( iRemain = true ){
 		fPrintResult("레벨업 확인이 필요합니다.")

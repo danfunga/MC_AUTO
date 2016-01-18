@@ -2,43 +2,43 @@ INIT_TAB_CASTLEBATTLE:
 {
 
      {
-          Gui, Add, GroupBox,  x02 y030 w570 h160, 기능사용
+          Gui, 2:  Add, GroupBox,  x02 y030 w570 h160, 기능사용
+              
+          Gui, 2: Add, Checkbox, x20 y50 w30 h15  vGuiWarChar1Check ,1.
+          Gui, 2: Add, DropDownList, x+0 yp-5 w80  gSelectWarChar1  vGuiWarChar1, 아일린|레이
+          Gui, 2: Add, Radio, x+10 yp+3 w110 h15 vGuiWarChar1Skill1, 공격1
+          Gui, 2: Add, Radio, x+20 yp w110 h15 vGuiWarChar1Skill2, 공격2
 
-          Gui, Add, Checkbox, x20 y50 w30 h15  vGuiWarChar1Check ,1.
-          Gui, Add, DropDownList, x+0 yp-5 w80  gSelectWarChar1  vGuiWarChar1, 아일린|레이
-          Gui, Add, Radio, x+10 yp+3 w110 h15 vGuiWarChar1Skill1, 공격1
-          Gui, Add, Radio, x+20 yp w110 h15 vGuiWarChar1Skill2, 공격2
+          Gui, 2: Add, Checkbox, x20 y+8 w30 h15  vGuiWarChar2Check,2.
+          Gui, 2: Add, DropDownList, x+0 yp-5 w80  gSelectWarChar2 vGuiWarChar2, 아일린|레이
+          Gui, 2: Add, Radio, x+10 yp+3 w110 h15 vGuiWarChar2Skill1, 공격1
+          Gui, 2: Add, Radio, x+20 yp w110 h15 vGuiWarChar2Skill2,공격2
 
-          Gui, Add, Checkbox, x20 y+8 w30 h15  vGuiWarChar2Check,2.
-          Gui, Add, DropDownList, x+0 yp-5 w80  gSelectWarChar2 vGuiWarChar2, 아일린|레이
-          Gui, Add, Radio, x+10 yp+3 w110 h15 vGuiWarChar2Skill1, 공격1
-          Gui, Add, Radio, x+20 yp w110 h15 vGuiWarChar2Skill2,공격2
+          Gui, 2: Add, Checkbox, x20 y+8 w30 h15  vGuiWarChar3Check,3.
+          Gui, 2: Add, DropDownList,  x+0 yp-5 w80  gSelectWarChar3 vGuiWarChar3, 아일린|레이
+          Gui, 2: Add, Radio, x+10 yp+3 w110 h15 vGuiWarChar3Skill1, 공격1
+          Gui, 2: Add, Radio, x+20 yp w110 h15 vGuiWarChar3Skill2, 공격2
 
-          Gui, Add, Checkbox, x20 y+8 w30 h15  vGuiWarChar3Check,3.
-          Gui, Add, DropDownList,  x+0 yp-5 w80  gSelectWarChar3 vGuiWarChar3, 아일린|레이
-          Gui, Add, Radio, x+10 yp+3 w110 h15 vGuiWarChar3Skill1, 공격1
-          Gui, Add, Radio, x+20 yp w110 h15 vGuiWarChar3Skill2, 공격2
-
-          Gui, Add, Checkbox, x20 y+8 w30 h15  vGuiWarChar4Check,4.
-          Gui, Add, DropDownList, x+0 yp-5 w80  gSelectWarChar4  vGuiWarChar4, 아일린|레이
-          Gui, Add, Radio, x+10 yp+3 w110 h15 vGuiWarChar4Skill1, 공격1
-          Gui, Add, Radio, x+20 yp w110 h15 vGuiWarChar4Skill2, 공격2
+          Gui, 2: Add, Checkbox, x20 y+8 w30 h15  vGuiWarChar4Check,4.
+          Gui, 2: Add, DropDownList, x+0 yp-5 w80  gSelectWarChar4  vGuiWarChar4, 아일린|레이
+          Gui, 2: Add, Radio, x+10 yp+3 w110 h15 vGuiWarChar4Skill1, 공격1
+          Gui, 2: Add, Radio, x+20 yp w110 h15 vGuiWarChar4Skill2, 공격2
           
-          Gui, Add, Checkbox, x20 y+8 w30 h15  vGuiWarChar5Check,5.
-          Gui, Add, DropDownList, x+0 yp-5 w80  gSelectWarChar5  vGuiWarChar5, 아일린|레이
-          Gui, Add, Radio, x+10 yp+3 w110 h15 vGuiWarChar5Skill1, 공격1
-          Gui, Add, Radio, x+20 yp w110 h15 vGuiWarChar5Skill2, 공격2
+          Gui, 2: Add, Checkbox, x20 y+8 w30 h15  vGuiWarChar5Check,5.
+          Gui, 2: Add, DropDownList, x+0 yp-5 w80  gSelectWarChar5  vGuiWarChar5, 아일린|레이
+          Gui, 2: Add, Radio, x+10 yp+3 w110 h15 vGuiWarChar5Skill1, 공격1
+          Gui, 2: Add, Radio, x+20 yp w110 h15 vGuiWarChar5Skill2, 공격2
           
-          Gui, Add, Checkbox, x20 y+8 w30 h15  vGuiWarChar6Check,6.
-          Gui, Add, DropDownList, x+0 yp-5 w80  gSelectWarChar6  vGuiWarChar6, 아일린|레이
-          Gui, Add, Radio, x+10 yp+3 w110 h15 vGuiWarChar6Skill1, 공격1
-          Gui, Add, Radio, x+20 yp w110 h15 vGuiWarChar6Skill2, 공격2
+          Gui, 2: Add, Checkbox, x20 y+8 w30 h15  vGuiWarChar6Check,6.
+          Gui, 2: Add, DropDownList, x+0 yp-5 w80  gSelectWarChar6  vGuiWarChar6, 아일린|레이
+          Gui, 2: Add, Radio, x+10 yp+3 w110 h15 vGuiWarChar6Skill1, 공격1
+          Gui, 2: Add, Radio, x+20 yp w110 h15 vGuiWarChar6Skill2, 공격2
                
-          Gui, Add, DropDownList, x20 y+30 w90 Choose1 vGuiAutoSkillList, 공성전|레이드    
-          Gui, Add, Button, x+10 yp-5 w80 h30  , SAVE_SKILL
-          Gui, Add, Button, x+10 yp w80 h30  , LOAD_SKILL
-          
-          Gui, Add, Button, x20 y+30 w100 h30  , SKILL_START
+          Gui, 2: Add, DropDownList, x20 y+30 w90 Choose1 vGuiAutoSkillList, 공성전|레이드    
+          Gui, 2: Add, Button, x+10 yp-5 w80 h30  , SAVE_SKILL
+          Gui, 2: Add, Button, x+10 yp w80 h30  , LOAD_SKILL
+              
+          Gui, 2: Add, Button, x20 y+30 w100 h30  , SKILL_START
      }
 return
 }

@@ -1,6 +1,7 @@
 수동전투시작:
 {	
 	Gui, Submit, NoHide
+   Gui, 2: Submit, NoHide
 	fPrintTitle("수동   전투")
 	fPrintStatus("설정한 스킬을 사용합니다.")	
 	Loop, 6
@@ -8,9 +9,9 @@
 		if( GuiChar%a_index%Check = true ) {		
 			strCharName:=GuiChar%a_index%
 			if( GuiChar%a_index%Skill1 = true ){
-				guiControlGet, skillName,,GuiChar%a_index%Skill1,text
+				guiControlGet, skillName, 2: ,GuiChar%a_index%Skill1,text
 			}else if (  GuiChar%a_index%Skill2 = true ){
-				guiControlGet, skillName,,GuiChar%a_index%Skill2,text
+				guiControlGet, skillName, 2: ,GuiChar%a_index%Skill2,text
 			}else{
 				fPrintStatus("두 스킬 모두 사용하지 않음으로 설정되어 있습니다.")
 				continue

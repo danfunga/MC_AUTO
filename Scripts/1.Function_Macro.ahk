@@ -94,7 +94,7 @@ func_windowResize( boolForce = false ){
    }
 }
 fRetrun(){
-	gosub StopPoint   
+	gosub 매크로종료   
    return
 }
 fLog( vContent , boolIsDebug=false){
@@ -432,6 +432,24 @@ funcMouseDrag(fromX,fromY,toX,toY)
 	;~ sleep, 100
 	PostMessage, 0x202, 1, %endParam%, , %ACTIVE_ID% ;WM_LBUTTONUP	
    return
+}
+
+
+funcLoadConfig(  config, ByRef targetGuiValue, isListGui , vTitle, vKey  ){
+
+   value:=config.loadValue( vTitle, vKey  )      
+   if( value <> "" ){
+      if( isListGui = false ){
+         GuiControl, ,targetGuiValue,%value%   
+      }else{
+         GuiControl, choose ,targetGuiValue,%value%   
+      }
+   }
+	return
+}
+funcSaveConfig(  config, vValue, isListGui , vTitle, vKey  ){
+   config.saveValue( vTitle, vKey , vValue)      
+	return
 }
 
 

@@ -1,7 +1,7 @@
+
 INIT_GLOBAL_VARIABLES:
 {
-   ;~ Application Default
-   ACTIVE_ID:="BlueStacks App Player"
+
    SysGet, IntWinCapHeight, 4 ; 캡션Height
    SysGet, IntWinBorderWidth, 32 ; 보더Width
    SysGet, IntWinBorderHeight, 33 ; 보더Height
@@ -63,8 +63,8 @@ INIT_MONITORING:
    IntMonitorRaidPrize:=0
 return   
 setUpBeforeStart(){
-	Gui, Submit, NoHide
-   
+	Gui, Submit , Nohide
+   Gui,2:  Submit , Nohide
 	global BoolNeedGoldRoomStage
    global BoolNeedBattleStage
    global BoolNeedCastleBattle
@@ -75,3 +75,4 @@ setUpBeforeStart(){
    guiControlGet, BoolNeedRaidBattle,,GuiSelectRaidMod
    return
 }
+

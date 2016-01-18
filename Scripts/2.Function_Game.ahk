@@ -160,7 +160,7 @@ funcChoicePlayerSkill( teamName )
    
    
    ;이미 선택되어 있는지 확인한다.
-   choicedFolder =10.팀선택하기\playerSkill\choiced_skill%skillNum%   
+   choicedFolder =10.팀선택하기\playerSkill\skillbutton\choiced_skilll%skillNum%   
    if( funcIsExistImageFolder( choicedFolder ) = true ){
       result=이미 플스%skillNum%이 선택되어 있습니다.
       fPrintResult(result)

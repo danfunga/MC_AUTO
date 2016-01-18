@@ -387,11 +387,11 @@ monsterFinder(  ByRef intPosX, ByRef intPosY, img){
 		vTestPicture=5.쫄작하기\테스트\%A_LoopFileName%
 		
 		WinGetPos, winX, winY, winW, winH, %ACTIVE_ID%
-		if ( funcSearchImage(  xStart, yStart, vTestPicture ) = true ){		
-			xStart:=xStart-winX
+		if ( funcSearchImage(  xGuiStart, yStart, vTestPicture ) = true ){		
+			xGuiStart:=xGuiStart-winX
 			yStart:=yStart-winy
-		mouseMove, xStart,yStart
-		;~ lParam := xStart & 0xFFFF | (yStart & 0xFFFF) << 16
+		mouseMove, xGuiStart,yStart
+		;~ lParam := xGuiStart & 0xFFFF | (yStart & 0xFFFF) << 16
 		;~ PostMessage, 0x201, 1, %lParam%, , 경고 ;WM_LBUTTONDOWN
 		;~ sleep, 100	
 		;~ PostMessage, 0x202, 1, %lParam%, , 경고 ;WM_LBUTTONUP
