@@ -160,7 +160,7 @@
 	return
 }
 funcWaitingBeforeGoldSkill( skillIndex ){   
-   guiControlGet,skillDelay,,GuiGoldSkillDelay%skillIndex%,text
+   guiControlGet,skillDelay, 2:,GuiGoldSkillDelay%skillIndex%,text
    vStatus= %skillIndex%번 스킬 사용전 %skillDelay%초간 대기합니다.
    if( skillDelay = 0 )
    {

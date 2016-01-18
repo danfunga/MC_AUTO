@@ -63,7 +63,7 @@ funcWaitingForBattleCheck(){
 
 funcWaitingBeforeSkill( skillIndex ){   
    
-   guiControlGet,skillDelay,,GuiChar%skillIndex%SkillDelay,text
+   guiControlGet,skillDelay, 2: ,GuiChar%skillIndex%SkillDelay,text
    vStatus= %skillIndex%번 스킬 사용전 %skillDelay%초간 대기합니다.
    if( skillDelay = 0 )
    {
