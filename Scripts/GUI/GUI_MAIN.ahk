@@ -104,7 +104,7 @@ INIT_GUI_MAINPAGE:
 		gui,font,
 
 		Gui, Add, Text, xp+10 	yp+20 section w70  vBottomTitle, 런칭		
-      Gui, Add, Text, x+15 	yp w100  vSubTitle, 좋은 하루 되세요
+      Gui, Add, Text, x+15 	yp w200  vSubTitle, 좋은 하루 되세요
       Gui, Font, S8 CDefault Bold, Verdana
 
 		Gui, Font, ,

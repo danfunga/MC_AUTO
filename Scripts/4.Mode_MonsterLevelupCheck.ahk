@@ -165,8 +165,8 @@ SUB_CHECK_MONSTER_BY_LOOP:
                         fPrintStatus(vSearchResult)
                      continue
                   }else{
-                     stringTitle=%stringTitle% , %a_index%-V 
-                     funcPrintSubTitle(stringTitle)
+
+                     funcPrintSubTitle( stringTitle ", " a_index "-V")
                      booleanThisMonsterDone:=true
                      boolNeedChangeMonster%a_index%:=false
                      fPrintStatus("변경 완료 했습니다.")									
@@ -285,7 +285,7 @@ SUB_Read_LevelUpCheckConfig:
          if( funcIsExistImageFolder("5.쫄작하기\Monster\OutCheck") = true ){
             booleanNeedToChangeUp:=true
             boolNeedChangeMonster%a_index%:=true
-            stringTitle=%stringTitle% : %a_index%-O
+            stringTitle:= % stringTitle " : " a_index "-O"
             funcPrintSubTitle(stringTitle)
             vStatus=%GuiListTeamPosition%진형 %a_index%번 몬스터 확인 -> 교체 필요
             fPrintStatus(vStatus) 
@@ -294,12 +294,12 @@ SUB_Read_LevelUpCheckConfig:
          }else if( funcIsExistImage( "5.쫄작하기\window_영웅관리.png" ) = true ){
             booleanNeedToChangeUp:=true
             boolNeedChangeMonster%a_index%:=true
-            stringTitle=%stringTitle% : %a_index%-E
+            stringTitle:= % stringTitle " : " a_index "-E"
             funcPrintSubTitle(stringTitle)
             vStatus=%GuiListTeamPosition%진형 %a_index%번 몬스터 확인 -> 교체 필요
             fPrintStatus(vStatus) 
          }else {
-            stringTitle=%stringTitle% : %a_index%-X
+            stringTitle:= % stringTitle " : " a_index "-X"
             funcPrintSubTitle(stringTitle)
             boolNeedChangeMonster%a_index%:=false
             ;~ 영웅 화면으로 이동
