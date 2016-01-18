@@ -110,7 +110,7 @@ INIT_GUI_MAINPAGE:
 		Gui, Font, ,
       logWidth:=xGroupWidth-30
 		Gui, Add, Text, xs 	   y+10 w%logWidth%  v상태창, Macro Version 0.95
-		Gui, Add, Text, xs-2 	y+10 wp  v결과창,  '결과창'	
+		Gui, Add, Text, +wrap xs-2	y+10 wp R2 v결과창  ,  '결과창'	
 	}
    {
       yPos:=yPos+height_logs+5          
