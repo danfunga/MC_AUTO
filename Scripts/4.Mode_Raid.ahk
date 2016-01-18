@@ -263,20 +263,6 @@ if( GuiCheckCallFriend = true ) {
 }
 레이드모드종료:
 {
-   fPrintStatus("공성전 전투 준비를 시작합니다.")
    
-   if( funcIsExistImage( "전투입장\공성전\Status_공성참여_full.png" ) = true ){
-      fPrintTitle("공성전 참여 완료")
-      fPrintStatus("공성참여 횟수를 모두 소진하였습니다.")
-      funcWaitingClick()
-      functionMoveTown()
-      goto 위치찾기
-   }
-   vLine=설정된 공성전 팀은  %GuilListCatleBattleTeam%입니다.
-	fPrintStatus(vLine)   
-	funcChoiceTeam( GuilListCatleBattleTeam )
-	funcChoicePlayerSkill( GuilListCatleBattleTeam )
-   goto AUTOMODE_CASTLEBATTLE_STARTBATTLE  
-     
   return
 }

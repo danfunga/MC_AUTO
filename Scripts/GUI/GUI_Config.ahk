@@ -349,8 +349,13 @@ SaveConfig:
 	}
 
 	fSaveFile( GuiListTeamAdvanture, "팀선택", "모험팀")
-	fSaveFile( GuiListTeamBattle, "팀선택", "결투팀")
-	fSaveFile( GuiListTeamGoldRoom, "팀선택", "황금팀")
+   fSaveFile( GuiListSkillAdvanture, "팀선택", "모험스킬")
+   fSaveFile( GuiListTeamGoldRoom, "팀선택", "황금팀")
+   fSaveFile( GuiListSkillGoldRoom, "팀선택", "황금스킬")   
+	fSaveFile( GuiListSkillBattle, "팀선택", "결투스킬")
+   fSaveFile( GuiListSkillCastle, "팀선택", "공성스킬")      
+      
+      
 	
 	fSaveFile( GuiCheckContentsBattleField, "컨텐츠", "결투장" )
 	fSaveFile( GuiCheckContentsGoldRoom, "컨텐츠", "황금방" )
@@ -426,11 +431,17 @@ LoadConfig:
 	{
 		FileCreateDir, Config\Skill
 	}
+   
 	fLoadConfig( GuiListTeamAdvanture, true, "팀선택", "모험팀" )
+   fLoadConfig( GuiListSkillAdvanture, true, "팀선택", "모험스킬" )
    
-   fLoadConfig( GuiListTeamBattle, true, "팀선택", "결투팀" )
+   fLoadConfig( GuiListTeamGoldRoom, true, "팀선택", "황금팀" )   
+   fLoadConfig( GuiListSkillGoldRoom, true, "팀선택", "황금스킬" )   
    
-   fLoadConfig( GuiListTeamGoldRoom, true, "팀선택", "황금팀" )
+   fLoadConfig( GuiListSkillBattle, true, "팀선택", "결투스킬" )
+   fLoadConfig( GuiListSkillCastle, true, "팀선택", "공성스킬" )
+   
+
    
    fLoadConfig( GuiCheckContentsBattleField, false, "컨텐츠", "결투장" )
    fLoadConfig( GuiCheckContentsGoldRoom, false, "컨텐츠", "황금방" )

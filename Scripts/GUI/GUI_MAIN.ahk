@@ -257,8 +257,8 @@ funcChangeGuiStatus(){
 	
 	GuiControl, show%BoolStarted%,PIC_PAUSE		
    GuiControl, disable%BoolStarted%, Button_Config  
-   if( BoolStarted )
-      Gui, 2: Hide
+;   if( BoolStarted )
+      ;Gui, 2: Hide
    
    ; 먼저 돌기 부분 
    GuiControl,  disable%BoolStarted%, GuiBoolFirstGoldRoom

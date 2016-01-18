@@ -200,7 +200,7 @@ funcIsMoonIsland( strInputStage )
 	vLine=설정된 모험팀은 %GuiListTeamAdvanture%입니다.
 	fPrintStatus(vLine)   
 	funcChoiceTeam( GuiListTeamAdvanture )
-	funcChoicePlayerSkill( GuiListTeamAdvanture )
+	funcChoicePlayerSkill( GuiListSkillAdvanture )
 	goto,모험시작_모험시작	
 
 	fPrintStatus("ERROR_모험시작중 위치찾기로 이동합니다. ")

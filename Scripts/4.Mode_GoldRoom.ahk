@@ -45,13 +45,10 @@
 전투입장_황금의방:
 {
 	fPrintTitle("황금의 방")
-	fPrintStatus("황금의방 페이지에 왔습니다.")
-	
-   fPrintStatus("황금방 팀을 선택합니다.")
-	vLine=설정된 황금팀은 %GuiListTeamGoldRoom%입니다.
-	fPrintStatus(vLine)   
+	fPrintStatus("황금의방 페이지에 왔습니다.")	
+	fPrintStatus("설정된 황금팀은 " GuiListTeamGoldRoom " 플레이어스킬은 " GuiListSkillGoldRoom " 입니다.")   
    funcChoiceTeam( GuiListTeamGoldRoom )
-   funcChoicePlayerSkill( GuiListTeamGoldRoom )
+   funcChoicePlayerSkill( GuiListSkillGoldRoom )
    
 	goto,황금의방_도전시작	
 

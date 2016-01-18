@@ -71,7 +71,7 @@
 	fPrintTitle("결투장시작")
 	fPrintStatus("결투장을  시작합니다.")
 	
-	funcChoicePlayerSkill( GuiListTeamBattle )
+	funcChoicePlayerSkill( GuiListSkillBattle )
 	
 	if ( funcSearchAndClick("전투입장\Button_전투_시작하기.bmp") = true ){
 		goto, 결투장입장_시작체크

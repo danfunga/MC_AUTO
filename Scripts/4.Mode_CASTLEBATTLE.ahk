@@ -26,11 +26,9 @@ AUTOMODE_CASTLEBATTLE1:
       funcWaitingClick()
       functionMoveTown()
       goto 시작마을
-   }
-   vLine=설정된 공성전 팀은  %GuilListCatleBattleTeam%입니다.
-	fPrintStatus(vLine)   
-	funcChoiceTeam( GuilListCatleBattleTeam )
-	funcChoicePlayerSkill( GuilListCatleBattleTeam )
+   }   
+	fPrintStatus( "설정된 공성전 스킬은 " GuiListSkillCastle "입니다")   
+	funcChoicePlayerSkill( GuiListSkillCastle )
    goto AUTOMODE_CASTLEBATTLE_STARTBATTLE  
      
   return
