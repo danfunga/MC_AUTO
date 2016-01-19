@@ -153,7 +153,7 @@ funcChoiceTeam( teamName )
 funcChoicePlayerSkill( teamName )
 {
   
-   StringReplace,skillNum,teamName,팀,,All  
+   StringReplace,skillNum,teamName,번,,All  
    
    result="플레이어 스킬%skillNum%을 사용하겠습니다."
    fPrintStatus(result)

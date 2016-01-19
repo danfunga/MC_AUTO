@@ -49,7 +49,7 @@
 !F8::
 {
 	setUpBeforeStart()
-   funcChoicePlayerSkill( 3 )
+   funcChoicePlayerSkill( 1 )
    
    ;fPrintStatus( funcCaptureErrorScreen() )
 ;   teamName=3ÆÀ
