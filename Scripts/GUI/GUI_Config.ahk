@@ -235,9 +235,11 @@ funcLoadConfigFileList( ){
    }
    
    GuiControl  , ,GuiConfigFiles,%configFileList%
-   target:=mainConfig.loadValue("설정파일", "파일이름" )
+   target:=mainConfig.loadValue("설정파일", "파일이름" )   
+   if( target = "" ){
+      target:="config"
+   }
    GuiControl , chooseString,GuiConfigFiles, % target
-
    return
 }
 
