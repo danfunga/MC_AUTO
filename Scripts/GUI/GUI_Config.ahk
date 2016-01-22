@@ -233,7 +233,9 @@ funcLoadConfigFileList( ){
      StringReplace, configName, A_LoopFileName, .ini, , All
      configFileList=%configFileList%|%configName%
    }
-   
+   if( configFileList = "" )
+      configFileList=config   
+      
    GuiControl  , ,GuiConfigFiles,%configFileList%
    target:=mainConfig.loadValue("설정파일", "파일이름" )   
    if( target = "" ){
