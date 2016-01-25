@@ -256,9 +256,10 @@ funcChangeGuiStatus(){
 	GuiControl, show%BoolStarted%, Button_Stop
 	
 	GuiControl, show%BoolStarted%,PIC_PAUSE		
-   GuiControl, disable%BoolStarted%, Button_Config  
-   if( BoolStarted )
-      Gui, 2: Hide
+   ;GuiControl, disable%BoolStarted%, Button_Config  
+   
+   ;if( BoolStarted )
+    ;  Gui, 2: Hide
    
    ; 먼저 돌기 부분 
    GuiControl,  disable%BoolStarted%, GuiBoolFirstGoldRoom
@@ -273,7 +274,7 @@ funcChangeGuiStatus(){
    ;GuiControl,  disable%BoolStarted%, GuiSendPushBullet   
    GuiControl,  disable%BoolStarted%, GuiBoolRaidStart   
    GuiControl,  disable%BoolStarted%, GuiBoolNoKey
-   GuiControl,  disable%BoolStarted%, vGuiPushBulletToken
+   GuiControl,  disable%BoolStarted%, GuiPushBulletToken
    
    
    GuiControl,  disable%BoolStarted%, GuiSending
