@@ -1,6 +1,4 @@
-;~ PushNote("G4FPReaqdyZFu4njtx9cGTw4RgWwow2M", "테스트", "와우....")
-
-^F6::
+!F6::
 {	
   	setUpBeforeStart()
    /*
@@ -23,47 +21,38 @@
    ; 1. 황금, 모험 먼저 실행
    ; 2. 레이드 모드
    ; 3. 열쇠 구입
-      ;goto 모험시작_모험키부족
+   ;goto 모험시작_모험키부족
    ; 4. 렙업 쫄확인
        
        ;goto 렙업_쫄확인_통합
    return
 } 
+
 !F7::
 {
 	setUpBeforeStart()
-;      if( GuiLoopMap = true ){
-      ;strStageName:=funcGetNextLoopMap()
-   ;}else{
-      ;strStageName:=GuiStageList
-   ;}
-   goto 렙업_쫄확인_통합
-
-   ;boolMoonIsland := funcIsMoonIsland( strStageName )
-   ;msgbox, StageName(%strStageName%) boolMoonIsland = %boolMoonIsland%
-   
-   ;teamName=2팀
-   ;funcChoiceTeam( teamName )
-   ;funcChoicePlayerSkill( teamName )
+   strTarget:=funcLoadTestInitsValue( "TEST_TARGET", "F7" )
+   goto %strTarget%
    return
 }
 
 !F8::
 {
-	setUpBeforeStart()
-   funcChoicePlayerSkill( 1 )
-   
-   ;fPrintStatus( funcCaptureErrorScreen() )
-;   teamName=3팀
- ;  funcChoiceTeam( teamName )
-  ; funcChoicePlayerSkill( teamName )
-
-	;With Catpion, NoClick 
-   ;loopFindTestFolder( true, false )
-   
-
-	 
+	setUpBeforeStart() 
+   strTarget:=funcLoadTestInitsValue( "TEST_TARGET", "F8" )
+   goto %strTarget%
    return
+}
+
+
+
+funcLoadTestInitsValue( strTitile, strKey ){
+	IniRead, value, %A_ScriptDir%\testTarget.ini ,%strTitile%, %strKey%
+	IfEqual value, ERROR
+	{
+		value:=""
+	}
+	return value
 }
 
 
