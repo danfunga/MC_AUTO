@@ -80,9 +80,25 @@ AUTOMODE_CASTLEBATTLE_CHECK_END:
    
    fPrintStatus("5초씩 지속적으로 종료를 확인합니다.")
 	loop{
+      
 		if( funcIsExistImage( "전투입장\공성전\Status_공성_종료.png" ) = true ){		
 			break	
+		}      
+      if( funcIsExistImage( "10.전투결과이미지\모험\모험W다시.bmp" ) = true  or funcIsExistImage( "10.전투결과이미지\모험\모험F다시.bmp" ) = true ){		
+         fPrintTitle("모험전투중")
+         fPrintStatus("모험전투인것으로 확인이 됩니다. 상태를 변경합니다.")
+         goto 전투중_모험_결과대기			
 		}
+      funcWaitingForBattleCheck()
+		if( A_index > 60 ){
+			fPrintStatus("6분간 기다렸으나 전투가 종료 되지 않습니다.")	
+			fPrintStatus("Error로 판단합니다.")				
+			fPrintStatus("ERROR_전투중_모험_결과대기중 위치찾기로 이동합니다. ")
+			goto 위치찾기
+		}		
+      
+      
+      
       funcWaitingForBattleCheck()
 		if( A_index > 360 ){
 			fPrintStatus("30분간 기다렸으나 공성전이 종료 되지 않습니다.")	
