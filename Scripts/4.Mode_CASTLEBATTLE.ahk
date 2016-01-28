@@ -1,3 +1,50 @@
+시작마을_공성전시작:
+{	
+	fPrintTitle("공성전전투")
+	fPrintStatus("전투입장을 합니다.")
+	
+	 If( funcSearchAndClickFolder( "3.전투입장\버튼_전투입장"  ) = true )
+		goto 전투입장_공성전돌기	
+	fPrintStatus("ERROR_시작마을_공성전시작중 위치찾기로 이동합니다.")
+	goto 위치찾기
+} 
+
+전투입장_공성전돌기:
+{	
+	fPrintTitle("공성전입장")
+	fPrintStatus("전투입장 화면에 도착하였습니다.")
+	
+	If( funcSearchAndClickFolder(  "3.전투입장\버튼_전투입장\버튼_공성전" ) = true )	{
+		fPrintStatus("공성전을 택합니다.")
+		goto 전투입장_공성전	
+	}
+	
+	fPrintStatus("ERROR_전투입장_공성전돌기 중 위치찾기로 이동합니다.")
+	goto 위치찾기
+	return
+}
+
+전투입장_공성전:
+{
+	fPrintTitle("공성전")
+	fPrintStatus("공성전 요일 선택 화면입니다..")
+   if( funcIsExistImageFolder( "3.전투입장\3.공성전돌기\화면_공성선택" ) = true )	{      
+      fPrintStatus("요일을 선택합니다. ")
+      
+      xPos:=funcLoadConstants( vValue, "CastleBattle", A_WDay "_X" )       
+      yPos:=funcLoadConstants( vValue, "CastleBattle", A_WDay "_Y" )       
+      funcSendClickFixed( xPos, yPos , true)
+		goto AUTOMODE_CASTLEBATTLE
+      
+	}	
+   fPrintStatus("ERROR_전투입장_공성전 중 위치찾기로 이동합니다.")
+	goto 위치찾기
+
+}   
+	
+
+
+
 AUTOMODE_CASTLEBATTLE:
 { 
    fPrintTitle("공성전 전투")
@@ -21,6 +68,7 @@ AUTOMODE_CASTLEBATTLE1:
    fPrintStatus("공성전 전투 준비를 시작합니다.")
    
    if( funcIsExistImageFolder( "3.전투입장\3.공성전돌기\상태_참여FULL" ) = true ){
+      BoolNeedCastleBattle:=false
       fPrintTitle("공성전 참여 완료")
       fPrintStatus("공성참여 횟수를 모두 소진하였습니다.")
       funcWaitingClick()
@@ -54,7 +102,7 @@ AUTOMODE_CASTLEBATTLE_CHECK_START:
 		goto, AUTOMODE_CASTLEBATTLE_CHECK_START
 	}
    if ( funcIsExistImageFolder("3.전투입장\3.공성전돌기\팝업_추가입장") = true ){
-   
+      BoolNeedCastleBattle:=false
       fPrintStatus("공성전을 모두 돌았습니다.")
       funcSearchAndClickFolder("3.전투입장\3.공성전돌기\팝업_추가입장\버튼_아니요")
 		functionMoveTown()
@@ -76,8 +124,10 @@ AUTOMODE_CASTLEBATTLE_CHECK_START:
 }
 AUTOMODE_CASTLEBATTLE_CHECK_END:
 {
-   funcWaitingBattleBasicDuration()
-   
+   if( funcIsExistImageFolder( "전투중\자동스킬\On" ) = false ){
+      funcSearchAndClickFolder( "전투중\자동스킬\Off" )         
+   }    
+   funcWaitingBattleBasicDuration()   
    fPrintStatus("5초씩 지속적으로 종료를 확인합니다.")
 	loop{
       

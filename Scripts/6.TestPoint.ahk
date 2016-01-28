@@ -23,8 +23,10 @@
    ; 3. 열쇠 구입
    ;goto 모험시작_모험키부족
    ; 4. 렙업 쫄확인
-       
-       ;goto 렙업_쫄확인_통합
+      
+     funcCaptureSubScreen( "test" )
+;
+         
    return
 } 
 

@@ -8,6 +8,7 @@ if( GuiBoolScreenShotError = true )  {
 
 매크로MAIN:
 {
+
    fPrintTitle("위치  찾기")
    fPrintStatus("현재 어디인지 확인합니다.")
    
@@ -137,6 +138,9 @@ if( GuiBoolScreenShotError = true )  {
    if( funcIsExistImageFolder( "3.전투입장\2.결투장돌기\버튼_준비하기" ) = true )	{
       goto 전투입장_결투장
    }	
+   if( funcIsExistImageFolder( "3.전투입장\3.공성전돌기\화면_공성선택" ) = true )	{      
+      goto 전투입장_공성전
+   }
    if( funcIsExistImageFolder( "3.전투입장\3.공성전돌기\버튼_준비하기" ) = true ){
       goto AUTOMODE_CASTLEBATTLE
    }
@@ -148,9 +152,9 @@ if( GuiBoolScreenShotError = true )  {
       goto AUTOMODE_CASTLEBATTLE_RESULT
    }
    
-   if( funcIsExistImage( "4.레이드돌기\레이드_전투종료_종료된레이드.bmp" ) = true ){		
+   if( funcIsExistImageFolder( "4.레이드돌기\팝업_종료된레이드" ) = true ){		
       fPrintStatus("이미 종료된 레이드라고 합니다.")	
-      funcSearchAndClick( "4.레이드돌기\Button_종료된레이드_확인.bmp" )
+      funcSearchAndClickFolder( "4.레이드돌기\팝업_종료된레이드\버튼_확인" )
       goto, 시작마을
    }
    fPrintStatus("공지 화면인지 찾기.")

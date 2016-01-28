@@ -14,7 +14,7 @@
 	fPrintTitle("황금방입장")
 	fPrintStatus("전투입장 화면에 도착하였습니다.")
 	
-	If( funcSearchAndClickFolder(  "3.전투입장\버튼_전투입장\화면_전투입장\버튼_무한의탑" ) = true )	{
+	If( funcSearchAndClickFolder(  "3.전투입장\버튼_전투입장\버튼_무한의탑" ) = true )	{
 		fPrintStatus("무한의 탑을 선택합니다.")
 		goto 전투입장_무한의탑	
 	}

@@ -83,13 +83,13 @@ if( GuiCheckCallFriend = true ) {
             funcCaptureSubScreen("Raid")
 			break	
 		}
-      if( funcIsExistImage( "4.레이드돌기\레이드_전투종료_종료된레이드.bmp" ) = true ){		
+      if( funcIsExistImageFolder( "4.레이드돌기\팝업_종료된레이드" ) = true ){		
          IntMonitorRaidConsume++
          GuiControl, ,GuiCountRaidConsume,%IntMonitorRaidConsume%
          if( GuiBoolScreenShotRaid = true )
             funcCaptureSubScreen("Raid")
          fPrintStatus("이미 종료된 레이드라고 합니다.")	
-         If( funcSearchAndClick( "4.레이드돌기\Button_종료된레이드_확인.bmp" ) = true )
+         If( funcSearchAndClickFolder( "4.레이드돌기\팝업_종료된레이드\버튼_확인" ) = true )
             goto 레이드_입장하기
 			break	
 		}
@@ -133,8 +133,8 @@ if( GuiCheckCallFriend = true ) {
    If( funcSearchAndClick( "4.레이드돌기\레이드_전투종료_레이드버튼.bmp" ) = true ){
       funcWaitingForLoad()
       
-      If( funcSearchAndClickFolder( "4.레이드돌기\버튼_종료된레이드" ) = true ){
-         If( funcSearchAndClickFolder( "4.레이드돌기\버튼_레이드입장" ) = true ){
+      If( funcSearchAndClickFolder( "4.레이드돌기\레이드_선택\버튼_종료된레이드" ) = true ){
+         If( funcSearchAndClickFolder( "4.레이드돌기\레이드_선택\버튼_레이드입장" ) = true ){
             gosub 레이드_보상수령
          }
       }
@@ -175,7 +175,7 @@ if( GuiCheckCallFriend = true ) {
    fPrintTitle("레이드모드")
   	fPrintStatus("종료된 레이드를 확인합니다.")	
 
-   If( funcSearchAndClickFolder( "4.레이드돌기\버튼_종료된레이드" ) = false ){
+   If( funcSearchAndClickFolder( "4.레이드돌기\레이드_선택\버튼_종료된레이드" ) = false ){
       BoolNeedRaidBattle:=false      
       fPrintStatus("ERROR_레이드_버튼_종료된레이드를 찾지 못해서 진행을 하지 않겠다.")
       fPrintStatus( funcCaptureErrorScreen() )
@@ -184,7 +184,7 @@ if( GuiCheckCallFriend = true ) {
    
    
    ;종료된 레이드 화면 --> 보상 수령을 한다.
-   If( funcSearchAndClickFolder( "4.레이드돌기\버튼_레이드입장" ) = true ){
+   If( funcSearchAndClickFolder( "4.레이드돌기\레이드_선택\버튼_레이드입장" ) = true ){
       gosub 레이드_보상수령
       ;보상 수령 했으면 일단 화면으로 나갔다가 온다. ( reset --> 중복되게 보상을 받을것을 고려 )
       functionMoveTown()
@@ -206,12 +206,12 @@ if( GuiCheckCallFriend = true ) {
    }
    
    
-   If( funcSearchAndClick( "4.레이드돌기\레이드_버튼_미참여레이드.bmp" ) = true ){
-      If( funcIsExistImageFolder( "4.레이드돌기\버튼_레이드입장" ) = false ){
+   If( funcSearchAndClickFolder( "4.레이드돌기\레이드_선택\버튼_미참여레이드" ) = true ){
+      If( funcIsExistImageFolder( "4.레이드돌기\레이드_선택\버튼_레이드입장" ) = false ){
          fPrintStatus("새로운 레이드가 없으니 기존 레이드를 돕니다.")
-         funcSearchAndClick( "4.레이드돌기\레이드_버튼_참여레이드.bmp" )
+         funcSearchAndClickFolder( "4.레이드돌기\레이드_선택\버튼_참여레이드" )
       }            
-      If( funcSearchAndClickFolder( "4.레이드돌기\버튼_레이드입장" ) = true ){
+      If( funcSearchAndClickFolder( "4.레이드돌기\레이드_선택\버튼_레이드입장" ) = true ){
          If( funcSearchAndClickFolder( "4.레이드돌기\버튼_레이드준비하기" ) = true ){
             funcChoicePlayerSkill( 2 )
             If( funcSearchAndClickFolder( "4.레이드돌기\버튼_레이드시작" ) = true ){

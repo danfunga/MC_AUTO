@@ -1,22 +1,4 @@
-INIT_TAB4:
-{ 
-	
-   {	
-     gui, 2: font,CPurple
-     Gui, 2: Add, GroupBox,  x02 y130 w505 h50, 레이드 반복하기
-     gui, 2: font,
-     Gui, 2: Add, Text,x20 yp+18  h15 , 설명 : 레이드를 반복적으로 돕니다.
 
-   }
-		{
-			Gui, 2: Font, S8 CDefault Bold, Verdana
-			
-			Gui, 2: Add, Button, x270 yp w100 h25   vBUTTON_START_LOOP_RAID, 레이드시작
-			Gui, 2: Add, Button, x+30 yp wp hp   vBUTTON_END_LOOP_RAID, 레이드종료
-			Gui, 2: Font, , 
-		}
-	return
-}
 fDragUpFriends(){	
 	fPrintStatus("드래그 Up")	
 	global DRAGUP_FRIENDS
@@ -37,22 +19,10 @@ fDragUpFriends(){
 }
 
 
-funcChangePage4Status(){	
-	global BoolStarted
-
-	GuiControl, disable%BoolStarted%, GuiSendFrindShipCount
-	GuiControl, disable%BoolStarted%, GuiCheckSendFriendsShipOnlyGame
-	GuiControl,  disable%BoolStarted%, GuiCheckSendFriendsShipAll
-	GuiControl,  disable%BoolStarted%, BUTTON_START_SEND_FRIENDSHIP
-	GuiControl,  disable%BoolStarted%, BUTTON_STOP_SEND_FRIENDSHIP
-
-	return
-}
-BUTTON보내기:
+시작마을_명예보내기:
 {
 	fPrintTitle("명예 보내기")
-	fPrintStatus("명예 보내기를 수행합니다.")
-	setUpBeforeStart()	
+	fPrintStatus("명예 보내기를 수행합니다.")	
 	fPrintStatus("카카오톡 친구 페이지로 이동합니다.")
 	gotoKakaoFriends()
 	
@@ -64,39 +34,42 @@ BUTTON보내기:
 	intCountTry:=0
 	loop
 	{
-		checkSendingHonorQuit()
+		checkExit()
 		loop, 5
 		{
-			;~ stringTempTitle=명예보내기 %intCountTemp% / %intCountTry%
-			;~ fPrintTitle(stringTempTitle)			
-			checkSendingHonorQuit()
-			if( intCountTry >= GuiSendFrindShipCount*2 )
-					break
-			intCountTry++
-         stringTitle=%intCountTemp% / %intCountTry%
-			funcPrintSubTitle(stringTitle)
-
+			checkExit()
+         if( intCountTry >= GuiSendFrindShipCount*2 ){
+				break
+         }
+			funcPrintSubTitle( intCountTemp " / " intCountTry)
+         intCountTry++ 
+         GuiControl, ,GuiCountSendTry,%intCountTry%
+         
 			funcSendClickFixed( SEND_HONOR_BUTTON_X ,SEND_HONOR_BUTTON_Y_%a_index%, true)
 			fPrintStatus("명예 버튼 클릭")
 			if( funcIsExistImageFolder( "7.명예보내기\버튼_명예선물" ) = false ){
-					continue
+            continue
 			}
+         
 			if( GuiCheckSendFriendsShipOnlyGame = true ) {
 				if( funcIsExistImageFolder( "7.명예보내기\상태_수신차단" ) = true  ){
 					IntMonitorSendingHonorCount++
 					intCountTemp++
-					GuiControl, ,GuiSendHonorMoniotor,%IntMonitorSendingHonorCount%
-               
-               stringTitle=%intCountTemp% / %intCountTry%
-					funcPrintSubTitle(stringTitle)
+               GuiControl, ,GuiCountSendComplete,%IntMonitorSendingHonorCount%
+               funcPrintSubTitle( intCountTemp " / " intCountTry)
 					funcSearchAndClickFolder( "7.명예보내기\버튼_명예선물" )					
 				}else{
 					fPrintStatus("차단 하지 않은 사용자입니다.")
 					funcSendESC()	
 				}
 			}else if( GuiCheckSendFriendsShipAll = true ){
+            IntMonitorSendingHonorCount++
+            intCountTemp++            
+            GuiControl, ,GuiCountSendComplete,%IntMonitorSendingHonorCount%
+            funcPrintSubTitle( intCountTemp " / " intCountTry)
 				funcSearchAndClickFolder( "7.명예보내기\버튼_명예선물" )								
 			}			
+         
 			if( intCountTemp >= GuiSendFrindShipCount )
 				break			
 		}
@@ -106,13 +79,26 @@ BUTTON보내기:
 			break			
 		fDragUpFriends()
 	}
-	
+	BoolNeedSendHonor:=false
 	funcSendESC()
 	functionMoveTown()
 	if( GuiSendingAfterAdventure = true )
-		goto BUTTON시작[F9]
+		goto, 시작마을    
 	return
 }
+checkNeedToSend(){
+   global GuiSendFrindShipCount
+   guiControlGet, sendCount,,GuiCountSendComplete
+   guiControlGet, tryCount,,GuiCountSendTry   
+   
+   msgbox % "sending" sendCount " tryCount " tryCount "Config  " GuiSendFrindShipCount
+   if( tryCount >= GuiSendFrindShipCount*2 )
+		return false
+   return true
+}
+      
+
+         
 gotoKakaoFriends(){
 
    if( funcIsExistImageFolder("7.명예보내기\상태_카톡친구선택" ) = true ){
@@ -141,12 +127,7 @@ gotoKakaoFriends(){
 	gosub END_JOB
 }
 
-checkSendingHonorQuit(){
-	global BOOLEAN_STOP_SENDING_HORNOR
-	if ( BOOLEAN_STOP_SENDING_HORNOR = true ){		
-		gosub END_JOB   
-	}
-}
+
 END_JOB:
 {
 	fPrintStatus("명예 보내기를 종료합니다.")	

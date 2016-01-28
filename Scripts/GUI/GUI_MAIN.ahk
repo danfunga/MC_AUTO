@@ -17,7 +17,7 @@ INIT_GUI_MAINPAGE:
            
       Gui, Add, CheckBox, xp+10  yp+20 section  vGuiBoolFirstGoldRoom, 황금방
       Gui, Add, CheckBox, xp     y+10           vGuiBoolFirstBattleField, 결투장
-      Gui, Add, CheckBox, xp     y+10           disabled vGuiBooFirstlCastleBattle, 공성전
+      Gui, Add, CheckBox, xp     y+10           vGuiBooFirstlCastleBattle, 공성전
 
    }
    {
@@ -264,7 +264,7 @@ funcChangeGuiStatus(){
    ; 먼저 돌기 부분 
    GuiControl,  disable%BoolStarted%, GuiBoolFirstGoldRoom
 	GuiControl,  disable%BoolStarted%, GuiBoolFirstBattleField
-   ;GuiControl,  disable%BoolStarted%, GuiBooFirstlCastleBattle
+   GuiControl,  disable%BoolStarted%, GuiBooFirstlCastleBattle
   
    ; 레이드만 
    ;GuiControl,  disable%BoolStarted%, GuiRunOnlyRaid

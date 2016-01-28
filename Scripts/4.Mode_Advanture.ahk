@@ -18,7 +18,10 @@
 		}
    }	
    
-   
+   if( BoolNeedSendHonor = true ){
+      fPrintStatus("명예를 보내겠습니다..")
+      goto 시작마을_명예보내기	   
+   }
 	if( BoolNeedGoldRoomStage= true ) {
 		fPrintStatus("황금방을 돌겠습니다.")
 		goto 시작마을_황금방시작	
@@ -27,6 +30,11 @@
 		fPrintStatus("결투장을 돌겠습니다.")
 		goto 시작마을_결투장시작	
 	}
+   if( BoolNeedCastleBattle = true ){
+		fPrintStatus("공성전을 돌겠습니다.")
+		goto 시작마을_공성전시작
+	}
+   
    if( GuiSelectRaidMod= true and BoolNeedRaidBattle = true ){
       if ( funcIsExistImageFolder("4.레이드돌기\열쇠_제한") = true ){
          fPrintStatus("열쇠 제한이 확인되었습니다. ")

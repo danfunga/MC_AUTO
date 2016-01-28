@@ -13,7 +13,7 @@
 {
    fPrintTitle("결투장입장")
 	fPrintStatus("전투입장 화면에 도착하였습니다.")
-   If( funcSearchAndClickFolder(  "3.전투입장\버튼_전투입장\화면_전투입장\버튼_결투장" ) = true )	{
+   If( funcSearchAndClickFolder(  "3.전투입장\버튼_전투입장\버튼_결투장" ) = true )	{
 		goto 전투입장_결투장
 	}	
    
