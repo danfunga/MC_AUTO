@@ -2,7 +2,7 @@
 {
    fPrintTitle("결투장입장")
 	fPrintStatus("전투 입장을 합니다.")
-   If( funcSearchAndClick( "시작마을\전투입장.bmp"  ) = true )
+   If( funcSearchAndClickFolder( "3.전투입장\버튼_전투입장"  ) = true )
 		goto 전투입장_결투장돌기
 
 	fPrintStatus("ERROR_시작마을_결투장시작 중 위치찾기로 이동합니다.")
@@ -13,7 +13,7 @@
 {
    fPrintTitle("결투장입장")
 	fPrintStatus("전투입장 화면에 도착하였습니다.")
-   If( funcSearchAndClick( "전투입장\결장선택.bmp", 0, 60 ) = true )	{
+   If( funcSearchAndClickFolder(  "3.전투입장\버튼_전투입장\화면_전투입장\버튼_결투장" ) = true )	{
 		goto 전투입장_결투장
 	}	
    
@@ -25,24 +25,24 @@
 {
 	fPrintTitle("결  투  장")
 	fPrintStatus("결투장  화면에 도착하였습니다.")
-   if( funcIsExistImageFolder( "전투입장\결장마감" ) = true )	{      
+   if( funcIsExistImageFolder( "3.전투입장\2.결투장돌기\팝업_결장마감" ) = true )	{      
 		fPrintStatus("결투장이 마감 된것 같습니다. ESC")
       funcSendESC()
       BoolNeedBattleStage:=false
       functionMoveTown()
       goto, 시작마을      
 	}	   
-	if( funcIsExistImageFolder( "전투입장\결장팝업" ) = true )	{      
+	if( funcIsExistImageFolder( "3.전투입장\2.결투장돌기\팝업_결장팝업" ) = true )	{      
 		fPrintStatus("팝업은 무시합니다., ESC")
       funcSendESC()
 	}	
-   If( funcIsExistImage( "전투입장\결투키_없음.bmp"  ) = true ){
+   If( funcIsExistImageFolder( "3.전투입장\2.결투장돌기\상태_열쇠없음"  ) = true ){
       BoolNeedBattleStage:=false
       functionMoveTown()
       goto, 시작마을
    }
    
-	if( funcSearchAndClickFolder( "전투입장\결투장\Button_준비하기" ) = true )	{
+	if( funcSearchAndClickFolder( "3.전투입장\2.결투장돌기\버튼_준비하기" ) = true )	{
 		goto 결투장_도전시작
 	}	
 		
@@ -73,21 +73,21 @@
 	
 	funcChoicePlayerSkill( GuiListSkillBattle )
 	
-	if ( funcSearchAndClick("전투입장\Button_전투_시작하기.bmp") = true ){
+	if ( funcSearchAndClickFolder("3.전투입장\2.결투장돌기\버튼_시작하기") = true ){
 		goto, 결투장입장_시작체크
 	}else{
 		gosub 모험시작_업적확인
 	}
-	if ( funcSearchAndClick("전투입장\Button_전투_시작하기.bmp") = true )
+	if ( funcSearchAndClickFolder("3.전투입장\2.결투장돌기\버튼_시작하기") = true ){
 		goto, 결투장입장_시작체크
-	else{
+	}else{
 		BoolNeedBattleStage:= false
 		funcSendESC()
-		If( funcIsExistImageFolder( "전투입장\결투장\Button_준비하기"  ) = true ){
+		If( funcIsExistImageFolder( "3.전투입장\2.결투장돌기\버튼_준비하기"  ) = true ){
 			fPrintStatus("결투장 화면 입니다.")
 			funcSendESC()
 		}
-		 If( funcIsExistImage( "전투입장\전투입장화면.bmp"  ) = true ){
+		 If( funcIsExistImageFolder( "3.전투입장\버튼_전투입장\화면_전투입장" )  = true ){
          fPrintStatus("전투 입장 화면 입니다. ")
 			funcSendESC()
 		}
@@ -104,23 +104,23 @@
 {
 	fPrintStatus("전투 시작을 체크합니다.")	
 
-if( funcIsExistImage("전투입장\명예최대.bmp") = true ){
-      if( funcSearchAndClick("전투입장\명예최대예.bmp") = true ){
+   if( funcIsExistImageFolder("3.전투입장\2.결투장돌기\팝업_명예최대") = true ){
+      if( funcSearchAndClickFolder("3.전투입장\2.결투장돌기\팝업_명예최대\버튼_예") = true ){
 			fPrintStatus("최대 명예이지만 전투를 시작합니다.")
       }
    }
-   if( funcSearchAndClick("전투입장\결장키부족.bmp") = true or  funcSearchAndClickFolder("전투입장\결장마감") = true ){
+   if( funcSearchAndClickFolder("3.전투입장\2.결투장돌기\팝업_아니요") = true or funcSearchAndClickFolder("3.전투입장\2.결투장돌기\팝업_결장마감") = true ){
 		BoolNeedBattleStage:= false
 		funcSendESC()
-		If( funcIsExistImage( "전투입장\Button_전투_시작하기.bmp"  ) = true ){
+		if ( funcIsExistImageFolder("3.전투입장\2.결투장돌기\버튼_시작하기") = true ){
 			fPrintStatus("결투 입장 화면 입니다.")
 			funcSendESC()
 		}
-      If( funcIsExistImageFolder( "전투입장\결투장\Button_준비하기"  ) = true ){
+      If( funcIsExistImageFolder( "3.전투입장\2.결투장돌기\버튼_준비하기"  ) = true ){
 			fPrintStatus("결투장 화면 입니다.")
 			funcSendESC()
 		}
-      If( funcIsExistImage( "전투입장\전투입장화면.bmp"  ) = true ){
+      If( funcIsExistImageFolder( "3.전투입장\버튼_전투입장\화면_전투입장" )  = true ){
          fPrintStatus("전투 입장 화면 입니다. ")
 			funcSendESC()
 		}
@@ -141,15 +141,15 @@ if( funcIsExistImage("전투입장\명예최대.bmp") = true ){
 		fPrintStatus("ERROR_여기는 안들어왔어야 하는 루프인데.... 일단 결투 시작이 안되었습니다.")
 		BoolNeedBattleStage:=false
 		funcSendESC()
-		If( funcIsExistImage( "전투입장\Button_전투_시작하기.bmp"  ) = true ){
+      if ( funcIsExistImageFolder("3.전투입장\2.결투장돌기\버튼_시작하기") = true ){
 			fPrintStatus("결투 입장 화면 입니다.")
 			funcSendESC()
 		}
-		If( funcIsExistImageFolder( "전투입장\결투장\Button_준비하기"  ) = true ){
+		If( funcIsExistImageFolder( "3.전투입장\2.결투장돌기\버튼_준비하기"  ) = true ){
 			fPrintStatus("결투장 화면 입니다.")
 			funcSendESC()
 		}
-		If( funcIsExistImage( "전투입장\전투입장화면.bmp"  ) = true ){
+		If( funcIsExistImageFolder( "3.전투입장\버튼_전투입장\화면_전투입장" )  = true ){
          fPrintStatus("전투 입장 화면 입니다.")
 			funcSendESC()
 		}

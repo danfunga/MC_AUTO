@@ -46,17 +46,17 @@
    fPrintTitle("출석체크")
    fPrintStatus("레이드 돌기전 출석 확인합니다.")
 
-   if( funcSearchAndClickFolder( "9.공성전\버튼_길드" ) = true ){
-      if( funcSearchAndClickFolder( "9.공성전\버튼_출석" ) = true ){
+   if( funcSearchAndClickFolder( "9.길드출석\버튼_길드" ) = true ){
+      if( funcSearchAndClickFolder( "9.길드출석\버튼_출석" ) = true ){
          fPrintStatus(" 출석하였습니다. ^^")      
       }else{
-         if( funcIsExistImageFolder( "9.공성전\버튼_자기방문" ) = true ){
+         if( funcIsExistImageFolder( "9.길드출석\버튼_자기방문" ) = true ){
             fPrintStatus("출석이 확인되었습니다.")      
          }else{         
             fPrintStatus("ERROR_출석은 못했지만 방문표시도 나지 않습니다. ")      
          }
       }
-      funcSearchAndClickFolder( "9.공성전\버튼_뒤로" )
+      funcSearchAndClickFolder( "9.길드출석\버튼_뒤로" )
    }else{
       fPrintStatus("ERROR_길드버튼이 변경되었나 봅니다. 확인하세요")
    }

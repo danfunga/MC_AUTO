@@ -3,7 +3,7 @@
 	fPrintTitle("황금방입장")
 	fPrintStatus("전투입장을 합니다.")
 	
-	 If( funcSearchAndClick( "시작마을\전투입장.bmp"  ) = true )
+	 If( funcSearchAndClickFolder( "3.전투입장\버튼_전투입장"  ) = true )
 		goto 전투입장_황금방돌기	
 	fPrintStatus("ERROR_시작마을_모험시작중 위치찾기로 이동합니다.")
 	goto 위치찾기
@@ -14,7 +14,7 @@
 	fPrintTitle("황금방입장")
 	fPrintStatus("전투입장 화면에 도착하였습니다.")
 	
-	If( funcSearchAndClick(  "전투입장\무탑선택.bmp", -20, 60 ) = true )	{
+	If( funcSearchAndClickFolder(  "3.전투입장\버튼_전투입장\화면_전투입장\버튼_무한의탑" ) = true )	{
 		fPrintStatus("무한의 탑을 선택합니다.")
 		goto 전투입장_무한의탑	
 	}
@@ -28,13 +28,13 @@
 {	
 	fPrintTitle("무한의  탑")
 	fPrintStatus("무한의탑 화면에 도착하였습니다.")
-   if ( funcIsExistImage("전투입장\Status_무한탑_열쇠없음.bmp") = true ){
+   if ( funcIsExistImageFolder("3.전투입장\1.황금방돌기\상태_열쇠없음") = true ){
       BoolNeedGoldRoomStage:=false
       functionMoveTown()
       goto, 시작마을
    }
    
-	if( funcSearchAndClick( "전투입장\황금선택.bmp" ) = true )	{
+	if( funcSearchAndClickFolder( "3.전투입장\1.황금방돌기\버튼_황금의방" ) = true )	{
 		goto 전투입장_황금의방
 	}	
 	fPrintStatus("ERROR_전투입장_무한의탑 중 위치찾기로 이동합니다.")
@@ -60,7 +60,7 @@
 {	
 	fPrintTitle("황금방시작")
 	fPrintStatus("황금방을  시작합니다.")
-   if ( funcIsExistImage("전투입장\Status_무한탑_열쇠없음.bmp") = true ){
+   if ( funcIsExistImageFolder("3.전투입장\1.황금방돌기\상태_열쇠없음") = true ){
       BoolNeedGoldRoomStage:=false
       functionMoveTown()
       goto, 시작마을
@@ -69,7 +69,7 @@
       gosub 모험시작_업적확인
    }
   
-	if ( funcSearchAndClick("3.황금방돌기\Button_황금_시작하기.bmp") = true ){
+	if ( funcSearchAndClickFolder("3.전투입장\1.황금방돌기\버튼_황금방_시작하기") = true ){
 		goto, 황금의방_도전시작_시작체크
 	}
 
@@ -80,15 +80,15 @@
 황금의방_도전시작_시작체크:
 {
 	fPrintStatus("황금방 시작을 체크합니다.")	   
-   if( funcSearchAndClick("전투입장\무탑키부족.bmp") = true ){
+   if ( funcSearchAndClickFolder("3.전투입장\1.황금방돌기\팝업_무탑키부족") = true ){
 			BoolNeedGoldRoomStage:=false
 			fPrintStatus("무탑키가 부족하기에 나갑니다.")
 			funcSendESC()
-         If( funcIsExistImage( "전투입장\황금선택.bmp"  ) = true ){
+         if( funcIsExistImageFolder( "3.전투입장\1.황금방돌기\버튼_황금의방" ) = true ){
 				fPrintStatus("무한의탑 화면 입니다. ")
 				funcSendESC()            
 			}
-         If( funcIsExistImage( "전투입장\전투입장화면.bmp"  ) = true ){
+         If( funcIsExistImageFolder( "3.전투입장\버튼_전투입장\화면_전투입장" )  = true ){
 				fPrintStatus("전투 입장 화면 입니다. ")
 				funcSendESC()           
 			}

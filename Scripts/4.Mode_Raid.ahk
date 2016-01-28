@@ -32,7 +32,7 @@
 	}
    
    
-   If( funcSearchAndClick( "전투입장\공성전\Button_공성전준비.png" ) = true )
+   If( funcSearchAndClickFolder( "3.전투입장\3.공성전돌기\버튼_준비하기" ) = true )
 		goto AUTOMODE_CASTLEBATTLE1
 	fPrintStatus("ERROR_공성전 전투 중 위치찾기로 이동합니다.")
 	goto 위치찾기

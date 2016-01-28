@@ -106,22 +106,22 @@ functionMoveTown()
       }else if( funcIsExistImage( "2.모험돌기\모험지도\모험입장화면.bmp" ) = true ){		
          fPrintStatus("스테이지를 선택하는 모험입장 화면 입니다.")
          funcSendESC()
-      }else if( funcIsExistImage( "전투입장\전투입장화면.bmp" ) = true ){		
+      }else if( funcIsExistImageFolder( "3.전투입장\버튼_전투입장\화면_전투입장" ) = true ){		
          fPrintStatus("전투입장 화면입니다")
          funcSendESC()
-      }else if( funcIsExistImage( "전투입장\공성전\Button_공성전시작.png" ) = true ){		
+      }else if( funcIsExistImageFolder( "3.전투입장\3.공성전돌기\버튼_시작하기" ) = true ){		
          fPrintStatus("공성전 시작준비 화면입니다")
          funcSendESC()
-      }else if( funcIsExistImage( "전투입장\공성전\Button_공성전준비.png") = true ){		
+      }else if( funcIsExistImageFolder( "3.전투입장\3.공성전돌기\버튼_준비하기") = true ){		
          fPrintStatus("공성전 준비화면입니다.")
          funcSendESC()
-      }else if( funcIsExistImage( "전투입장\공성전\Window_공성선택.png" ) = true ){		
+      }else if( funcIsExistImageFolder( "3.전투입장\3.공성전돌기\화면_공성선택" ) = true ){		
          fPrintStatus("공성요일 선택 화면입니다")
          funcSendESC()
-      }else if( funcIsExistImage( "전투입장\Window_무한의탑.png" ) = true ){		
+      }else if( funcIsExistImageFolder( "3.전투입장\1.황금방돌기\위치_무한의탑" ) = true ){		
          fPrintStatus("무한의탑 선택 화면입니다")
          funcSendESC()         
-      }else if( funcIsExistImage( "전투입장\Window_결투장.png" ) = true ){		
+      }else if( funcIsExistImageFolder( "3.전투입장\2.결투장돌기\위치_결투장" ) = true ){		
          fPrintStatus("결투장 선택  화면입니다")
          funcSendESC()         
       }else{

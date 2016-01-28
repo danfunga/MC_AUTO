@@ -12,8 +12,8 @@ if( GuiBoolScreenShotError = true )  {
    fPrintStatus("현재 어디인지 확인합니다.")
    
    
-    If( funcIsExistImageFolder( "9.공성전\상태_길드" ) = true ){      
-      funcSearchAndClickFolder( "9.공성전\버튼_뒤로" )
+    If( funcIsExistImageFolder( "9.길드출석\상태_길드" ) = true ){      
+      funcSearchAndClickFolder( "9.길드출석\버튼_뒤로" )
       funcWaitingForLoad()
    }
    
@@ -124,27 +124,27 @@ if( GuiBoolScreenShotError = true )  {
    }
    
    fPrintStatus("전투 입장중인지 확인합니다.")
-   If( funcIsExistImage( "전투입장\전투입장화면.bmp" ) = true ){
+   If( funcIsExistImageFolder( "3.전투입장\버튼_전투입장\화면_전투입장" )  = true ){
       fPrintStatus("마을로 돌아갑니다.")
       funcSendESC()
       goto, 시작마을
    }
    fPrintStatus("무한의 탑인지 확인합니다.")
-   If( funcIsExistImage( "전투입장\황금선택.bmp" ) = true ){
+   if( funcIsExistImageFolder( "3.전투입장\1.황금방돌기\버튼_황금의방" ) = true ){
       goto, 전투입장_무한의탑
    }
    fPrintStatus("결투장 준비 화면인지 확인합니다.")
-   if( funcIsExistImageFolder( "전투입장\결투장\Button_준비하기" ) = true )	{
+   if( funcIsExistImageFolder( "3.전투입장\2.결투장돌기\버튼_준비하기" ) = true )	{
       goto 전투입장_결투장
    }	
-   if( funcIsExistImage( "전투입장\공성전\Button_공성전준비.png" ) = true ){
+   if( funcIsExistImageFolder( "3.전투입장\3.공성전돌기\버튼_준비하기" ) = true ){
       goto AUTOMODE_CASTLEBATTLE
    }
-   if( funcIsExistImage( "전투입장\공성전\Button_공성전시작.png" ) = true ){
+   if( funcIsExistImageFolder( "3.전투입장\3.공성전돌기\버튼_시작하기" ) = true ){
       goto AUTOMODE_CASTLEBATTLE1
    }
    
-   if( funcIsExistImage( "전투입장\공성전\Status_공성_종료.png" ) = true ){
+   if( funcIsExistImageFolder( "3.전투입장\3.공성전돌기\상태_공성종료" ) = true ){
       goto AUTOMODE_CASTLEBATTLE_RESULT
    }
    
