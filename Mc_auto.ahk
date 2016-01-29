@@ -45,6 +45,9 @@ return
 	Send, ^s  
 	Reload   
 	return
+   
+   
+   
 }
 
 checkExit(){
@@ -55,9 +58,12 @@ checkExit(){
 }
 
 
-!enter::
-send {tab 4}{space}+{tab 4}
-return 
+#if WinActive( GUI_TITLE )
+Enter::  send {tab 4}{space}+{tab 4}
+NumPadEnter::  send {tab 4}{space}+{tab 4}
+
+#if
+
 
 
 #include %A_ScriptDir%\Scripts\GUI\Mc_auto_Gui.ahk
