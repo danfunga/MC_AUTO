@@ -2,8 +2,30 @@
 
 ACTIVE_ID:="BlueStacks App Player"
 GUI_TITLE:="MC_AUTO Ver 1.0"
+
+; System Variable   
+SysGet, IntWinCapHeight, 4 ; 캡션Height
+SysGet, IntWinBorderWidth, 32 ; 보더Width
+SysGet, IntWinBorderHeight, 33 ; 보더Height
+
+;~ Status
+BoolStarted:=false
+BoolPaused:=false
+BoolWantToStop:=false
+
+BoolReSized := false
+BooleanDebugMode:=false
+
+;~ MsgBox, %DEFAULT_WIDTH% %DEFAULT_HEIGHT% "DEFAULT"
+;~WinGetPos, , , winW, winH, %ACTIVE_ID%
+DEFAULT_WIDTH:=966
+DEFAULT_HEIGHT:=628
+RUN_WIDTH:=644
+RUN_HEIGHT:=428
+
+gosub INIT_GLOBAL_VARIABLES   
    
-gosub INIT_GLOBAL_VARIABLES
+   
 mainConfig := new IniController( A_ScriptDir "\Config\main.ini" )
 
 gosub INIT_GUI
@@ -44,7 +66,7 @@ return
 	WinActivate Mc_auto.ahk
 	Send, ^s  
 	Reload   
-	return
+	return   
 }
 
 checkExit(){
@@ -55,9 +77,10 @@ checkExit(){
 }
 
 
-!enter::
-send {tab 4}{space}+{tab 4}
-return 
+#if WinActive( GUI_TITLE )
+Enter::  send {tab 4}{space}+{tab 4}
+NumPadEnter::  send {tab 4}{space}+{tab 4}
+#if
 
 
 #include %A_ScriptDir%\Scripts\GUI\Mc_auto_Gui.ahk
