@@ -163,7 +163,7 @@ if( GuiCheckCallFriend = true ) {
       }        
       
                 
-      If( funcSearchAndClick( "4.레이드돌기\Button_레이드화면_뒤로가기.bmp" ) = true ){
+      If( funcSearchAndClickFolder( "4.레이드돌기\버튼_뒤로가기" ) = true ){
          fPrintStatus("보상 입장화면으로 이동")		
       } 
    }
