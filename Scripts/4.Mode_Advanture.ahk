@@ -64,7 +64,11 @@
    
    If( funcSearchAndClickFolder( "2.모험돌기\버튼_모험입장\버튼_모험"  ) = true ){   
       goto, 모험입장_스테이지선택
+   }else if( funcIsExistImageFolder("2.모험돌기\버튼_모험입장\상태_모험입장") = true ){
+      fPrintStatus("이미 ?머 입장 화면에 들어 와 있습니다.")
+      goto, 모험입장_스테이지선택   
    }
+      
 	goto 위치찾기
 }
 funcIsMoonIsland( strInputStage )
