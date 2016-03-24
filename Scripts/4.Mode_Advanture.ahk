@@ -50,7 +50,7 @@
 시작마을_모험시작:
 {
 	fPrintStatus("모험 입장을 찾고 있습니다.")
-	 If( funcSearchAndClick( "시작마을\모험입장버튼.bmp"  ) = true )
+	 If( funcSearchAndClickFolder( "2.모험돌기\버튼_모험입장"  ) = true )
 		goto 모험입장		
 		
 	fPrintStatus("ERROR_시작마을_모험시작중 위치찾기로 이동합니다.")
@@ -61,8 +61,11 @@
 {		
 	fPrintTitle("모험  입장")
 	fPrintStatus("모험입장에 들어왔습니다.")
-	goto, 모험입장_스테이지선택
-	return
+   
+   If( funcSearchAndClickFolder( "2.모험돌기\버튼_모험입장\버튼_모험"  ) = true ){   
+      goto, 모험입장_스테이지선택
+   }
+	goto 위치찾기
 }
 funcIsMoonIsland( strInputStage )
 {
@@ -417,7 +420,7 @@ return
             fPrintStatus("렙업 확인으로 이동합니다.")
             gosub 모험시작_렙업확인
          }
-         If( funcIsExistImage( "시작마을\모험입장버튼.bmp"  ) = true ){			
+         If( funcIsExistImageFolder( "2.모험돌기\버튼_모험입장" ) = true ){			
             goto, 시작마을
          }else{
             fPrintStatus("이벤트 처리를 위해 위치 찾기로 갑니다.")
@@ -490,7 +493,7 @@ return
       }   
             
       fPrintStatus("모험 입장 버튼이 없다면 그곳은 모험 지도이겠지." )
-      funcSearchAndClick( "시작마을\모험입장버튼.bmp"  )
+      funcSearchAndClickFolder( "2.모험돌기\버튼_모험입장" )
       goto 모험입장
 	}
 	

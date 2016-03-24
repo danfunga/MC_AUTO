@@ -17,7 +17,7 @@
 	}else if( funcIsExistImageFolder( "4.레이드돌기\상태_전투종료" ) = true ){		
 		fPrintStatus("레이드 전투가 종료되었습니다.")	
       goto, 레이드_전투_종료
-	}else if( funcIsExistImage( "시작마을\모험입장버튼.bmp" ) = true ){		
+	}else if( funcIsExistImageFolder( "2.모험돌기\버튼_모험입장" ) = true ){		
 		fPrintStatus("시작 마을입니다.")	
       goto, 레이드_입장하기
 	}else{
@@ -45,8 +45,8 @@
 	fPrintStatus("레이드를 반복적으로 수행하겠습니다.")
    
    gosub 길드출석체크
-	If( funcSearchAndClick( "시작마을\모험입장버튼.bmp" ) = true ){      
-      if( funcSearchAndClickFolder( "4.레이드돌기\버튼_모험맵_레이드" ) = true ){
+	If( funcSearchAndClickFolder( "2.모험돌기\버튼_모험입장" ) = true ){      
+      if( funcSearchAndClickFolder( "2.모험돌기\버튼_모험입장\버튼_레이드" ) = true ){
          goto 레이드_시작화면
       }      
    }

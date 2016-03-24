@@ -91,7 +91,7 @@
          fPrintStatus("전투 입장 화면 입니다. ")
 			funcSendESC()
 		}
-      If( funcIsExistImage( "시작마을\모험입장버튼.bmp"  ) = true ){
+      If( funcIsExistImageFolder( "2.모험돌기\버튼_모험입장" ) = true ){
          fPrintStatus("시작 마을로 돌아왔습니다.")
 			goto, 시작마을
 		}
@@ -124,7 +124,7 @@
          fPrintStatus("전투 입장 화면 입니다. ")
 			funcSendESC()
 		}
-      If( funcIsExistImage( "시작마을\모험입장버튼.bmp"  ) = true ){
+      If( funcIsExistImageFolder( "2.모험돌기\버튼_모험입장" ) = true ){
          fPrintStatus("시작 마을로 돌아왔습니다.")
 			goto, 시작마을
 		}

@@ -92,7 +92,7 @@ functionMoveTown()
    fPrintStatus("마을로 이동을 시작 합니다.")
    loop
    {
-      if( funcIsExistImage( "시작마을\모험입장버튼.bmp" ) = true ){		
+      if( funcIsExistImageFolder( "2.모험돌기\버튼_모험입장" ) = true ){		
          fPrintStatus("마을에 도착 했습니다.")
          return
       }else if( funcSearchAndClickFolder( "10.전투결과이미지\버튼_마을" ) = true ){		

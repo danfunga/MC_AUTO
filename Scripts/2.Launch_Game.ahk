@@ -30,13 +30,13 @@
       funcSearchAndClickFolder( "1.게임실행\기타팝업X" )
       funcSearchAndClickFolder( "1.게임실행\구입취소" )
       
-      If( funcIsExistImage( "시작마을\모험입장버튼.bmp" ) = true ){
+      If( funcIsExistImageFolder( "2.모험돌기\버튼_모험입장" ) = true ){
          fPrintStatus("정상적으로 시작마을에 도착했습니다.")	
          goto 시작마을
       }
    }
    
-	If( funcIsExistImage( "시작마을\모험입장버튼.bmp" ) = true ){
+	If( funcIsExistImageFolder( "2.모험돌기\버튼_모험입장" ) = true ){
 		fPrintStatus("정상적으로 시작마을에 도착했습니다.")	
 		goto 시작마을
 	}

@@ -19,7 +19,7 @@ if( GuiBoolScreenShotError = true )  {
    }
    
    fPrintStatus("시작마을인지 확인합니다" )
-   If( funcIsExistImage( "시작마을\모험입장버튼.bmp" ) = true ){
+   If( funcIsExistImageFolder( "2.모험돌기\버튼_모험입장" ) = true ){
       goto, 시작마을
    }
    
