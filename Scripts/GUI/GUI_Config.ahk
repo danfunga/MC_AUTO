@@ -66,7 +66,20 @@ INIT_GUI_CONFIG:
       Gui,2: Add, DropDownList, x+5      yp   w42 h100  Choose1 vGuiListSkillCastle, 1번|2번|3번
 		
    }
- 
+   {      
+		Gui,2:font,CPurple
+		Gui,2: Add, GroupBox,     x325 		y30 w100 h110 , 우편 수령
+		Gui,2:font,
+				
+      Gui,2: Add, CheckBox,     xp+10    yp+18 section   Checked    vReceiveHonor,  명예받기		
+      Gui,2: Add, CheckBox,     xs 		  y+5             Checked    vReceiveKey,    열쇠받기
+      Gui,2: Add, CheckBox,     xs 		  y+5             Checked    vReceiveGold,   골드받기		
+      Gui,2: Add, CheckBox,     xs 		  y+5             Checked    vReceiveRuby,   루비받기
+      Gui,2: Add, CheckBox,     xs 		  y+5             disabled   vReceiveItem,   아이템받기     
+      
+   }
+   
+
    {
       Gui,2:font,CPurple
       Gui,2: Add, GroupBox, x%xGuiStart% y110 w140 h65  , 컨텐츠 반복
@@ -129,7 +142,7 @@ INIT_GUI_CONFIG:
       Gui,2: Add, GroupBox, x%xGuiStart% y175 w140 h40  ,장비판매(미)
       gui,2:font,
       
-      Gui,2: Add, CheckBox, x13 yp+15 w70 h15  Disabled vGuiCheckSellEquip, 장비 판매
+      Gui,2: Add, CheckBox, x13 yp+15 w70 h15  vGuiCheckSellEquip, 장비 판매
       Gui,2: Add, DropDownList, x+10 yp-3 w40 h70 Disabled Choose1 vGuiSellEquipLimit, 1성|2성|3성|4성
    }
    {
@@ -392,8 +405,15 @@ SaveConfig:
 	fSaveFile(GuiSellEquipLimit, "장비관리", " 판매등급" )
 	
 	fSaveFile(GuiWantByKeyPoint, "추가기능", "열쇠명예구입" )
+
 	fSaveFile(GuiWantByKeyRuby, "추가기능", "열쇠루비구입" )
    fSaveFile(GuiSelectRaidMod, "추가기능", "레이드모드" )
+   
+   fSaveFile(ReceiveHonor,    "우편수령", "명예받기" )
+   fSaveFile(ReceiveKey,      "우편수령", "열쇠받기" )
+   fSaveFile(ReceiveGold,     "우편수령", "골드받기" )
+   fSaveFile(ReceiveRuby,     "우편수령", "루비받기" )
+   fSaveFile(ReceiveItem,     "우편수령", "아이템받기" )
     
    fSaveFile(GuiBoolScreenShotResult,  "스크린샷", "모험보상" )
    fSaveFile(GuiBoolScreenShotRaid,    "스크린샷", "레이드결과" )
@@ -477,6 +497,11 @@ LoadConfig:
    fLoadConfig( GuiSelectRaidMod, false, "추가기능", "레이드모드" )
    fLoadConfig( GuiBoolStopMonsterLevelUp, false, "추가기능", "쫄업정지" )
    
+   fLoadConfig(ReceiveHonor, false,   "우편수령", "명예받기" )
+   fLoadConfig(ReceiveKey,   false,   "우편수령", "열쇠받기" )
+   fLoadConfig(ReceiveGold,  false,   "우편수령", "골드받기" )
+   fLoadConfig(ReceiveRuby,  false,   "우편수령", "루비받기" )
+   fLoadConfig(ReceiveItem,  false,   "우편수령", "아이템받기" )
       
    fLoadConfig( GuiBoolFirstGoldRoom, false, "먼저돌기", "황금먼저" )
    fLoadConfig( GuiBoolFirstBattleField, false, "먼저돌기", "결투먼저" )

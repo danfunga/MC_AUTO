@@ -44,6 +44,8 @@
    fPrintTitle("레이드입장")
 	fPrintStatus("레이드를 반복적으로 수행하겠습니다.")
    
+   gosub ReceivePost
+   
    gosub 길드출석체크
 	If( funcSearchAndClickFolder( "2.모험돌기\버튼_모험입장" ) = true ){      
       if( funcSearchAndClickFolder( "2.모험돌기\버튼_모험입장\버튼_레이드" ) = true ){
@@ -194,8 +196,8 @@ if( GuiCheckCallFriend = true ) {
    ;종료된 레이드 화면이 깨끗하기에 레이드를 돌자 
    
    ;레이드 그만 돌까 체크 --> 열쇠 6개가 되면 레이드 보다는 모험..
-   if( funcIsExistImage( "4.레이드돌기\열쇠\status_열쇠_6개_raid.bmp" ) = true ){
-      fPrintStatus("열쇠가 6개가 되어 모험을 수행합니다.")	
+   if( funcIsExistImageFolder( "4.레이드돌기\열쇠_제한\모험전환" ) = true ){
+      fPrintStatus("열쇠가 일정 갯수가 되어 모험을 수행합니다.")	
       BoolNeedRaidBattle:=false
    }
    

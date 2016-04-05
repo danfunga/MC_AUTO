@@ -44,7 +44,7 @@ funcUsingSkillAndWaitDelay( skillFolder, delayFolder, skillName)
 	if( funcWaitAndClickImg( skillFolder ) = true  ){
 		vStatus= 스킬(%skillName%) 사용을 기다립니다.
 		fPrintStatus(vStatus)
-		if( funcWaitAndReturn( delayFolder ) = true ){
+		if( funcWaitAndReturn( delayFolder , GuiDelayForSearch, GuiSearchLimit ) = true ){
 			vStatus= 스킬(%skillName%) 사용을 확인했습니다.
 			fPrintStatus(vStatus)
 			return true

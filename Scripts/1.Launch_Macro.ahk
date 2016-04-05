@@ -5,6 +5,7 @@ INIT_GLOBAL_VARIABLES:
    BoolNeedBattleStage:=false
    BoolNeedGoldRoomStage:=false
    BoolNeedLevelUpCheck:=false
+   
    BoolNeedCastleBattle:=false
    BoolNeedRaidBattle:=false
    BoolNeedSendHonor:=false
@@ -14,6 +15,7 @@ INIT_GLOBAL_VARIABLES:
    IntMonitorSendingHonorCount:=0
    IntTryCountLimit:=5
    boolNeedCheckAchievement:=true		
+   BoolNeedSellItem:=true
    INT_PREVENT_ACHIEVELOOP:=0
    BATTLE_CHECK_DELAY:=5
    gosub HeroPositionInit   

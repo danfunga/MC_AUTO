@@ -1,68 +1,32 @@
-모험시작_모험키부족:
-{	
-	fPrintTitle("모험키부족")
-	fPrintStatus("모험키에 대한 작업을 수행합니다.")
-	
-   functionMoveTown()
-   ;~setUpBeforeStart()
-   ;MsgBox, %GuiWantByKeyPoint% + %GuiWantByKeyRuby%+ %GuiWantReceiveKey%
+장비_인벤_최대:
+{	   
+	fPrintTitle("장비인벤최대")
+	fPrintStatus("장비가 최대인 상황입니다.")
+	if( funcSearchAndClickFolder( "6.열쇠구입하기\버튼_상점" ) = true ){
    
-   if( GuiWantByKeyPoint = true ){
-      fPrintStatus("명예 구입을 설정하여 명예구입 진행합니다.")
-      functionByKeyByPoint()   
-   }
-   
-   if( GuiWantByKeyRuby = true ){
-      fPrintStatus("루비 구입을 설정하여 루비구입을 진행합니다.")
-      functionByKeyByRuby()   
-   }
-     
-   if( funcIsExistImage(  "2.모험돌기\열쇠부족\메인키오링1.bmp" ) = true ){	
-      if ( bFirstTimeCheck != true ){         
-       ; PushNote(GuiPushBulletToken, "MC_Auto_Keys", "NoKeys")
-        bFirstTimeCheck:=true
-      }
-      
-      fPrintTitle("10분대기")
-      fPrintStatus("열쇠가 없으므로 기다리겠습니다.")
-      fPrintStatus("단순히 2분 단위로 확인합니다.")
-   	Loop, 5
-      {
-         funcWaitingForNoKeyDelay()
-         if( funcIsExistImage(  "2.모험돌기\열쇠부족\메인키오링2.bmp" ) = true ){		
-            goto, 시작마을
-         }         
-      }
    }else{
-      fPrintStatus("열쇠가 있으니 다시 진행합니다.")
-      goto, 시작마을
+      functionMoveTown()
    }
+   
+   if( GuiCheckSellEquip = true ){
+      fPrintStatus("장비 판매를 수행합니다.")
+      sellcount = functionSellItem()   
+      if ( sellcount = 0 ){
+         BoolNeedSellItem:=false      
+      }      
+   }else{
+      fPrintStatus("장비 판매를 원하지 않습니다.")
+      fPrintStatus("장비가  넘쳐도 진행 합니다.")
+      BoolNeedSellItem:=false      
+   }
+   functionMoveTown()
+   fPrintStatus("다시 진행합니다.")
+   goto, 시작마을
 
-	fPrintStatus("ERROR_모험시작_모험키부족중 위치찾기로 이동합니다. ")
-	goto 위치찾기
    return
 }
-길드출석체크:
-   fPrintTitle("출석체크")
-   fPrintStatus("레이드 돌기전 출석 확인합니다.")
 
-   if( funcSearchAndClickFolder( "9.길드출석\버튼_길드" ) = true ){
-      if( funcSearchAndClickFolder( "9.길드출석\버튼_출석" ) = true ){
-         fPrintStatus(" 출석하였습니다. ^^")      
-      }else{
-         if( funcIsExistImageFolder( "9.길드출석\버튼_자기방문" ) = true ){
-            fPrintStatus("출석이 확인되었습니다.")      
-         }else{         
-            fPrintStatus("ERROR_출석은 못했지만 방문표시도 나지 않습니다. ")      
-         }
-      }
-      funcSearchAndClickFolder( "9.길드출석\버튼_뒤로" )
-   }else{
-      fPrintStatus("ERROR_길드버튼이 변경되었나 봅니다. 확인하세요")
-   }
-return
-
-functionByKeyByPoint()
+functionSellItem()
 {
    global IntMonitorPointForByKey
    
@@ -71,13 +35,7 @@ functionByKeyByPoint()
 	fPrintStatus("명예로 열쇠를 구입합니다.")	
       
    if( funcSearchAndClickFolder( "6.열쇠구입하기\버튼_상점" ) = true ){
-      fPrintResult("상점에 들어갑니다..")
-      if( funcWaitAndReturn("6.열쇠구입하기\상태_상점화면", 6, 20 , true ) = true ){
-         fPrintResult("상점 화면에 들어 왔습니다.")
-      }else{
-         fPrintResult("ERROR_ 2분동안 기다려도 상점에 들어오지 못하였습니다. '상태_상점화면'을 확인하세요 ")
-      }
-      
+      fPrintResult("상점에 들어왔습니다.")
       if( funcIsExistImageFolder( "6.열쇠구입하기\팝업_상점팝업" ) = true ){             
          fPrintResult("요일 팝업이 떠있는것 같습니다.")
          funcSendESC()
@@ -151,8 +109,3 @@ functionByKeyByPoint()
 
    fPrintStatus("명예 열쇠 구입을 종료합니다.")	
 }
-functionByKeyByRuby()   
-{
-   fPrintStatus("아직 구현 안했지요")
-}
-

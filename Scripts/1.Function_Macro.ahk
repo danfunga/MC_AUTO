@@ -338,18 +338,20 @@ sendClick2( x, y) {
 }
 
 ;이미지 찾을때까지 대기
-funcWaitAndReturn(targetFolder) {
-	global GuiDelayForSearch
-	global GuiSearchLimit
+funcWaitAndReturn(targetFolder, watigDelay=0.5, waitingCount=20 , enableLog=false) {
    Loop
 	{
       If ( funcIsExistImageFolder( targetFolder, false ) = true ) {
          return true
       }
-      FuncSleep(GuiDelayForSearch)
-      if( A_Index > GuiSearchLimit ){
+
+      FuncSleep(watigDelay)
+      if( A_Index > waitingCount ){
          return false
       }
+      if( enableLog = true ){
+         fPrintStatus( targetFolder "를 지속적으로 찾고 있습니다. (" A_Index "/" waitingCount ")")        
+      }      
    }
 	return false
 }

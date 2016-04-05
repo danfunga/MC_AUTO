@@ -36,7 +36,7 @@
 	}
    
    if( GuiSelectRaidMod= true and BoolNeedRaidBattle = true ){
-      if ( funcIsExistImageFolder("4.레이드돌기\열쇠_제한") = true ){
+      if ( funcIsExistImageFolder("4.레이드돌기\열쇠_제한\레이드시작") = true ){
          fPrintStatus("열쇠 제한이 확인되었습니다. ")
          fPrintStatus("레이드를 돌겠습니다.")
          goto 레이드모드시작
@@ -246,7 +246,7 @@ funcIsMoonIsland( strInputStage )
 		}			
 	}
    if( GuiSelectRaidMod = true and BoolNeedRaidBattle = true){
-      if ( funcIsExistImageFolder("4.레이드돌기\열쇠_제한") = true ){
+      if ( funcIsExistImageFolder("4.레이드돌기\열쇠_제한\레이드시작") = true ){
          fPrintStatus("모험 중 열쇠 제한이 확인되었습니다. ")
          BoolNeedRaidBattle:=true
          functionMoveTown() 
@@ -278,9 +278,13 @@ return
 		팝업창이 클릭이 안되서 일단 직접 클릭했다...
 		수정이 필요하긴 하다.
 		-------------------------------------
-	*/
+	
+   if( funcIsExistImageFolder( "2.모험돌기\상태_장비최대" ) = true ){		
+      goto 장비_인벤_최대		
+	}	
+   */
 	if( funcSearchAndClickFolder( "2.모험돌기\버튼_최대_진행" ) = true ){		
-		fPrintStatus("ERROR_영웅 or 장비가  넘쳐도 진행 합니다.")
+      fPrintStatus("케릭이 넘쳐도 진행 합니다.")	
 	}	
 	
 	if( funcSearchAndClick(  "2.모험돌기\열쇠부족\모험키부족.bmp" ) = true ){		
