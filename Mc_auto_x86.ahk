@@ -94,7 +94,10 @@ NumPadEnter::  send {tab 4}{space}+{tab 4}
 #Include Scripts\4.Mode_CASTLEBATTLE.ahk
 #Include Scripts\4.Mode_Raid.ahk
 #Include Scripts\4.Mode_Advanture.ahk
+
+#Include Scripts\4.Mode_FullItem.ahk
 #Include Scripts\4.Mode_HasNoKey.ahk
+#Include Scripts\4.Mode_ReceivePost.ahk
 #Include Scripts\4.Mode_BattlePassive.ahk
 #Include Scripts\4.Mode_BattleField.ahk
 #Include Scripts\4.Mode_GoldRoom.ahk
