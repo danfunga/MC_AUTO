@@ -35,12 +35,16 @@
 		goto 시작마을_공성전시작
 	}
    
-   if( GuiSelectRaidMod= true and BoolNeedRaidBattle = true ){
+   if( GuiSelectRaidMod = true and BoolNeedRaidBattle = true ){
       if ( funcIsExistImageFolder("4.레이드돌기\열쇠_제한\레이드시작") = true ){
          fPrintStatus("열쇠 제한이 확인되었습니다. ")
          fPrintStatus("레이드를 돌겠습니다.")
          goto 레이드모드시작
-      }        
+      }else{
+         fPrintStatus("열쇠 제한이 확인되지 않습니다.(ERROR)- 무한루프 방지")
+         fPrintStatus( funcCaptureErrorScreen() )
+         BoolNeedRaidBattle:=false         
+      }
    }
    
 	goto 시작마을_모험시작
@@ -245,17 +249,17 @@ funcIsMoonIsland( strInputStage )
          gosub, 렙업_쫄확인_통합         
 		}			
 	}
-   if( GuiSelectRaidMod = true and BoolNeedRaidBattle = true){
+   if( GuiSelectRaidMod = true and BoolNeedRaidBattle = true ){
       if ( funcIsExistImageFolder("4.레이드돌기\열쇠_제한\레이드시작") = true ){
          fPrintStatus("모험 중 열쇠 제한이 확인되었습니다. ")
          BoolNeedRaidBattle:=true
          functionMoveTown() 
          goto 시작마을
-
       }
    }else{
       if( GuiSelectRaidMod = true  )
       {
+         ;열쇠 1개씩 소비를 위해 
          BoolNeedRaidBattle:=true
       }   
    }

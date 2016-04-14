@@ -11,7 +11,6 @@ ReceivePost:
       fPrintStatus("수령할 우편이 없거나, 우편 버튼이 없습니다.(ERROR) ")
    }
    
-   
 return
 
 functionReceivePost(){

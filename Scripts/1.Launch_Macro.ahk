@@ -7,7 +7,7 @@ INIT_GLOBAL_VARIABLES:
    BoolNeedLevelUpCheck:=false
    
    BoolNeedCastleBattle:=false
-   BoolNeedRaidBattle:=false
+   BoolNeedRaidBattle:=true
    BoolNeedSendHonor:=false
    gosub INIT_MONITORING
    
@@ -43,13 +43,11 @@ setUpBeforeStart(){
 	global BoolNeedGoldRoomStage
    global BoolNeedBattleStage
    global BoolNeedCastleBattle
-   global BoolNeedRaidBattle
    global BoolNeedSendHonor
    
    guiControlGet, BoolNeedGoldRoomStage,,GuiBoolFirstGoldRoom
    guiControlGet, BoolNeedBattleStage,,GuiBoolFirstBattleField
    guiControlGet, BoolNeedCastleBattle,,GuiBooFirstlCastleBattle
-   guiControlGet, BoolNeedRaidBattle,,GuiSelectRaidMod
    guiControlGet, BoolNeedSendHonor,,GuiSending
    
    return

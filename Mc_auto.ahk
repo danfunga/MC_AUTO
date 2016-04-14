@@ -101,6 +101,7 @@ NumPadEnter::  send {tab 4}{space}+{tab 4}
 #Include Scripts\4.Mode_BattlePassive.ahk
 #Include Scripts\4.Mode_BattleField.ahk
 #Include Scripts\4.Mode_GoldRoom.ahk
+#Include Scripts\4.Mode_SendHonor.ahk
 #Include Scripts\4.Mode_MonsterLevelupCheck.ahk
 #Include Scripts\5.Util_PushBullet.ahk
 #Include Scripts\5.Util_ScreenShot.ahk

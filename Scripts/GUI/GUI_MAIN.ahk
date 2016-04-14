@@ -114,7 +114,7 @@ INIT_GUI_MAINPAGE:
 	}
    {
       yPos:=yPos+height_logs+5          
-      height_Etc:=110
+      height_Etc:=115
 		gui,font,CPurple
 		Gui, Add, GroupBox, x%xGuiStart% y%yPos%  w%xGroupWidth% h%height_Etc% section , ETC
 		gui,font,
@@ -130,8 +130,8 @@ INIT_GUI_MAINPAGE:
 		Gui, Add, Text, xs y+8 h15 , ID :
 		Gui, Add, Edit, x+5 yp-2  w%width_id% h15 right vGuiPushBulletToken,  
 
-
-      Gui, Add, Checkbox, xs  y+20  h15 section vGuiSending, 명예 보내기 : 횟수 -      
+      Gui, Add, Checkbox, xs  y+5  h15 disabled section vSendFriend, 게임친구명예
+      Gui, Add, Checkbox, xp  y+5  h15  vGuiSending, 명예 보내기 : 횟수 -      
 		Gui, Add, Edit, x+0 yp w30 h15 right vGuiSendFrindShipCount, 30
 		Gui, Add, Text, x+0 yp+2  h15 , 명( x2배만 시도 )
 		
@@ -186,6 +186,8 @@ LOAD_MAIN_CONFIG:
    funcLoadConfig( mainConfig, GuiBoolNoKey, false, "PushBullet", "열쇠" )
    
    funcLoadConfig( mainConfig, GuiSending, false, "명예보내기", "사용" )
+   funcLoadConfig( mainConfig, SendFriend, false, "명예보내기", "친구" )
+   
    funcLoadConfig( mainConfig, GuiSendFrindShipCount, false, "명예보내기", "인원" )
    funcLoadConfig( mainConfig, GuiSendingAfterAdventure, false, "명예보내기", "모험계속" )
    funcLoadConfig( mainConfig, GuiCheckSendFriendsShipOnlyGame, false, "명예보내기", "차단자" )
@@ -209,6 +211,7 @@ SAVE_MAIN_CONFIG:
    funcSaveConfig( mainConfig, GuiBoolNoKey, false, "PushBullet", "열쇠" )
    
    funcSaveConfig( mainConfig, GuiSending, false, "명예보내기", "사용" )
+   funcSaveConfig( mainConfig, SendFriend, false, "명예보내기", "친구" )
    funcSaveConfig( mainConfig, GuiSendFrindShipCount, false, "명예보내기", "인원" )
    funcSaveConfig( mainConfig, GuiSendingAfterAdventure, false, "명예보내기", "모험계속" )
    funcSaveConfig( mainConfig, GuiCheckSendFriendsShipOnlyGame, false, "명예보내기", "차단자" )
@@ -277,6 +280,7 @@ funcChangeGuiStatus(){
    GuiControl,  disable%BoolStarted%, GuiPushBulletToken
    
    
+   GuiControl,  disable%BoolStarted%, SendFriend
    GuiControl,  disable%BoolStarted%, GuiSending
    GuiControl,  disable%BoolStarted%, GuiSendFrindShipCount
    GuiControl,  disable%BoolStarted%, GuiSendingAfterAdventure

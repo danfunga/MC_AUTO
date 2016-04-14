@@ -44,9 +44,18 @@
    fPrintTitle("레이드입장")
 	fPrintStatus("레이드를 반복적으로 수행하겠습니다.")
    
-   gosub ReceivePost
-   
    gosub 길드출석체크
+   
+   gosub ReceivePost   
+   
+   ;gosub SendHonorToFriend   
+   
+   if( funcIsExistImageFolder("4.레이드돌기\열쇠_제한\레이드시작") = false ){
+      functionMoveTown()
+      goto 시작마을   
+   }
+   
+   
 	If( funcSearchAndClickFolder( "2.모험돌기\버튼_모험입장" ) = true ){      
       if( funcSearchAndClickFolder( "2.모험돌기\버튼_모험입장\버튼_레이드" ) = true ){
          goto 레이드_시작화면
