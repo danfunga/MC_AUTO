@@ -9,7 +9,7 @@ INIT_GUI_MAINPAGE:
       yPos=10
       width_RunFirst:=80
       height_stasts:=165
-      height_RunFirst:=90
+      height_RunFirst:=110
       
       gui, font,CPurple
       Gui, Add, GroupBox, x%xGuiStart% y%yPos% w%width_RunFirst% h%height_RunFirst%  , 먼저 돌기
@@ -18,6 +18,7 @@ INIT_GUI_MAINPAGE:
       Gui, Add, CheckBox, xp+10  yp+20 section  vGuiBoolFirstGoldRoom, 황금방
       Gui, Add, CheckBox, xp     y+10           vGuiBoolFirstBattleField, 결투장
       Gui, Add, CheckBox, xp     y+10           vGuiBooFirstlCastleBattle, 공성전
+      Gui, Add, CheckBox, xp     y+10           vGuiBoolFirstDeep, 심연전
 
    }
    {
@@ -177,6 +178,7 @@ LOAD_MAIN_CONFIG:
    funcLoadConfig( mainConfig, GuiBoolFirstGoldRoom, false, "먼저돌기", "황금먼저" )
    funcLoadConfig( mainConfig, GuiBoolFirstBattleField, false, "먼저돌기", "결투먼저" )
    funcLoadConfig( mainConfig, GuiBooFirstlCastleBattle, false, "먼저돌기", "공성먼저" )
+   funcLoadConfig( mainConfig, GuiBoolFirstDeep, false, "먼저돌기", "심연먼저" )
    
    funcLoadConfig( mainConfig, GuiRunOnlyRaid, false, "레이드만", "사용" )
    
@@ -201,6 +203,7 @@ SAVE_MAIN_CONFIG:
    Gui, Submit, NoHide
    funcSaveConfig( mainConfig, GuiBoolFirstGoldRoom, false, "먼저돌기", "황금먼저" )
    funcSaveConfig( mainConfig, GuiBoolFirstBattleField, false, "먼저돌기", "결투먼저" )
+   funcSaveConfig( mainConfig, GuiBoolFirstDeep, false, "먼저돌기", "심연먼저" )
    funcSaveConfig( mainConfig, GuiBooFirstlCastleBattle, false, "먼저돌기", "공성먼저" )
    
    funcSaveConfig( mainConfig, GuiRunOnlyRaid, false, "레이드만", "사용" )
@@ -268,7 +271,8 @@ funcChangeGuiStatus(){
    GuiControl,  disable%BoolStarted%, GuiBoolFirstGoldRoom
 	GuiControl,  disable%BoolStarted%, GuiBoolFirstBattleField
    GuiControl,  disable%BoolStarted%, GuiBooFirstlCastleBattle
-  
+   GuiControl,  disable%BoolStarted%, GuiBoolFirstDeep  
+   
    ; 레이드만 
    ;GuiControl,  disable%BoolStarted%, GuiRunOnlyRaid
 

@@ -398,6 +398,8 @@ SaveConfig:
 	fSaveFile(GuiBoolFirstGoldRoom, "먼저돌기", "황금먼저" )
    fSaveFile(GuiBoolFirstBattleField, "먼저돌기", "결투먼저" )
    fSaveFile(GuiBooFirstlCastleBattle, "먼저돌기", "공성먼저" )
+   fSaveFile(GuiBoolFirstDeep, "먼저돌기", "심연먼저" )
+   
    fSaveFile(GuilListCatleBattleTeam, "먼저돌기", "공성팀" )
 	fSaveFile(GuiBoolStopMonsterLevelUp, "추가기능", "쫄업정지" )
 
@@ -506,6 +508,8 @@ LoadConfig:
    fLoadConfig( GuiBoolFirstGoldRoom, false, "먼저돌기", "황금먼저" )
    fLoadConfig( GuiBoolFirstBattleField, false, "먼저돌기", "결투먼저" )
    fLoadConfig( GuiBooFirstlCastleBattle, false, "먼저돌기", "공성먼저" )
+   fLoadConfig( GuiBoolFirstDeep, false, "먼저돌기", "심연먼저" )
+  
    fLoadConfig( GuilListCatleBattleTeam, true, "먼저돌기", "공성팀" )
 
 

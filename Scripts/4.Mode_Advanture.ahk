@@ -34,6 +34,10 @@
 		fPrintStatus("공성전을 돌겠습니다.")
 		goto 시작마을_공성전시작
 	}
+   if( BoolNeedDeepBattle = true ){
+		fPrintStatus("심연을 먼저 돌겠습니다..")
+		goto 시작마을_심연전시작
+	}
    
    if( GuiSelectRaidMod = true and BoolNeedRaidBattle = true ){
       if ( funcIsExistImageFolder("4.레이드돌기\열쇠_제한\레이드시작") = true ){
@@ -413,7 +417,7 @@ return
 	if( BoolNeedBattleStage = true )			
       fPrintStatus("결투장을 돌아야 합니다.")
 	if( BoolNeedBattleStage =true or BoolNeedGoldRoomStage =true ){
-      if( funcSearchAndClickFolder( "10.전투결과이미지\버튼_마을" ) = true ){					
+      if( funcSearchAndClickFolder( "12.기본UI\버튼_마을" ) = true ){					
          funcWaitingForLoad()			
             
          fPrintStatus("레이드가 발견됐는지를 확인합니다.")
