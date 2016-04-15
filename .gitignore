@@ -1,5 +1,5 @@
 # Build and Release Folders
-
+*.db
 Config/
 Logs/
 ScreenShot/

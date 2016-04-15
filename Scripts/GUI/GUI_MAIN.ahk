@@ -18,7 +18,7 @@ INIT_GUI_MAINPAGE:
       Gui, Add, CheckBox, xp+10  yp+20 section  vGuiBoolFirstGoldRoom, 황금방
       Gui, Add, CheckBox, xp     y+10           vGuiBoolFirstBattleField, 결투장
       Gui, Add, CheckBox, xp     y+10           vGuiBooFirstlCastleBattle, 공성전
-      Gui, Add, CheckBox, xp     y+10           vGuiBoolFirstDeep, 심연전
+      Gui, Add, CheckBox, xp     y+10           vGuiBoolFirstDeep, 심연탑
 
    }
    {
