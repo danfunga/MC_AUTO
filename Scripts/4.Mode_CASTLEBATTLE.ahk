@@ -58,6 +58,13 @@ AUTOMODE_CASTLEBATTLE:
    
    If( funcSearchAndClickFolder( "3.전투입장\3.공성전돌기\버튼_준비하기" ) = true )
 		goto AUTOMODE_CASTLEBATTLE1
+   else if( funcIsExistImageFolder( "3.전투입장\3.공성전돌기\버튼_준비하기\상태_비활성" ) = true  ){
+      BoolNeedCastleBattle:=false
+      fPrintTitle("아직 공성이 열리지 않는 것으로 보입니다.")
+      functionMoveTown()
+      goto 시작마을
+   }   
+   BoolNeedCastleBattle:=false
 	fPrintStatus("ERROR_공성전 전투 중 위치찾기로 이동합니다.")
 	goto 위치찾기
 
