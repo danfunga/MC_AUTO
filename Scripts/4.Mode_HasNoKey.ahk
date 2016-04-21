@@ -71,11 +71,13 @@ functionByKeyByPoint()
 	fPrintStatus("명예로 열쇠를 구입합니다.")	
       
    if( funcSearchAndClickFolder( "6.열쇠구입하기\버튼_상점" ) = true ){
-      fPrintResult("상점에 들어갑니다..")
-      if( funcWaitAndReturn("6.열쇠구입하기\상태_상점화면", 6, 20 , true ) = true ){
-         fPrintResult("상점 화면에 들어 왔습니다.")
-      }else{
-         fPrintResult("ERROR_ 2분동안 기다려도 상점에 들어오지 못하였습니다. '상태_상점화면'을 확인하세요 ")
+      if( funcSearchAndClickFolder( "6.열쇠구입하기\버튼_상점\버튼_2차상점" ) = true ){
+         fPrintResult("상점에 들어갑니다..")
+         if( funcWaitAndReturn("6.열쇠구입하기\상태_상점화면", 6, 20 , true ) = true ){
+            fPrintResult("상점 화면에 들어 왔습니다.")
+         }else{
+            fPrintResult("ERROR_ 2분동안 기다려도 상점에 들어오지 못하였습니다. '상태_상점화면'을 확인하세요 ")
+         }
       }
       
       if( funcIsExistImageFolder( "6.열쇠구입하기\팝업_상점팝업" ) = true ){             
@@ -137,7 +139,8 @@ functionByKeyByPoint()
                   ;~ break
                ;~ }
             ;~ }
-            funcSendESC()
+            
+            functionMoveTown()
             fPrintStatus("명예 열쇠 구입을 종료합니다.")
             return
          }else{
@@ -148,7 +151,7 @@ functionByKeyByPoint()
    }else{
       fPrintStatus("상점 입장 못하고 종료합니다.")	
    }
-
+   functionMoveTown()
    fPrintStatus("명예 열쇠 구입을 종료합니다.")	
 }
 functionByKeyByRuby()   

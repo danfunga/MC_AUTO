@@ -56,6 +56,15 @@ AUTOMODE_CASTLEBATTLE:
 		gosub 모험시작_업적확인
 	}
    
+   if( funcIsExistImageFolder( "3.전투입장\3.공성전돌기\상태_참여FULL" ) = true ){
+      BoolNeedCastleBattle:=false
+      fPrintTitle("공성전 참여 완료")
+      fPrintStatus("공성참여 횟수를 모두 소진하였습니다.")
+      funcWaitingClick()
+      functionMoveTown()
+      goto 시작마을
+   }   
+   
    If( funcSearchAndClickFolder( "3.전투입장\3.공성전돌기\버튼_준비하기" ) = true )
 		goto AUTOMODE_CASTLEBATTLE1
    else if( funcIsExistImageFolder( "3.전투입장\3.공성전돌기\버튼_준비하기\상태_비활성" ) = true  ){
