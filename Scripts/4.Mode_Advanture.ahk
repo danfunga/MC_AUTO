@@ -122,7 +122,7 @@ funcIsMoonIsland( strInputStage )
             }
          }
          
-		}else if( funcSearchAndClickFolder( "2.모험돌기\모험지도\대륙\버튼_아스드대륙" ) = true ){
+		}else if( funcSearchAndClickFolder("2.모험돌기\모험지도\대륙\버튼_아스드대륙" ) = true ){
 			fPrintStatus("아스드 대륙을 선택하였습니다.")	
 		}
 	}	
