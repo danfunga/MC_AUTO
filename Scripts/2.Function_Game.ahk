@@ -99,10 +99,10 @@ functionMoveTown()
          fPrintStatus("마을로 이동합니다")
       }else if( funcSearchAndClickFolder( "12.기본UI\버튼_뒤로가기" ) = true ){		
          fPrintStatus("뒤로 가기를 누릅니다.")
-      }else if( funcIsExistImage( "2.모험돌기\Button_모험_시작하기.bmp" ) = true ){		
+      }else if( funcIsExistImageFolder( "2.모험돌기\버튼_시작하기" ) = true ){		
          fPrintStatus("모험 시작 화면에 있습니다")
          funcSendESC()         
-      }else if( funcIsExistImage( "2.모험돌기\Button_모험준비.bmp" ) = true ){		
+      }else if( funcIsExistImageFolder( "2.모험돌기\버튼_모험준비" ) = true ){		
          fPrintStatus("모험 준비를 수행하고 있습니다")
          funcSendESC()         
       }else if( funcIsExistImage( "2.모험돌기\모험지도\모험입장화면.bmp" ) = true ){		

@@ -54,7 +54,7 @@ functionSellItem()
             {
                if( funcSearchAndClickFolder( "6.열쇠구입하기\상태_상점화면\버튼_명예100" ) = true ){
                   if(  funcSearchAndClickFolder( "6.열쇠구입하기\버튼_구매하기" ) = true ){
-                        if( funcIsExistImageFolder( "6.열쇠구입하기\구매완료" ) = true ){                               
+                        if( funcIsExistImageFolder( "6.열쇠구입하기\상태_구매완료" ) = true ){                               
                            IntMonitorPointForByKey:=IntMonitorPointForByKey+100
                            GuiControl, ,GuiUsingPointCount,%IntMonitorPointForByKey%
                            funcSendESC()                     
@@ -79,7 +79,7 @@ functionSellItem()
             ;~ {
                ;~ if( funcSearchAndClickFolder( "6.열쇠구입하기\상태_상점화면\버튼_명예10" ) = true ){
                   ;~ if(  funcSearchAndClick( "6.열쇠구입하기\구매버튼.bmp" ) = true ){
-                        ;~ if( funcIsExistImage( "6.열쇠구입하기\구매완료.bmp" ) = true ){                               
+                        ;~ if( funcIsExistImageFolder( "6.열쇠구입하기\상태_구매완료.bmp" ) = true ){                               
                            ;~ INT_POINT_FOR_BUY_KEY:=INT_POINT_FOR_BUY_KEY+10
                            ;~ GuiControl, ,GuiUsingPointCount,%INT_POINT_FOR_BUY_KEY%
                            ;~ funcSendESC()                     

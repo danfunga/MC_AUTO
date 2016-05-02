@@ -24,7 +24,7 @@ if( GuiBoolScreenShotError = true )  {
    }
    
    fPrintStatus("모험준비 화면 인지 확인합니다.")
-   If( funcIsExistImage( "2.모험돌기\Button_모험준비.bmp" ) = true ){
+   If( funcIsExistImageFolder( "2.모험돌기\버튼_모험준비" ) = true ){
       goto, 모험입장_모험준비
    }
       
@@ -54,7 +54,7 @@ if( GuiBoolScreenShotError = true )  {
 
       
    fPrintStatus("모험시작 화면 인지 확인합니다.")
-   If( funcIsExistImage( "2.모험돌기\Button_모험_시작하기.bmp" ) = true ){
+   If( funcIsExistImageFolder( "2.모험돌기\버튼_시작하기" ) = true ){
      fPrintStatus("모험시작하기 상황으로 전환")
       goto, 모험시작_모험시작
    }

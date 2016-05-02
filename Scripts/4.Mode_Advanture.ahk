@@ -207,7 +207,7 @@ funcIsMoonIsland( strInputStage )
 {	
 	fPrintTitle("모험  준비")
 	fPrintStatus("모험 준비 버튼을 클릭합니다.")
-	If( funcSearchAndClick("2.모험돌기\Button_모험준비.bmp") = true )
+	If( funcSearchAndClickFolder("2.모험돌기\버튼_모험준비") = true )
 		 goto 모험시작
 
 	fPrintStatus("ERROR_모험입장_ 모험준비중 위치찾기로 이동합니다. 지도 사진이 잘못된것 같습니다.")
@@ -269,7 +269,7 @@ funcIsMoonIsland( strInputStage )
    }
    
    모험시작_모험시작_버튼클릭:
-	if ( funcSearchAndClick("2.모험돌기\Button_모험_시작하기.bmp") = true ){
+	if ( funcSearchAndClickFolder("2.모험돌기\버튼_시작하기") = true ){
 			goto, 모험시작_전투시작체크
 	}
 	fPrintStatus("ERROR_모험시작_모험시작중 위치찾기로 이동합니다. ")
@@ -295,11 +295,11 @@ return
       fPrintStatus("케릭이 넘쳐도 진행 합니다.")	
 	}	
 	
-	if( funcSearchAndClick(  "2.모험돌기\열쇠부족\모험키부족.bmp" ) = true ){		
+	if( funcSearchAndClickFolder(  "2.모험돌기\버튼_모험키부족" ) = true ){		
 		fPrintStatus("열쇠가 부족한 상황입니다.")
 		goto 모험시작_모험키부족
 	}	
-   if ( funcIsExistImage("2.모험돌기\Button_모험_시작하기.bmp") = true ){
+   if ( funcIsExistImageFolder("2.모험돌기\버튼_시작하기") = true ){
       fPrintStatus("INFO_모험시작하기 버튼이 안눌렸나 보다 다시 누르자")
 		goto 모험시작_모험시작_버튼클릭
 	}
@@ -472,7 +472,7 @@ return
 {
 	fPrintTitle("시작  체크")
    funcWaitingForLoad()   
-	if ( funcIsExistImage("2.모험돌기\Button_모험_시작하기.bmp") = true ){
+	if ( funcIsExistImageFolder("2.모험돌기\버튼_시작하기") = true ){
      
       
 		fPrintStatus("모험시작을 시작합니다.")
@@ -527,7 +527,7 @@ return
 
 	}
 	
-	If( funcIsExistImage("2.모험돌기\Button_모험_시작하기.bmp") = true ){
+	If( funcIsExistImageFolder("2.모험돌기\버튼_시작하기") = true ){
 		 goto 모험시작_모험시작
 	 }
 
