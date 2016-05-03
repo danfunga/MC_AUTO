@@ -17,7 +17,7 @@
       functionByKeyByRuby()   
    }
      
-   if( funcIsExistImage(  "2.모험돌기\열쇠부족\메인키오링1.bmp" ) = true ){	
+   if( funcIsExistImageFolder(  "2.모험돌기\열쇠부족\열쇠_0" ) = true ){	
       if ( bFirstTimeCheck != true ){         
        ; PushNote(GuiPushBulletToken, "MC_Auto_Keys", "NoKeys")
         bFirstTimeCheck:=true
@@ -29,7 +29,7 @@
    	Loop, 5
       {
          funcWaitingForNoKeyDelay()
-         if( funcIsExistImage(  "2.모험돌기\열쇠부족\메인키오링2.bmp" ) = true ){		
+         if( funcIsExistImageFolder(  "4.레이드돌기\열쇠_제한\레이드시작" ) = true ){		
             goto, 시작마을
          }         
       }
@@ -72,6 +72,11 @@ functionByKeyByPoint()
       
    if( funcSearchAndClickFolder( "6.열쇠구입하기\버튼_상점" ) = true ){
       if( funcSearchAndClickFolder( "6.열쇠구입하기\버튼_상점\버튼_2차상점" ) = true ){
+         
+         if( funcIsExistImageFolder( "6.열쇠구입하기\팝업_상점팝업" ) = true ){             
+            fPrintResult("요일 팝업이 떠있는것 같습니다.")
+            funcSendESC()
+         }
          fPrintResult("상점에 들어갑니다..")
          if( funcWaitAndReturn("6.열쇠구입하기\상태_상점화면", 6, 20 , true ) = true ){
             fPrintResult("상점 화면에 들어 왔습니다.")
