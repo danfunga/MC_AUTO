@@ -9,16 +9,16 @@ updateLevelUpCheckZero(){
 
 
 refreshHeroPage(){
-   if( funcIsExistImage( "5.쫄작하기\window_영웅관리.png" ) = true ) {
+   if( funcIsExistImageFolder( "5.쫄작하기\상태_영웅관리" ) = true ) {
       funcSendESC()
-   }else if( funcSearchAndClick( "5.쫄작하기\button_영웅관리.png" ) = true ) {
+   }else if( funcSearchAndClickFolder( "5.쫄작하기\버튼_영웅관리" ) = true ) {
       funcSendESC()
    }else{
       vStatus=위치가 잘못되었습니다.
 		fPrintStatus(vStatus)
 		return 
    }   
-   if( funcSearchAndClick("5.쫄작하기\button_영웅관리.png") = false ){
+   if( funcSearchAndClickFolder( "5.쫄작하기\버튼_영웅관리" ) = false ){
       fPrintStatus("ERROR_영웅 관리 페이지를 찾는 도중 문제가 발생했다..")
       return false
    }
@@ -291,7 +291,7 @@ SUB_Read_LevelUpCheckConfig:
             fPrintStatus(vStatus) 
             ;~ 영웅 화면으로 이동
             funcSendESC()
-         }else if( funcIsExistImage( "5.쫄작하기\window_영웅관리.png" ) = true ){
+         }else if( funcIsExistImageFolder( "5.쫄작하기\상태_영웅관리" ) = true ){
             booleanNeedToChangeUp:=true
             boolNeedChangeMonster%a_index%:=true
             stringTitle:= % stringTitle " : " a_index "-E"

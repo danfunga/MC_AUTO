@@ -76,16 +76,16 @@ if( GuiBoolScreenShotError = true )  {
    }
    
    fPrintStatus("모험 전투 완료 화면 인지 확인합니다.")
-   If( funcIsExistImage( "10.전투결과이미지\모험\모험W.bmp" ) = true ){
+   If( funcIsExistImageFolder( "10.전투결과이미지\모험\상태_승리" ) = true ){
       fPrintStatus("전투결과_모험로 이동")
       goto, 전투결과_모험
    }
-   If( funcIsExistImage( "10.전투결과이미지\모험\모험F.bmp" ) = true ){
+   If( funcIsExistImageFolder( "10.전투결과이미지\모험\상태_패배" ) = true ){
       fPrintStatus("전투결과_모험로 이동")
       goto, 전투결과_모험
    }
    fPrintStatus("황금방  완료 화면 인지 확인합니다.")
-   If( funcIsExistImage( "10.전투결과이미지\황금방\무한의탑.bmp" ) = true ){
+   If( funcIsExistImageFolder( "10.전투결과이미지\황금방" ) = true ){
       fPrintStatus("전투결과_모험로 이동")
       goto, 전투결과_황금방
    }

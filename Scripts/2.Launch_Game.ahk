@@ -4,7 +4,13 @@
 	fPrintStatus("공지사항 페이지입니다.")	
    
 	fPrintStatus("루프를 돌며 공지사항을 닫습니다.")
-	Loop
+
+	fPrintStatus("입장을 위해 클릭합니다..")	
+   
+   if( funcSearchAndClickFolder( "1.게임실행\입장터치" ) = true ){
+      funcWaitingForLoad2()
+   }
+   Loop
 	{
       if( funcSearchAndClickFolder( "1.게임실행\공지닫기" ) = false ){
          break
@@ -14,12 +20,6 @@
 		}
 	} 
 	
-	fPrintStatus("입장을 위해 클릭합니다..")	
-   
-   if( funcSearchAndClickFolder( "1.게임실행\입장터치" ) = true ){
-      funcWaitingForLoad2()
-   }
-   
     
    fPrintStatus("출석체크, 이벤트 팝업 및 패키지 구입을 취소합니다.")	
    loop, 4

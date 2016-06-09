@@ -372,11 +372,11 @@ return
  {
 	fPrintStatus("5초씩 지속적으로 종료를 확인합니다.")
 	loop{
-		if( funcIsExistImage( "10.전투결과이미지\모험\모험W다시.bmp" ) = true ){		
+		if( funcIsExistImageFolder( "10.전투결과이미지\모험\상태_승리" ) = true ){		
 			IntMonitorStageClearCount++
 			IntMonitorNoLevelUpCheckCount++
 			break	
-		}else if( funcIsExistImage( "10.전투결과이미지\모험\모험F다시.bmp" ) = true ){				
+		}else if( funcIsExistImageFolder( "10.전투결과이미지\모험\상태_패배" ) = true ){				
 			IntMonitorStageFailCount++
 			break
 		}
@@ -450,18 +450,18 @@ return
 	fPrintStatus("다시 하기를 클릭합니다.")
 	
 	if( GuiCheckGoNextStage = true ){
-		if( funcSearchAndClick( "10.전투결과이미지\모험\모험W다음.bmp" ) = false ){				
-			funcSearchAndClick( "10.전투결과이미지\모험\모험F다시.bmp" ) 
+		if( funcSearchAndClickFolder( "10.전투결과이미지\모험\모험_다음" ) = false ){				
+			funcSearchAndClickFolder( "10.전투결과이미지\모험\모험_다시" ) 
 		}
 		goto 모험시작_시작체크
-	}else if( funcSearchAndClick( "10.전투결과이미지\모험\모험W다시.bmp" ) = true ){				
+	}else if( funcSearchAndClickFolder( "10.전투결과이미지\모험\모험_다시" ) = true ){				
 		goto 모험시작_시작체크
 	}else {
       funcSleep(2)
       fPrintStatus("ERROR_망할 케릭터 득 장면이 오래 걸리니 1초간 기다렸다 다시해본다.")
-      if( funcSearchAndClick( "10.전투결과이미지\모험\모험W다시.bmp" ) = true ){				
+      if( funcSearchAndClickFolder( "10.전투결과이미지\모험\모험_다시" ) = true ){				
          goto 모험시작_시작체크
-      }else if( funcSearchAndClick( "10.전투결과이미지\모험\모험F다시.bmp" ) = true ){				
+      }else if( funcSearchAndClickFolder( "10.전투결과이미지\모험\모험_다시" ) = true ){				
          goto 모험시작_시작체크
       }
 	}

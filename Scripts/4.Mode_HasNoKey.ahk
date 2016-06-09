@@ -71,10 +71,15 @@ functionByKeyByPoint()
 	fPrintStatus("명예로 열쇠를 구입합니다.")	
       
    if( funcSearchAndClickFolder( "6.열쇠구입하기\버튼_상점" ) = true ){
+   
+      if( funcIsExistImageFolder( "6.열쇠구입하기\팝업_상점팝업" ) = true ){             
+            fPrintResult("팝업이 떠있는것 같습니다.")
+            funcSendESC()
+      }
       if( funcSearchAndClickFolder( "6.열쇠구입하기\버튼_상점\버튼_2차상점" ) = true ){
          
-         if( funcIsExistImageFolder( "6.열쇠구입하기\팝업_상점팝업" ) = true ){             
-            fPrintResult("요일 팝업이 떠있는것 같습니다.")
+          if( funcIsExistImageFolder( "6.열쇠구입하기\팝업_상점팝업" ) = true ){             
+            fPrintResult("팝업이 떠있는것 같습니다.")
             funcSendESC()
          }
          fPrintResult("상점에 들어갑니다..")
@@ -84,11 +89,7 @@ functionByKeyByPoint()
             fPrintResult("ERROR_ 2분동안 기다려도 상점에 들어오지 못하였습니다. '상태_상점화면'을 확인하세요 ")
          }
       }
-      
-      if( funcIsExistImageFolder( "6.열쇠구입하기\팝업_상점팝업" ) = true ){             
-         fPrintResult("요일 팝업이 떠있는것 같습니다.")
-         funcSendESC()
-      }
+       
       if( funcIsExistImageFolder( "6.열쇠구입하기\상태_상점화면" ) = false ){
          fPrintStatus( funcCaptureErrorScreen() )
          fPrintResult("ERROR 팝업화면 새로 스샷 필요 --> 요일 팝업이 떠있는것 같습니다.")

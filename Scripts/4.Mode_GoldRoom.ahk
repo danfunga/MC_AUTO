@@ -180,7 +180,7 @@ funcWaitingBeforeGoldSkill( skillIndex ){
 	fPrintTitle("황금방전투")
 	fPrintStatus("5초씩 지속적으로 종료를 확인합니다.")
 	loop{
-		if( funcIsExistImage( "10.전투결과이미지\황금방\무한의탑다시.bmp" ) = true ){		
+		if( funcIsExistImageFolder( "10.전투결과이미지\황금방\다시" ) = true ){		
 			IntMonitorGoldRoomClearCount++			
 			GuiControl, ,CountGoldRoom,%IntMonitorGoldRoomClearCount%
 			fPrintStatus("황금방 전투 완료가 확인되었습니다.")	
@@ -202,7 +202,7 @@ funcWaitingBeforeGoldSkill( skillIndex ){
 {
 	fPrintTitle("황금방결과")		
 	fPrintStatus("다시 하기를 클릭합니다.")
-	if( funcSearchAndClick( "10.전투결과이미지\황금방\무한의탑다시.bmp" ) = true ){				
+	if( funcSearchAndClickFolder( "10.전투결과이미지\황금방\다시" ) = true ){				
 		funcWaitingForLoad()
 		goto 황금의방_도전시작
 	}
